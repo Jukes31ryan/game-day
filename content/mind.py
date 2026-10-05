@@ -33,7 +33,7 @@ SCRIPTS = [
         "It drops right into their hands. Touchdown.",
         "Let the stadium lights dim, one by one.",
     ]],
-    ["Locker room body scan", "🧘", [
+    ["Rest after the big game", "🛌", [
         "Lie still, like you're resting after a big game.",
         "Let your feet and legs get heavy. They worked hard today.",
         "Let your belly rise and fall slowly.",

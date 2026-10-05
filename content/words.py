@@ -1,4 +1,4 @@
-"""Crossword vocabulary for Liam: words a 10-year-old knows, each with a clue.
+"""Crossword vocabulary for Game Day: words a 10-year-old knows, each with a clue.
 
 A generator can fill a grid but it can't write clues, so every word here gets
 its clue when it's added. Sports words start with * and the generator favours

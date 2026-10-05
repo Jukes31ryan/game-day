@@ -14,8 +14,9 @@ SRC = {
     "cdc":     ("CDC: About Sleep", "https://cdc.gov/sleep/about_sleep/sleep_hygiene.html"),
 }
 
-# The official range for his age, used for the bedtime check.
-KID_HOURS = [9, 12]          # ages 6 to 12 (AASM)
+# The official ranges, used for the bedtime check: (from age, to age, [min, max] hours).
+# Kids pick their age at setup; the app doesn't offer ages under 6.
+HOURS = [(6, 12, [9, 12]), (13, 18, [8, 10])]     # AASM
 
 # One a day, in Recovery. [fact, source]
 FACTS = [

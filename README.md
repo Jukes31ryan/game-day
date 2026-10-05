@@ -3,7 +3,10 @@
 > A game-day plan for a kid who loves sports. A good day runs like a game:
 > **Pre-Game** in the morning (warm up, fuel up, train your sports brain, lead
 > yourself), and **Post-Game** at night (check in, recover, wind down). Each card
-> lights a tile on his scoreboard; light them all and he wins the day.
+> lights a tile on their scoreboard; light them all and they win the day.
+>
+> Built for Liem, a 10-year-old who loves soccer and football, and open to any
+> kid: the first time it opens, it asks their name, jersey, favorite sport and age.
 
 ### **[https://jukes31ryan.github.io/Family-Meeting-Hub/game-day/](https://jukes31ryan.github.io/Family-Meeting-Hub/game-day/)**
 
@@ -14,6 +17,12 @@ Family-Meeting-Hub, because Pages isn't switched on for this repo yet.
 
 ## For grown-ups
 
+- **Share the link with anyone.** On first use, a kid sets up their own Game
+  Day in three quick steps: name, jersey number and color; soccer, football or
+  both (which steers trivia, Who Am I?, plays and skills); and age with bedtime
+  and wake-up. The age picks the sleep range that applies (AASM: 9 to 12 hours
+  for ages 6 to 12, 8 to 10 for 13 to 18). All of it can be changed later in
+  Settings.
 - **Add it to his home screen.** Open the link in Safari, then Share → Add to
   Home Screen. It runs full-screen and works offline. On iPhone and iPad this
   also protects his data: Safari deletes website storage after about a week away
@@ -25,8 +34,9 @@ Family-Meeting-Hub, because Pages isn't switched on for this repo yet.
 - **It's his own app.** Its streak and scores are kept apart from any other app
   on the same site, and a backup from another app won't restore into it.
 - **Nothing leaves the device.** No accounts, no ads, no tracking.
-- **Upgrading from v3 keeps his streak**, wins, trivia record, Who Am I? points,
-  skill bests and sport choice.
+- **Upgrading keeps the streak**, wins, trivia record, Who Am I? points, skill
+  bests and sport choice. An existing player sees the setup once, filled in
+  with what they had.
 
 ## The day
 
@@ -49,7 +59,7 @@ Learn, Lead, Sleep, Chill**.
 | Card | What it is |
 |---|---|
 | **Check-in** (Lead) | He ticks off his assignments, rates today's challenge (Nailed it / Sort of / Tomorrow), and can add the best moment of his day. |
-| **Recovery** (Sleep) | A sleep fact (14, from AASM, NIH and CDC), his bedtime against the 9 to 12 hours kids 6 to 12 need, tonight's game plan, and a one-minute cool-down. |
+| **Recovery** (Sleep) | A sleep fact (14, from AASM, NIH and CDC), their bedtime against the hours kids their age need, tonight's game plan, and a one-minute cool-down. |
 | **Lights Out** (Chill) | A sports visualization read one line per slow breath with a breathing circle (14 of them: the perfect free kick, replay your best play, a locker-room body scan), ending on goodnight. |
 
 Rewards stay simple: a star per card, a win for all seven, and a streak of wins
@@ -101,9 +111,10 @@ controlled clock.
 
 | Suite | Covers |
 |-------|--------|
+| `setup` | First use: a name is required, the jersey previews live, the sport steers trivia, the age sets the sleep range, it never asks twice, and Settings can change it all |
 | `pregame` | Home in the morning, the jersey hello, the warm-up timer, the Food Group Challenge (right and wrong answers, score, extra rounds), Sports Brain (daily picks, sport filter, Who Am I? scoring, Playbook, skill bests, crossword), assignments, Kickoff and the scoreboard |
 | `postgame` | Home in the evening, Check-in, bedtime math, tonight's plan, the cool-down, Lights Out, a win, and the streak with its grace day |
-| `migrate` | Upgrading from v3 keeps his streak, records, bests and sport; a brand-new player gets the jersey hello |
+| `migrate` | Upgrading from v3 or v4 keeps the streak, records, bests and settings, shows setup once, and drops v4's default name |
 | `gameday` | Its own name, storage and offline cache, leaving other apps alone, backup and restore, settings, the facts page offline, and an adult-word scan of everything he can see |
 
 ## License

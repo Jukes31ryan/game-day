@@ -1,4 +1,4 @@
-"""Liam's jokes: clean, silly, and plenty of sports.
+"""Game Day's jokes: clean, silly, and plenty of sports.
 
 Kinds: sport, dad, knock (knock-knock), riddle, silly (anti-jokes and nonsense).
 Every joke with a setup holds the punchline back for a tap.

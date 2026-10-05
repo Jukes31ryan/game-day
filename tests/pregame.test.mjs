@@ -10,14 +10,10 @@ const next = async () => { await p.click('#cardNext'); await p.waitForTimeout(20
 // ───────── home, first thing ─────────
 console.log('— home in the morning —');
 await open();
-chk('it says good morning to him', /^Morning, Liam!$/.test((await p.textContent('#hello')).trim()), await p.textContent('#hello'));
+chk('it says good morning to him', /^Morning, Liem!$/.test((await p.textContent('#hello')).trim()), await p.textContent('#hello'));
 chk('in the day-game theme', await ev(() => document.body.dataset.theme) === 'day');
-chk('a new player gets the jersey hello', await p.isVisible('#jerseyHi'));
+chk('his name and number are on the scoreboard', (await p.textContent('#boardDate')).includes('Liem #10'));
 await shot('pre-home');
-await p.click('#jerseyHi .skip-link'); await p.waitForTimeout(150);
-chk('"Later" puts it away', !(await p.isVisible('#jerseyHi')));
-await reload();
-chk('and it stays away', !(await p.isVisible('#jerseyHi')));
 chk('six tiles on the scoreboard, none lit', (await p.$$('#tiles .tile')).length === 6 && (await p.$$('#tiles .tile.lit')).length === 0);
 chk('the big button starts Pre-Game', (await p.textContent('#cta')).trim() === 'Start Pre-Game ▶');
 chk('there is a quote of the day', (await p.textContent('#quoteT')).length > 10 && (await p.textContent('#quoteA')).length > 2);

@@ -194,13 +194,14 @@ for f, src in sleep.FACTS:
     check(src in sleep.SRC, 'sleep: fact without a source: %s' % f[:50])
 for t, src in sleep.PLAN:
     check(src is None or src in sleep.SRC, 'sleep: plan item with an unknown source: %s' % t)
-check(sleep.KID_HOURS == [9, 12], 'sleep: the AASM range for ages 6-12 is 9 to 12 hours')
+check(sleep.HOURS == [(6, 12, [9, 12]), (13, 18, [8, 10])], 'sleep: AASM says 9-12 hours for ages 6-12, 8-10 for 13-18')
 
 # ─── Lights Out ──────────────────────────────────────────────────────────────
 # Guided imagination, not facts: no claims about brains, studies or numbers.
 check(len(mind.SCRIPTS) >= 10, 'mind: need 10+ wind-downs')
 for title, emo, lines in mind.SCRIPTS:
     check(5 <= len(lines) <= 7, 'mind: %s needs 5-7 lines' % title)
+    check(not re.search(r'body scan', title, re.I), 'mind: %s: call it what it is, a rest' % title)
     check(not re.search(r'\bstud(y|ies)\b|research|scientists|\bproven\b|\d+ ?%', ' '.join(lines), re.I),
           'mind: %s makes a claim; keep it to imagination' % title)
 
@@ -292,7 +293,7 @@ blocks_out = [
     ('PATTERNS', app.PATTERNS), ('STRETCH_FIGS', FIGS), ('ROUTINES', app.ROUTINES), ('COOLDOWN', app.COOLDOWN),
     ('CHALLENGES', challenges.CHALLENGES), ('JOB_IDEAS', challenges.JOB_IDEAS),
     ('SLEEP_FACTS', sleep.FACTS), ('SLEEP_PLAN', sleep.PLAN), ('SLEEP_SRC', {k: list(v) for k, v in sleep.SRC.items()}),
-    ('KID_HOURS', sleep.KID_HOURS), ('MIND', mind.SCRIPTS), ('BREATH', mind.BREATH),
+    ('KID_HOURS_BY_AGE', [list(h) for h in sleep.HOURS]), ('MIND', mind.SCRIPTS), ('BREATH', mind.BREATH),
 ]
 spans = blocks(src)
 edits = []
@@ -326,7 +327,7 @@ def sources_page():
     sec.append(('Fuel Up: the food groups', '<p>Every food group, food placement, "Did you know?" and quiz answer '
                 'was checked against these official sources.</p><ul>' +
                 ''.join('<li>%s</li>' % link(n, u) for n, u in fuel.SRC.values()) + '</ul>'))
-    sec.append(('Recovery: sleep', '<p>Every sleep fact and the 9 to 12 hour range for ages 6 to 12.</p><ul>' +
+    sec.append(('Recovery: sleep', '<p>Every sleep fact, and the hours kids need: 9 to 12 for ages 6 to 12, and 8 to 10 for ages 13 to 18.</p><ul>' +
                 ''.join('<li>%s</li>' % link(n, u) for n, u in sleep.SRC.values()) + '</ul>'))
     sec.append(('Sports Brain: trivia', table(
         (h(q['q']) + '<br><b>' + h(q['c'][0]) + '.</b> ' + h(q['f']), many(trivia.SRC, ks))

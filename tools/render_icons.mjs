@@ -1,5 +1,5 @@
 /* Render an edition's icon.svg to the three PNG sizes a PWA needs.
-     node tools/render_icons.mjs editions/liam
+     node tools/render_icons.mjs .
    Uses the Playwright Chromium the tests already rely on. */
 import { chromium } from '../tests/lib.mjs';
 import { readFileSync } from 'node:fs';

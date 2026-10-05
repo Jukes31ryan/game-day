@@ -24,9 +24,11 @@ export async function start({ at = '2026-10-05T07:30:00', width = 390, height = 
   const errs = []; p.on('pageerror', e => errs.push(e.message));
   let ok = true;
   const chk = (n, c, x = '') => { if (!c) ok = false; console.log((c ? '  ok  ' : 'FAIL  ') + n + (x ? ': ' + x : '')) };
-  const open = async (seed) => {
+  /* Unless told it's a fresh device, the player has already done setup as Liem. */
+  const open = async (seed, { fresh = false } = {}) => {
+    const s = Object.assign(fresh ? {} : { gdKid: JSON.stringify({ setup: true, name: 'Liem' }) }, seed || {});
     await p.goto(BASE, { waitUntil: 'domcontentloaded' });
-    await p.evaluate(s => { localStorage.clear(); for (const [k, v] of Object.entries(s || {})) localStorage.setItem(k, v) }, seed || null);
+    await p.evaluate(s => { localStorage.clear(); for (const [k, v] of Object.entries(s)) localStorage.setItem(k, v) }, s);
     await p.reload({ waitUntil: 'domcontentloaded' });
     await p.waitForTimeout(150);
   };

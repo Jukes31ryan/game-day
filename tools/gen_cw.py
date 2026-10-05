@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate small crosswords from a clued vocabulary.
 
-    tools/gen_cw.py editions/liam/content/words.py OUT.json [--count 30] [--seed 7]
+    tools/gen_cw.py content/words.py content/puzzles.json [--count 30] [--seed 7]
 
 The vocabulary module must define WORDS {WORD: clue} and SPORT {WORD, ...}.
 Output is a JSON list in the app's own shape: {"r": [rows], "c": {WORD: clue}}.

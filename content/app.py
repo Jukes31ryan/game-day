@@ -1,4 +1,4 @@
-"""Liam's edition: the structure around the content.
+"""Game Day: the structure around the content.
 
 Module names, default morning, flavour tags, locker-room rules, warm-ups and the
 little lines of copy. Everything here replaces a block of the same name in
@@ -105,7 +105,7 @@ CARD_LIBRARY = [
     "Kindness | Say one nice thing to someone today.",
 ]
 
-# The starter set a brand-new Liam gets.
+# The starter set a brand-new player gets.
 DEF_AFFIRMS = [
     "Effort | Effort is the one thing you always get to choose.",
     "Teammate | Be the teammate you'd want to have.",
@@ -130,7 +130,7 @@ SHARP_CARDS = [
     "When you're tired | That's when the extra effort counts most.",
 ]
 
-# Nothing to protect: Liam's edition has no older set of cards to pin.
+# Nothing to protect: Game Day has no older set of cards to pin.
 LEGACY_AFFIRMS = []
 
 # ─── Breathing ───────────────────────────────────────────────────────────────
