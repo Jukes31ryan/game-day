@@ -9,13 +9,13 @@ index.html (see make_pack.py), so the app's behaviour is untouched.
 # Step ids are permanent and shared with the main app. Only the words change.
 STEPS = {
     1:  {"name": "Quote",   "plain": "Quote",        "t": "The Quote",     "s": "Words from the greats",
-         "blurb": "A quote from a sports legend, and what it means.",
-         "h1": "The Quote", "lead": "Words from the greats. Read it twice."},
+         "blurb": "A quote from a soccer or football great, and what it means.",
+         "h1": "The Quote", "lead": "Words from soccer and football greats. Read it twice."},
     2:  {"name": "Joke",    "plain": "Joke",         "t": "The Joke",      "s": "Something to laugh at",
          "blurb": "Sports jokes, knock-knocks, riddles and dad jokes.",
          "h1": "The Joke", "lead": "Start the day laughing."},
     3:  {"name": "Story",   "plain": "Story",        "t": "The Story",     "s": "A one-minute story",
-         "blurb": "True sports stories and old fables, about a minute each."},
+         "blurb": "True soccer and football stories, plus a few fables. About a minute each."},
     4:  {"name": "Zone",    "plain": "Breathing",    "t": "Get in the Zone", "s": "Breathe like a pro before a big moment",
          "blurb": "Slow breathing, the way players calm down before a penalty kick.",
          "h1": "Get in the zone", "lead": "Players breathe slow before a penalty kick. It calms you down and sharpens you up."},
@@ -26,13 +26,13 @@ STEPS = {
          "blurb": "Write down what's happening today, pick your top three, and choose one big goal.",
          "core": True},
     7:  {"name": "Cross",   "plain": "Crossword",    "t": "The Crossword", "s": "A quick sports crossword",
-         "blurb": "A small crossword with sports words and easy clues.",
-         "h1": "The Crossword", "lead": "Five by five. Tap a square, type a letter. Stuck? Try the other direction."},
-    14: {"name": "Warm-up", "plain": "Warm-up",      "t": "Warm-up",       "s": "Get your body moving",
-         "blurb": "A short warm-up like the pros do before kickoff.",
-         "h1": "Warm-up", "lead": "Like the pros before kickoff. Stop if anything hurts."},
+         "blurb": "A small crossword with soccer and football words and easy clues.",
+         "h1": "The Crossword", "lead": "Soccer and football words. Tap a square, type a letter. Stuck? Try the other direction."},
+    14: {"name": "Warm-up", "plain": "Warm-up",      "t": "Warm-up",       "s": "Two easy minutes",
+         "blurb": "Two easy minutes to wake your body up.",
+         "h1": "Warm-up", "lead": "Two easy minutes to wake up. Stop if anything hurts."},
     15: {"name": "Trivia",  "plain": "Trivia",       "t": "Sports Trivia", "s": "Five questions a day",
-         "blurb": "Five sports questions a day, with a fun fact after each answer.",
+         "blurb": "Five soccer and football questions a day, with a fun fact after each answer.",
          "h1": "Sports trivia", "lead": "Five questions. Take your best guess."},
 }
 
@@ -40,10 +40,8 @@ STEPS = {
 DEFAULT_FLOW = [14, 15, 1, 7, 5, 6, 2]
 
 # The flavour tags steer trivia, quotes and stories together.
-TAG_NAMES = {"soccer": "Soccer", "football": "Football", "basketball": "Basketball",
-             "baseball": "Baseball", "more": "Hockey, Olympics & more"}
-TRV_SPORT = {"soccer": "Soccer", "football": "Football", "basketball": "Basketball",
-             "baseball": "Baseball", "more": "Sports"}
+TAG_NAMES = {"soccer": "Soccer", "football": "Football", "more": "Other sports"}
+TRV_SPORT = {"soccer": "Soccer", "football": "Football", "more": "Sports"}
 TRV_CHEER = ["Nice one!", "Yes!", "Correct!", "You got it!", "Nailed it!", "Right on!", "Boom!"]
 TRV_OOPS = ["Not quite.", "Close, but no.", "Good guess, but no.", "Missed that one."]
 
@@ -157,31 +155,15 @@ FIGS = {
              '<g class="fig-roll" style="transform-origin:58px 76px"><path d="M58 76l7 1"/></g></svg>',
 }
 
-# The first routine is the default.
+# One short warm-up. He doesn't need to choose a routine at 6:45am; he needs
+# two easy minutes that wake his body up. Nothing jarring first thing.
 ROUTINES = {
-    "soccer": {"name": "Soccer warm-up", "note": "The kind of warm-up teams do before kickoff. About four minutes.", "moves": [
-        ["Jumping jacks", 30, "Arms up, feet out, then back together. Keep a steady rhythm.", "jack"],
-        ["High knees", 30, "Jog on the spot and bring your knees up high. Pump your arms.", "knee"],
-        ["Butt kicks", 30, "Jog on the spot and kick your heels up toward your bottom.", "kick"],
-        ["Leg swings", 40, "Hold a wall or a chair. Swing one leg forward and back 10 times, then switch legs.", "swing"],
-        ["Walking lunges", 40, "Big step forward, bend both knees, then step through. Keep your back tall.", "sink"],
-        ["Ankle circles", 30, "Stand on one foot and draw circles with the other ankle. Both ways, then switch.", "ankle"],
-        ["Toe reach", 30, "Soft knees, reach down toward your toes and hang there. No bouncing.", "fold"],
-    ]},
-    "wake": {"name": "Wake-up", "note": "Gentle moves to get you out of sleepy mode. About three minutes.", "moves": [
-        ["Big reach", 30, "Reach both arms up to the ceiling. Stretch tall like you're growing.", "reach"],
-        ["Side bends", 30, "One arm up, lean to the side slowly. Then the other side.", "side"],
-        ["Arm circles", 30, "Big slow circles backward, then forward.", "shoulder"],
-        ["Twists", 30, "Feet still, turn your top half side to side. Let your arms swing.", "twist"],
-        ["Toe reach", 30, "Soft knees, let your arms hang toward your toes. Breathe.", "fold"],
-        ["Jumping jacks", 30, "Now wake up for real! Arms up, feet out.", "jack"],
-    ]},
-    "practice": {"name": "Before practice", "note": "Get quick feet and loose legs. About four minutes.", "moves": [
-        ["High knees", 30, "Fast feet, knees up, stay on your toes.", "knee"],
-        ["Butt kicks", 30, "Heels to your bottom, quick and light.", "kick"],
-        ["Leg swings", 40, "Hold something steady. Swing one leg across your body and back, then switch.", "swing"],
-        ["Lunges", 40, "Step forward into a lunge, then push back. Switch legs each time.", "sink"],
-        ["Ankle circles", 30, "Circle each ankle both ways. Ankles love a warm-up.", "ankle"],
-        ["Jumping jacks", 30, "Finish with energy!", "jack"],
+    "morning": {"name": "Morning warm-up", "note": "Two easy minutes to wake your body up. No rushing, it's early.", "moves": [
+        ["Big reach", 20, "Reach both arms up to the ceiling and stretch as tall as you can.", "reach"],
+        ["Arm circles", 20, "Big slow circles backward, then forward.", "shoulder"],
+        ["Side bends", 20, "One arm up, lean slowly to the side. Then the other side.", "side"],
+        ["March in place", 20, "Knees up, arms swinging. An easy march, not a sprint.", "knee"],
+        ["Leg swings", 20, "Hold a wall or a chair. Swing one leg forward and back, then switch.", "swing"],
+        ["Jumping jacks", 20, "Ten easy jumping jacks to finish. You're awake!", "jack"],
     ]},
 }

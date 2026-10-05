@@ -1,10 +1,14 @@
 # ⚽ Game Day
 
-> Liam's morning warm-up. A real warm-up, five sports trivia questions, a quote
-> from a sports legend, an easy crossword, a coach's card, a game plan for the
-> day, and a joke on the way out. About ten minutes before school.
+> Liam's morning warm-up, built around what he loves: soccer and football.
+> Two easy minutes of moving, five trivia questions, a quote from a soccer or
+> football great, an easy crossword, a coach's card, a game plan for the day,
+> and a joke on the way out. About ten minutes before school.
 
-### **[https://jukes31ryan.github.io/game-day/](https://jukes31ryan.github.io/game-day/)**
+### **[https://jukes31ryan.github.io/Family-Meeting-Hub/game-day/](https://jukes31ryan.github.io/Family-Meeting-Hub/game-day/)**
+
+This repo is the source. The live copy is published from the `game-day/` folder of
+Family-Meeting-Hub, because Pages isn't switched on for this repo yet.
 
 ---
 
@@ -28,20 +32,21 @@
 
 | | |
 |---|---|
-| **Warm-up** | Soccer warm-up, wake-up, and before-practice routines, guided on a timer with animated figures |
-| **Trivia** | 212 multiple-choice questions: soccer, the NFL, basketball, baseball, hockey, the Olympics and more. Five a day, a fact after every answer, "5 more" if he wants them. Forty-two days before anything repeats. |
-| **Quote** | 42 quotes from Pelé, Messi, Mia Hamm, Jordan, Gretzky, Serena Williams, Jackie Robinson, Muhammad Ali, John Wooden and more, each with "What does this mean?" in kid terms |
-| **Crossword** | 30 easy 5×5 grids, mostly sports words, direct clues |
+| **Warm-up** | One easy two-minute routine to wake up: reach, arm circles, side bends, march, leg swings, jumping jacks. Guided on a timer with animated figures. |
+| **Trivia** | 150 questions a 10-year-old would know: 70 soccer, 59 NFL, and 21 on everyday sports (LeBron, home runs, the Olympic rings). Five a day, a fact after every answer, "5 more" if he wants them. A month before anything repeats. |
+| **Quote** | 25 quotes, mostly soccer and football greats (Pelé, Messi, Mia Hamm, Cruyff, Klopp, Lombardi, Jerry Rice, Peyton Manning), each with "What does this mean?" in kid terms |
+| **Crossword** | 30 easy 5×5 grids, mostly soccer and football words (team names, positions, plays), direct clues |
 | **Coach's card** | One rule a day from 32: effort, teammates, mistakes, practice, respect, school, family |
 | **Game plan** | What's on today, pick the top three, choose one big goal |
-| **Joke** | 115 jokes: sports jokes, knock-knocks, riddles, dad jokes and silly ones. Punchlines wait for a tap. |
-| **Story** *(optional)* | 20 one-minute reads: true sports stories and classic fables |
+| **Joke** | 104 jokes: soccer and football jokes, knock-knocks, riddles, dad jokes and silly ones. Punchlines wait for a tap. |
+| **Story** *(optional)* | 13 one-minute reads: true soccer and football stories (Messi, Pelé, Leicester, Tom Brady, Kurt Warner) and classic fables |
 | **Get in the zone** *(optional)* | Slow breathing, the way players calm down before a penalty kick |
 | **Post-match** | In the evening: did you hit your big goal, what are you grateful for, best play of the day |
 
-Trivia only uses facts that won't change mid-season: rules, history and
-settled records. No current rosters, and no running totals for players who
-are still playing. Where a famous sports story is usually told wrong (Michael
+Trivia is pitched at what a 10-year-old who watches soccer and the NFL would
+know: rules he plays by, players he sees, teams and logos, recent World Cups
+and Super Bowls. It only uses facts that won't change mid-season, with no
+running totals for players who are still playing. Where a famous sports story is usually told wrong (Michael
 Jordan wasn't cut from his school team, he was left on JV), Game Day tells it
 the way it actually happened.
 

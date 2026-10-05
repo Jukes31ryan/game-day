@@ -13,24 +13,13 @@ RAW = """
 *SHOT: A try at scoring
 *PASS: Kick or throw the ball to a teammate
 *SAVE: What a goalkeeper makes when they stop a shot
-*PUCK: A hockey player hits this
-*RINK: Where you play ice hockey
-*SWIM: What you do in a pool
 *RACE: A contest to see who's fastest
-*JUMP: Leap off the ground
+*JUMP: Leap off the ground for a header
 *GAME: A match you play to win
 *PLAY: Have fun in a game
 *WINS: Victories
 *TIED: Level, with the same score
-*SAFE: What the umpire says when you reach base in time
-*BASE: First, second or third, on a diamond
-*HOOP: A basketball goes through it
-*DUNK: Slam the basketball down through the rim
-*BOWL: Roll the ball at the pins
-*GOLF: Sport with clubs, tees and holes
-*CLUB: A golf stick, or a soccer team
-*HOLE: Golfers aim to get the ball in it
-*PUTT: A gentle golf shot on the green
+*CLUB: A soccer team, like Barcelona or Liverpool
 *NETS: Goals have them behind the posts
 *LINE: A chalk mark on the field
 *YARD: 3 feet, or 10 of them gets a first down
@@ -43,7 +32,6 @@ RAW = """
 *CARD: A ref shows a yellow or red one
 *FLAG: A referee throws a yellow one in football
 *PADS: Football players wear these for protection
-*LAPS: Trips around the track
 *GOLD: First-place medal
 *PUNT: Kick the football away on fourth down
 *SNAP: How the center starts a football play
@@ -52,22 +40,9 @@ RAW = """
 *ZONE: The end ___, where touchdowns happen
 *KNEE: Joint in the middle of your leg
 *SPIN: Turn around quickly
-*DIVE: A goalkeeper's leap
-*SURF: Ride a wave on a board
-*MATS: Gymnasts land on these
-*POLE: A vaulter uses a long one
+*DIVE: A goalkeeper's leap to make a save
 *REFS: They blow the whistle, for short
-*ACES: Serves nobody can return, in tennis
-*SETS: Groups of games in tennis
-*LOVE: Zero, in tennis
-*BATS: Baseball players swing them
-*MITT: A catcher's big glove
-*HOME: The plate where you score a run
-*OUTS: There are three per team in an inning
-*RUNS: Points in baseball
-*HITS: When batters reach base with a swing
-*SLED: Ride it down a snowy hill
-*SKIS: Long boards for snowy slopes
+HOME: Where you live
 *BEAT: Win against
 *LOST: Didn't win
 *WING: Player who runs up the side of the field
@@ -80,7 +55,7 @@ RAW = """
 *COACH: Person who trains the team
 *SCORE: How many points or goals each team has
 *FIELD: Where soccer and football are played
-*PITCH: A soccer field, or a baseball throw
+*PITCH: A soccer field, in England
 *MATCH: A game between two teams
 *SHOTS: Tries at the goal
 *KICKS: Does what a punter does
@@ -88,36 +63,22 @@ RAW = """
 *THROW: What a quarterback does with the ball
 *BLITZ: When lots of defenders rush the quarterback
 *DOWNS: Four chances to go 10 yards, in football
-*SKATE: Glide on ice
-*MEDAL: A prize you hang around your neck
-*RELAY: Race where teammates pass a baton
-*TRACK: Oval where runners race
-*SERVE: How a tennis point starts
-*BATON: Relay runners pass this
-*BASES: There are four on a baseball diamond
-*GLOVE: A baseball fielder wears one
-*TEAMS: Sides in a game
+*GLOVE: A goalkeeper wears one on each hand
+*TEAMS: The Chiefs and the Eagles, for example
 *CLEAT: A spiky soccer or football shoe
 *BENCH: Where substitutes sit
-*SPIKE: Slam a volleyball down hard
 *PUNTS: Kicks on fourth down
-*HOOPS: Basketball, for short
-*DUNKS: Slams in basketball
-*SLIDE: Go into second base feet first
-*SWING: Try to hit the ball with the bat
-*BUNTS: Soft taps with the bat
 *CROWD: All the fans together
 *FINAL: The last and biggest game
 *TITLE: A championship
 *ARENA: A big indoor stadium
 *CHEER: Shout for your team
-*SPORT: Soccer, football or tennis, for example
+*SPORT: Soccer or football, for example
 *RACES: Contests of speed
 *SAVES: A goalkeeper's great stops
 *STAND: Get up on your feet
 *CLOCK: The game ___ counts down
-*PLATE: Home ___, where a batter stands
-*MOUND: Where the pitcher stands
+PLATE: You eat dinner off it
 *SOCKS: Long ones cover shin guards
 *BOOTS: Soccer shoes
 *SHOES: Sneakers, for example
@@ -128,34 +89,46 @@ RAW = """
 *FOULS: Rule breaks
 *CARDS: Yellow and red ones
 *FLAGS: Linesmen wave them
-*PUCKS: Hockey discs
-*STICK: A hockey player holds one
-*SLOPE: A skier goes down it
-*DIVES: Leaps into the pool
-*LANES: Swimmers stay in theirs
-*POOLS: Where swimmers race
-*BIKES: Racing ___ in the Tour de France
-*RIDER: Someone on a bike or horse
-*POINT: A score in basketball
+*POINT: A field goal is worth three of these
 *CHAMP: Winner, for short
 *PRIZE: Something you win
 *FIRST: Gold-medal place
 *THIRD: Bronze-medal place
-*SPEED: How fast you go
+*SPEED: What a fast winger has
 *QUICK: Fast
 *POWER: Strength
 *JUMPS: Leaps
-*VAULT: A gymnast's leap over a table, or a pole ___
-*CHALK: Gymnasts put it on their hands
-*BEAMS: Narrow gymnastics bars you balance on
-*TRICK: A skateboard move
-*FLIPS: Somersaults
-*BOXER: Muhammad Ali was one
-*RINGS: Five of them on the Olympic flag
-*ROPES: A boxing ring has these around it
-*IRONS: Some golf clubs
-*GREEN: Where you putt, in golf
+GREEN: Color of grass
 *TOTAL: The final ___ of points
+*GOALS: More than one score in soccer
+*CROSS: A pass from the side into the box
+*CHIP: A soft shot lifted over the goalie
+*POST: A shot can hit it and bounce out
+*AREA: The penalty ___
+*TRAP: Stop the ball dead with your foot
+*TOUCH: Your first ___ is how you control the ball
+*CLUBS: Real Madrid and Barcelona are famous ones
+*DERBY: A game between two teams from the same city
+*EXTRA: ___ time comes after 90 minutes in a tied knockout game
+*BRACE: Two goals by the same player
+*HIKE: What the quarterback shouts before the snap
+*RAMS: NFL team from Los Angeles with horns on the helmet
+*BILLS: Buffalo's NFL team
+*JETS: New York NFL team in green
+*LIONS: Detroit's NFL team
+*COLTS: Indianapolis's NFL team
+*HAWKS: Seattle Sea___
+*RAVEN: The bird Baltimore's NFL team is named after
+*EAGLE: Philadelphia's team is the ___s
+*BEARS: Chicago's NFL team
+*CHIEF: Kansas City's team is the ___s
+*SAINT: New Orleans's team is the ___s
+*GIANT: New York's NFL team is the ___s
+*STEEL: Pittsburgh's team is the ___ers
+*SHOOT: Try to score
+*DRILL: A practice exercise
+*KICKS: Punts and field goals
+*LEAGUE: .
 CAKE: A birthday treat with candles
 MILK: White drink from a cow
 BIRD: It has feathers and wings
@@ -297,8 +270,8 @@ TRUE: Not false
 WISH: Something you hope for
 ZERO: Nothing, as a number
 FOUR: Two plus two
-FIVE: Players on a basketball team
-NINE: Innings in a baseball game
+FIVE: Fingers on one hand
+NINE: One less than ten
 APPLE: Red or green fruit
 BREAD: You make toast from it
 CHAIR: You sit on it

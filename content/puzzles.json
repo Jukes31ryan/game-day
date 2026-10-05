@@ -1,477 +1,475 @@
 [
  {
   "r": [
-   "S#S#C",
-   "TOWEL",
-   "O#I#A",
-   "RINGS",
-   "Y#G#S"
+   "#T#S#",
+   "BOOTS",
+   "#T#E#",
+   "WATER",
+   "#L#L#"
   ],
   "c": {
-   "CLASS": "A group of students",
-   "RINGS": "Five of them on the Olympic flag",
-   "STORY": "A tale",
-   "SWING": "Try to hit the ball with the bat",
-   "TOWEL": "Dry off after the game with one"
+   "BOOTS": "Soccer shoes",
+   "STEEL": "Pittsburgh's team is the ___ers",
+   "TOTAL": "The final ___ of points",
+   "WATER": "Drink lots of it at practice"
   }
  },
  {
   "r": [
-   "#CUPS",
-   "#L#U#",
-   "DOWNS",
-   "#C#T#",
-   "SKIS#"
-  ],
-  "c": {
-   "CLOCK": "The game ___ counts down",
-   "CUPS": "Trophies shaped like big bowls",
-   "DOWNS": "Four chances to go 10 yards, in football",
-   "PUNTS": "Kicks on fourth down",
-   "SKIS": "Long boards for snowy slopes"
-  }
- },
- {
-  "r": [
-   "SHOTS",
-   "#O#O#",
-   "CROWD",
-   "#S#E#",
-   "YEARS"
-  ],
-  "c": {
-   "CROWD": "All the fans together",
-   "HORSE": "Animal you can ride",
-   "SHOTS": "Tries at the goal",
-   "TOWER": "A tall building",
-   "YEARS": "Birthdays count them"
-  }
- },
- {
-  "r": [
-   "#M#M#",
-   "RACES",
-   "#G#D#",
-   "RIVAL",
-   "#C#L#"
-  ],
-  "c": {
-   "MAGIC": "Tricks with a wand",
-   "MEDAL": "A prize you hang around your neck",
-   "RACES": "Contests of speed",
-   "RIVAL": "A team you really want to beat"
-  }
- },
- {
-  "r": [
-   "WING#",
-   "#R#R#",
-   "TOWEL",
-   "#N#E#",
-   "#SING"
-  ],
-  "c": {
-   "GREEN": "Where you putt, in golf",
-   "IRONS": "Some golf clubs",
-   "SING": "Make music with your voice",
-   "TOWEL": "Dry off after the game with one",
-   "WING": "Player who runs up the side of the field"
-  }
- },
- {
-  "r": [
-   "#SAFE",
-   "#L#I#",
-   "DIVES",
-   "#D#L#",
-   "HEAD#"
-  ],
-  "c": {
-   "DIVES": "Leaps into the pool",
-   "FIELD": "Where soccer and football are played",
-   "HEAD": "Soccer players can hit the ball with it, but not with their hands",
-   "SAFE": "What the umpire says when you reach base in time",
-   "SLIDE": "Go into second base feet first"
-  }
- },
- {
-  "r": [
-   "#SURF",
-   "#M#E#",
-   "VAULT",
-   "#L#A#",
-   "PLAY#"
-  ],
-  "c": {
-   "PLAY": "Have fun in a game",
-   "RELAY": "Race where teammates pass a baton",
-   "SMALL": "Little",
-   "SURF": "Ride a wave on a board",
-   "VAULT": "A gymnast's leap over a table, or a pole ___"
-  }
- },
- {
-  "r": [
-   "DRAW#",
-   "#E#A#",
-   "PLATE",
-   "#A#E#",
-   "#YARD"
-  ],
-  "c": {
-   "DRAW": "A tie game, in soccer",
-   "PLATE": "Home ___, where a batter stands",
-   "RELAY": "Race where teammates pass a baton",
-   "WATER": "Drink lots of it at practice",
-   "YARD": "3 feet, or 10 of them gets a first down"
-  }
- },
- {
-  "r": [
-   "#T#B#",
-   "POWER",
-   "#T#N#",
-   "MATCH",
-   "#L#H#"
-  ],
-  "c": {
-   "BENCH": "Where substitutes sit",
-   "MATCH": "A game between two teams",
-   "POWER": "Strength",
-   "TOTAL": "The final ___ of points"
-  }
- },
- {
-  "r": [
-   "#P#F#",
-   "FOULS",
-   "#O#I#",
-   "SLOPE",
-   "#S#S#"
-  ],
-  "c": {
-   "FLIPS": "Somersaults",
-   "FOULS": "Rule breaks",
-   "POOLS": "Where swimmers race",
-   "SLOPE": "A skier goes down it"
-  }
- },
- {
-  "r": [
-   "S#P#B",
-   "PRIZE",
-   "I#T#A",
-   "KICKS",
-   "E#H#T"
-  ],
-  "c": {
-   "BEAST": "A big wild animal",
-   "KICKS": "Does what a punter does",
-   "PITCH": "A soccer field, or a baseball throw",
-   "PRIZE": "Something you win",
-   "SPIKE": "Slam a volleyball down hard"
-  }
- },
- {
-  "r": [
-   "FLAGS",
-   "#L#L#",
-   "BATON",
-   "#M#V#",
-   "BASES"
-  ],
-  "c": {
-   "BASES": "There are four on a baseball diamond",
-   "BATON": "Relay runners pass this",
-   "FLAGS": "Linesmen wave them",
-   "GLOVE": "A baseball fielder wears one",
-   "LLAMA": "Fluffy animal from South America"
-  }
- },
- {
-  "r": [
-   "SHIP#",
-   "#O#A#",
-   "DOWNS",
-   "#P#D#",
-   "#SNAP"
-  ],
-  "c": {
-   "DOWNS": "Four chances to go 10 yards, in football",
-   "HOOPS": "Basketball, for short",
-   "PANDA": "Black-and-white bear",
-   "SHIP": "A big boat",
-   "SNAP": "How the center starts a football play"
-  }
- },
- {
-  "r": [
-   "S#L#S",
-   "TRACK",
-   "A#R#A",
-   "NIGHT",
-   "D#E#E"
-  ],
-  "c": {
-   "LARGE": "Big",
-   "NIGHT": "When it's dark",
-   "SKATE": "Glide on ice",
-   "STAND": "Get up on your feet",
-   "TRACK": "Oval where runners race"
-  }
- },
- {
-  "r": [
-   "SERVE",
-   "#A#A#",
-   "PROUD",
-   "#T#L#",
-   "SHOTS"
-  ],
-  "c": {
-   "EARTH": "Our planet",
-   "PROUD": "Feeling good about what you did",
-   "SERVE": "How a tennis point starts",
-   "SHOTS": "Tries at the goal",
-   "VAULT": "A gymnast's leap over a table, or a pole ___"
-  }
- },
- {
-  "r": [
-   "STICK",
-   "#R#L#",
-   "BIKES",
-   "#C#A#",
-   "SKATE"
-  ],
-  "c": {
-   "BIKES": "Racing ___ in the Tour de France",
-   "CLEAT": "A spiky soccer or football shoe",
-   "SKATE": "Glide on ice",
-   "STICK": "A hockey player holds one",
-   "TRICK": "A skateboard move"
-  }
- },
- {
-  "r": [
-   "#CAPS",
-   "#H#U#",
-   "CATCH",
+   "HAWKS",
+   "#P#I#",
+   "SPACE",
    "#L#K#",
-   "SKIS#"
+   "BEAST"
   ],
   "c": {
-   "CAPS": "Games played for your country, in soccer",
-   "CATCH": "Grab the ball out of the air",
-   "CHALK": "Gymnasts put it on their hands",
-   "PUCKS": "Hockey discs",
-   "SKIS": "Long boards for snowy slopes"
+   "APPLE": "Red or green fruit",
+   "BEAST": "A big wild animal",
+   "HAWKS": "Seattle Sea___",
+   "KICKS": "Does what a punter does",
+   "SPACE": "Where astronauts go"
   }
  },
  {
   "r": [
-   "SQUAD",
-   "#U#R#",
-   "RIDER",
-   "#E#N#",
-   "STEAM"
+   "SPEED",
+   "#H#A#",
+   "SONGS",
+   "#N#L#",
+   "SEVEN"
   ],
   "c": {
-   "ARENA": "A big indoor stadium",
-   "QUIET": "Not loud",
-   "RIDER": "Someone on a bike or horse",
-   "SQUAD": "The whole team",
-   "STEAM": "Hot water vapor"
+   "EAGLE": "Philadelphia's team is the ___s",
+   "PHONE": "You call people on it",
+   "SEVEN": "Days in a week",
+   "SONGS": "You sing them",
+   "SPEED": "What a fast winger has"
   }
  },
  {
   "r": [
-   "#J#S#",
-   "QUICK",
-   "#M#O#",
-   "SPORT",
-   "#S#E#"
+   "#P#S#",
+   "JUMPS",
+   "#N#O#",
+   "STORY",
+   "#S#T#"
   ],
   "c": {
    "JUMPS": "Leaps",
-   "QUICK": "Fast",
-   "SCORE": "How many points or goals each team has",
-   "SPORT": "Soccer, football or tennis, for example"
+   "PUNTS": "Kicks on fourth down",
+   "SPORT": "Soccer or football, for example",
+   "STORY": "A tale"
   }
  },
  {
   "r": [
-   "TIED#",
-   "#R#A#",
-   "POINT",
-   "#N#C#",
-   "#SLED"
+   "SPIN#",
+   "#R#O#",
+   "MOVIE",
+   "#U#S#",
+   "#DEER"
   ],
   "c": {
-   "DANCE": "Move to music",
-   "IRONS": "Some golf clubs",
-   "POINT": "A score in basketball",
-   "SLED": "Ride it down a snowy hill",
-   "TIED": "Level, with the same score"
+   "DEER": "Animal with antlers",
+   "MOVIE": "A film",
+   "NOISE": "A loud sound",
+   "PROUD": "Feeling good about what you did",
+   "SPIN": "Turn around quickly"
   }
  },
  {
   "r": [
-   "#R#T#",
-   "BOXER",
-   "#P#A#",
-   "BEAMS",
-   "#S#S#"
-  ],
-  "c": {
-   "BEAMS": "Narrow gymnastics bars you balance on",
-   "BOXER": "Muhammad Ali was one",
-   "ROPES": "A boxing ring has these around it",
-   "TEAMS": "Sides in a game"
-  }
- },
- {
-  "r": [
+   "#C#S#",
    "BLITZ",
-   "#E#H#",
-   "SMART",
-   "#O#O#",
-   "SNOWY"
+   "#E#A#",
+   "SAINT",
+   "#T#D#"
   ],
   "c": {
    "BLITZ": "When lots of defenders rush the quarterback",
-   "LEMON": "Sour yellow fruit",
-   "SMART": "Clever",
-   "SNOWY": "Weather for sledding",
-   "THROW": "What a quarterback does with the ball"
-  }
- },
- {
-  "r": [
-   "#BATS",
-   "#R#I#",
-   "BOOTS",
-   "#W#L#",
-   "KNEE#"
-  ],
-  "c": {
-   "BATS": "Baseball players swing them",
-   "BOOTS": "Soccer shoes",
-   "BROWN": "Color of chocolate",
-   "KNEE": "Joint in the middle of your leg",
-   "TITLE": "A championship"
-  }
- },
- {
-  "r": [
-   "#GOLD",
-   "#L#A#",
-   "MOUND",
-   "#V#E#",
-   "REFS#"
-  ],
-  "c": {
-   "GLOVE": "A baseball fielder wears one",
-   "GOLD": "First-place medal",
-   "LANES": "Swimmers stay in theirs",
-   "MOUND": "Where the pitcher stands",
-   "REFS": "They blow the whistle, for short"
-  }
- },
- {
-  "r": [
-   "S#C#T",
-   "COACH",
-   "O#R#I",
-   "RIDER",
-   "E#S#D"
-  ],
-  "c": {
-   "CARDS": "Yellow and red ones",
-   "COACH": "Person who trains the team",
-   "RIDER": "Someone on a bike or horse",
-   "SCORE": "How many points or goals each team has",
-   "THIRD": "Bronze-medal place"
-  }
- },
- {
-  "r": [
-   "STAR#",
-   "#H#I#",
-   "ARENA",
-   "#O#G#",
-   "#WISH"
-  ],
-  "c": {
-   "ARENA": "A big indoor stadium",
-   "RINGS": "Five of them on the Olympic flag",
-   "STAR": "It twinkles at night",
-   "THROW": "What a quarterback does with the ball",
-   "WISH": "Something you hope for"
-  }
- },
- {
-  "r": [
-   "ACES#",
-   "#H#P#",
-   "RACES",
-   "#M#E#",
-   "#PADS"
-  ],
-  "c": {
-   "ACES": "Serves nobody can return, in tennis",
-   "CHAMP": "Winner, for short",
-   "PADS": "Football players wear these for protection",
-   "RACES": "Contests of speed",
-   "SPEED": "How fast you go"
-  }
- },
- {
-  "r": [
-   "S#F#S",
-   "POINT",
-   "E#N#A",
-   "LEARN",
-   "L#L#D"
-  ],
-  "c": {
-   "FINAL": "The last and biggest game",
-   "LEARN": "Find out something new",
-   "POINT": "A score in basketball",
-   "SPELL": "Say the letters of a word",
+   "CLEAT": "A spiky soccer or football shoe",
+   "SAINT": "New Orleans's team is the ___s",
    "STAND": "Get up on your feet"
   }
  },
  {
   "r": [
-   "JOGS#",
-   "#T#O#",
-   "STICK",
-   "#E#K#",
+   "PLAY#",
+   "#A#E#",
+   "STEAM",
+   "#E#R#",
    "#RUSH"
   ],
   "c": {
-   "JOGS": "Runs slowly",
-   "OTTER": "Playful animal that floats on its back",
+   "LATER": "Not now",
+   "PLAY": "Have fun in a game",
    "RUSH": "Run with the football",
-   "SOCKS": "Long ones cover shin guards",
-   "STICK": "A hockey player holds one"
+   "STEAM": "Hot water vapor",
+   "YEARS": "Birthdays count them"
   }
  },
  {
   "r": [
-   "#MITT",
-   "#O#O#",
-   "BUNTS",
-   "#S#A#",
-   "BELL#"
+   "S#B#S",
+   "THROW",
+   "O#A#O",
+   "RIVER",
+   "M#E#D"
   ],
   "c": {
-   "BELL": "It rings at school",
-   "BUNTS": "Soft taps with the bat",
-   "MITT": "A catcher's big glove",
-   "MOUSE": "Small animal that squeaks",
+   "BRAVE": "Not scared",
+   "RIVER": "Water that flows to the sea",
+   "STORM": "Wild weather",
+   "SWORD": "A knight's weapon",
+   "THROW": "What a quarterback does with the ball"
+  }
+ },
+ {
+  "r": [
+   "FLAGS",
+   "#A#I#",
+   "CREAM",
+   "#G#N#",
+   "TEETH"
+  ],
+  "c": {
+   "CREAM": "Ice ___",
+   "FLAGS": "Linesmen wave them",
+   "GIANT": "New York's NFL team is the ___s",
+   "LARGE": "Big",
+   "TEETH": "You brush them"
+  }
+ },
+ {
+  "r": [
+   "FLAG#",
+   "#I#L#",
+   "ROBOT",
+   "#N#V#",
+   "#STEP"
+  ],
+  "c": {
+   "FLAG": "A referee throws a yellow one in football",
+   "GLOVE": "A goalkeeper wears one on each hand",
+   "LIONS": "Detroit's NFL team",
+   "ROBOT": "Machine that can move by itself",
+   "STEP": "One stair, or one move of your foot"
+  }
+ },
+ {
+  "r": [
+   "JETS#",
+   "#X#H#",
+   "STEAM",
+   "#R#R#",
+   "#AREA"
+  ],
+  "c": {
+   "AREA": "The penalty ___",
+   "EXTRA": "___ time comes after 90 minutes in a tied knockout game",
+   "JETS": "New York NFL team in green",
+   "SHARE": "Give some to others",
+   "STEAM": "Hot water vapor"
+  }
+ },
+ {
+  "r": [
+   "D#S#C",
+   "EXTRA",
+   "R#E#R",
+   "BREAD",
+   "Y#L#S"
+  ],
+  "c": {
+   "BREAD": "You make toast from it",
+   "CARDS": "Yellow and red ones",
+   "DERBY": "A game between two teams from the same city",
+   "EXTRA": "___ time comes after 90 minutes in a tied knockout game",
+   "STEEL": "Pittsburgh's team is the ___ers"
+  }
+ },
+ {
+  "r": [
+   "CHAMP",
+   "#O#A#",
+   "FUNNY",
+   "#S#G#",
+   "LEMON"
+  ],
+  "c": {
+   "CHAMP": "Winner, for short",
+   "FUNNY": "Makes you laugh",
+   "HOUSE": "A home",
+   "LEMON": "Sour yellow fruit",
+   "MANGO": "Sweet tropical fruit"
+  }
+ },
+ {
+  "r": [
+   "#CAPS",
+   "#O#O#",
+   "MAGIC",
+   "#C#N#",
+   "SHOT#"
+  ],
+  "c": {
+   "CAPS": "Games played for your country, in soccer",
+   "COACH": "Person who trains the team",
+   "MAGIC": "Tricks with a wand",
+   "POINT": "A field goal is worth three of these",
+   "SHOT": "A try at scoring"
+  }
+ },
+ {
+  "r": [
+   "HALF#",
+   "#R#I#",
+   "BEARS",
+   "#N#S#",
+   "#ANTS"
+  ],
+  "c": {
+   "ANTS": "Tiny insects at a picnic",
+   "ARENA": "A big indoor stadium",
+   "BEARS": "Chicago's NFL team",
+   "FIRST": "Gold-medal place",
+   "HALF": "45 minutes of a soccer game"
+  }
+ },
+ {
+  "r": [
+   "#POST",
+   "#R#O#",
+   "PITCH",
+   "#Z#K#",
+   "NETS#"
+  ],
+  "c": {
+   "NETS": "Goals have them behind the posts",
+   "PITCH": "A soccer field, in England",
+   "POST": "A shot can hit it and bounce out",
+   "PRIZE": "Something you win",
+   "SOCKS": "Long ones cover shin guards"
+  }
+ },
+ {
+  "r": [
+   "#F#D#",
+   "POWER",
+   "#U#R#",
+   "CLUBS",
+   "#S#Y#"
+  ],
+  "c": {
+   "CLUBS": "Real Madrid and Barcelona are famous ones",
+   "DERBY": "A game between two teams from the same city",
+   "FOULS": "Rule breaks",
+   "POWER": "Strength"
+  }
+ },
+ {
+  "r": [
+   "#JOGS",
+   "#U#I#",
+   "FINAL",
+   "#C#N#",
+   "BEAT#"
+  ],
+  "c": {
+   "BEAT": "Win against",
+   "FINAL": "The last and biggest game",
+   "GIANT": "New York's NFL team is the ___s",
+   "JOGS": "Runs slowly",
+   "JUICE": "Orange ___"
+  }
+ },
+ {
+  "r": [
+   "#W#T#",
+   "CHIEF",
+   "#A#A#",
+   "LLAMA",
+   "#E#S#"
+  ],
+  "c": {
+   "CHIEF": "Kansas City's team is the ___s",
+   "LLAMA": "Fluffy animal from South America",
+   "TEAMS": "The Chiefs and the Eagles, for example",
+   "WHALE": "Biggest animal in the ocean"
+  }
+ },
+ {
+  "r": [
+   "S#M#S",
+   "TOUCH",
+   "A#S#O",
+   "NOISE",
+   "D#C#S"
+  ],
+  "c": {
+   "MUSIC": "Songs and tunes",
+   "NOISE": "A loud sound",
+   "SHOES": "Sneakers, for example",
+   "STAND": "Get up on your feet",
+   "TOUCH": "Your first ___ is how you control the ball"
+  }
+ },
+ {
+  "r": [
+   "#BOOT",
+   "#E#C#",
+   "RAVEN",
+   "#C#A#",
+   "SHIN#"
+  ],
+  "c": {
+   "BEACH": "Sandy place by the sea",
+   "BOOT": "A soccer shoe, or a big kick",
+   "OCEAN": "Huge body of salt water",
+   "RAVEN": "The bird Baltimore's NFL team is named after",
+   "SHIN": "Front of your leg, below the knee"
+  }
+ },
+ {
+  "r": [
+   "#KITS",
+   "#O#I#",
+   "EARTH",
+   "#L#L#",
+   "RACE#"
+  ],
+  "c": {
+   "EARTH": "Our planet",
+   "KITS": "A team's uniforms, in soccer",
+   "KOALA": "Australian animal that eats leaves",
+   "RACE": "A contest to see who's fastest",
+   "TITLE": "A championship"
+  }
+ },
+ {
+  "r": [
+   "#SAVE",
+   "#N#I#",
+   "CARDS",
+   "#K#E#",
+   "ZERO#"
+  ],
+  "c": {
+   "CARDS": "Yellow and red ones",
+   "SAVE": "What a goalkeeper makes when they stop a shot",
+   "SNAKE": "Long animal that slithers",
+   "VIDEO": "Something you watch on a screen",
+   "ZERO": "Nothing, as a number"
+  }
+ },
+ {
+  "r": [
+   "#PASS",
+   "#R#A#",
+   "BILLS",
+   "#Z#A#",
+   "HEAD#"
+  ],
+  "c": {
+   "BILLS": "Buffalo's NFL team",
+   "HEAD": "Soccer players can hit the ball with it, but not with their hands",
+   "PASS": "Kick or throw the ball to a teammate",
+   "PRIZE": "Something you win",
+   "SALAD": "Lettuce dish"
+  }
+ },
+ {
+  "r": [
+   "#PADS",
+   "#A#O#",
+   "CROWD",
+   "#T#N#",
+   "EYES#"
+  ],
+  "c": {
+   "CROWD": "All the fans together",
+   "DOWNS": "Four chances to go 10 yards, in football",
+   "EYES": "You see with them",
+   "PADS": "Football players wear these for protection",
+   "PARTY": "A birthday celebration"
+  }
+ },
+ {
+  "r": [
+   "#S#D#",
+   "THIRD",
+   "#O#I#",
+   "GOALS",
+   "#T#L#"
+  ],
+  "c": {
+   "DRILL": "A practice exercise",
+   "GOALS": "More than one score in soccer",
+   "SHOOT": "Try to score",
+   "THIRD": "Bronze-medal place"
+  }
+ },
+ {
+  "r": [
+   "CLUB#",
+   "#I#R#",
+   "TOTAL",
+   "#N#C#",
+   "#SEED"
+  ],
+  "c": {
+   "BRACE": "Two goals by the same player",
+   "CLUB": "A soccer team, like Barcelona or Liverpool",
+   "LIONS": "Detroit's NFL team",
+   "SEED": "A plant grows from it",
    "TOTAL": "The final ___ of points"
+  }
+ },
+ {
+  "r": [
+   "M#T#C",
+   "ARENA",
+   "T#A#T",
+   "COMIC",
+   "H#S#H"
+  ],
+  "c": {
+   "ARENA": "A big indoor stadium",
+   "CATCH": "Grab the ball out of the air",
+   "COMIC": "Funny book with pictures",
+   "MATCH": "A game between two teams",
+   "TEAMS": "The Chiefs and the Eagles, for example"
+  }
+ },
+ {
+  "r": [
+   "#F#E#",
+   "RIVAL",
+   "#E#R#",
+   "BLITZ",
+   "#D#H#"
+  ],
+  "c": {
+   "BLITZ": "When lots of defenders rush the quarterback",
+   "EARTH": "Our planet",
+   "FIELD": "Where soccer and football are played",
+   "RIVAL": "A team you really want to beat"
+  }
+ },
+ {
+  "r": [
+   "SCORE",
+   "#H#A#",
+   "BENCH",
+   "#E#E#",
+   "CROSS"
+  ],
+  "c": {
+   "BENCH": "Where substitutes sit",
+   "CHEER": "Shout for your team",
+   "CROSS": "A pass from the side into the box",
+   "RACES": "Contests of speed",
+   "SCORE": "How many points or goals each team has"
   }
  }
 ]

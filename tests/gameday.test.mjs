@@ -95,13 +95,14 @@ console.log('\n— offline —');
 console.log('\n— trivia —');
 await open(true);
 const bank = await p.evaluate(() => TRIVIA);
-chk('a real bank', bank.length >= 200, String(bank.length));
+chk('a real bank', bank.length >= 140, String(bank.length));
 chk('every question has four different choices',
   bank.every(q => q.c.length === 4 && new Set(q.c.map(c => c.toLowerCase())).size === 4));
 chk('and a fact to learn', bank.every(q => q.f && q.f.length > 20));
 chk('no question asked twice', new Set(bank.map(q => q.q)).size === bank.length);
 const bySport = {}; bank.forEach(q => bySport[q.s] = (bySport[q.s] || 0) + 1);
-chk('soccer leads, the NFL is next', bySport.soccer > bySport.football && bySport.football > bySport.basketball, JSON.stringify(bySport));
+chk('only soccer, football, and a little of everything else', Object.keys(bySport).every(k => ['soccer', 'football', 'more'].indexOf(k) >= 0), JSON.stringify(bySport));
+chk('soccer and football are most of it', (bySport.soccer + bySport.football) / bank.length >= 0.8, JSON.stringify(bySport));
 /* The right answer is written first in the data. It must not be shown first. */
 const pos = await p.evaluate(() => {
   const n = [0, 0, 0, 0];
@@ -118,10 +119,10 @@ const tomorrow = await p.evaluate(() => trvRound(0, dateKey(new Date(Date.now() 
 chk('and five different ones tomorrow', tomorrow.every(i => today.indexOf(i) < 0));
 const month = await p.evaluate(() => {
   const seen = [];
-  for (let d = 0; d < 40; d++) seen.push(...trvRound(0, dateKey(new Date(Date.now() + d * 864e5))));
+  for (let d = 0; d < 30; d++) seen.push(...trvRound(0, dateKey(new Date(Date.now() + d * 864e5))));
   return seen;
 });
-chk('forty days of trivia without a repeat', new Set(month).size === month.length, new Set(month).size + ' of ' + month.length);
+chk('a whole month of trivia without a repeat', new Set(month).size === month.length, new Set(month).size + ' of ' + month.length);
 
 await p.evaluate(() => go(15)); await p.waitForTimeout(350);
 const q0 = await p.evaluate(() => TRIVIA[trvRound(0)[0]]);
@@ -155,6 +156,16 @@ chk('the journal remembers the score', /Trivia\s*\d+ out of \d+ right/.test(awai
 await p.evaluate(() => { S.tags = ['football']; saveS() });
 chk('picking Football means football questions', await p.evaluate(() => trvRound(0).every(i => TRIVIA[i].s === 'football')));
 await p.evaluate(() => { S.tags = []; saveS() });
+
+// ───────── the warm-up: one short routine, nothing to choose ─────────
+console.log('\n— the warm-up —');
+await open(true);
+await p.evaluate(() => go(14)); await p.waitForTimeout(300);
+chk('one routine, so there is nothing to pick', await p.evaluate(() => Object.keys(ROUTINES).length === 1));
+chk('and no routine picker on screen', !(await p.isVisible('#strChips')));
+const secs = await p.evaluate(() => ROUTINES[Object.keys(ROUTINES)[0]].moves.reduce((t, m) => t + m[1], 0));
+chk('about two minutes long', secs >= 90 && secs <= 180, secs + 's');
+chk('every move has a figure', await p.evaluate(() => Object.values(ROUTINES)[0].moves.every(m => STRETCH_FIGS[m[3]])));
 
 // ───────── fit for a 10-year-old ─────────
 console.log('\n— fit for a 10-year-old —');

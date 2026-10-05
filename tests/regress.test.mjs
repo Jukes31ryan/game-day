@@ -26,7 +26,7 @@ const counts=await p.evaluate(()=>({
   stories:STORIES.length, jokes:JOKES.length,
   cw:PUZZLES.length+PUZZLES7.length, cards:CARD_LIBRARY.length}));
 /* each edition's shelf, so a lost block can't pass quietly */
-const WANT={quotes:40,stories:20,jokes:110,cw:30,cards:30};
+const WANT={quotes:25,stories:13,jokes:100,cw:30,cards:30};
 chk('quotes',counts.quotes>=WANT.quotes,String(counts.quotes));
 chk('stories',counts.stories>=WANT.stories,String(counts.stories));
 chk('jokes',counts.jokes>=WANT.jokes,String(counts.jokes));
