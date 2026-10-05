@@ -1,16 +1,17 @@
 """Liam's edition: the structure around the content.
 
-Module names, default morning, flavour tags, coach's cards, warm-ups and the
+Module names, default morning, flavour tags, locker-room rules, warm-ups and the
 little lines of copy. Everything here replaces a block of the same name in
 index.html (see make_pack.py), so the app's behaviour is untouched.
 """
 
 # ─── Modules ─────────────────────────────────────────────────────────────────
-# Step ids are permanent and shared with the main app. Only the words change.
+# Step ids are permanent: a saved day records them. 16, 17 and 18 are Game
+# Day's own cards; the rest share their ids with the app it started from.
 STEPS = {
-    1:  {"name": "Quote",   "plain": "Quote",        "t": "The Quote",     "s": "Words from the greats",
-         "blurb": "A quote from a soccer or football great, and what it means.",
-         "h1": "The Quote", "lead": "Words from soccer and football greats. Read it twice."},
+    1:  {"name": "Locker Room", "plain": "Locker Room", "t": "Locker Room", "s": "A word from the greats, and today's rule",
+         "blurb": "A quote from a soccer or football great, what it means, and one of your rules for the day.",
+         "h1": "Locker Room", "lead": "A word from the greats, and today's rule. Read them twice."},
     2:  {"name": "Joke",    "plain": "Joke",         "t": "The Joke",      "s": "Something to laugh at",
          "blurb": "Sports jokes, knock-knocks, riddles and dad jokes.",
          "h1": "The Joke", "lead": "Start the day laughing."},
@@ -19,12 +20,6 @@ STEPS = {
     4:  {"name": "Zone",    "plain": "Breathing",    "t": "Get in the Zone", "s": "Breathe like a pro before a big moment",
          "blurb": "Slow breathing, the way players calm down before a penalty kick.",
          "h1": "Get in the zone", "lead": "Players breathe slow before a penalty kick. It calms you down and sharpens you up."},
-    5:  {"name": "Coach",   "plain": "Coach's card", "t": "Coach's Card",  "s": "One rule to play by today",
-         "blurb": "One rule from your coach's cards, a different one each day.",
-         "h1": "Coach's card", "lead": "Today's rule. Say it out loud."},
-    6:  {"name": "Plan",    "plain": "Game plan",    "t": "Game Plan",     "s": "What's on, top three, big goal",
-         "blurb": "Write down what's happening today, pick your top three, and choose one big goal.",
-         "core": True},
     7:  {"name": "Cross",   "plain": "Crossword",    "t": "The Crossword", "s": "A quick sports crossword",
          "blurb": "A small crossword with soccer and football words and easy clues.",
          "h1": "The Crossword", "lead": "Soccer and football words. Tap a square, type a letter. Stuck? Try the other direction."},
@@ -34,10 +29,22 @@ STEPS = {
     15: {"name": "Trivia",  "plain": "Trivia",       "t": "Sports Trivia", "s": "Five questions a day",
          "blurb": "Five soccer and football questions a day, with a fun fact after each answer.",
          "h1": "Sports trivia", "lead": "Five questions. Take your best guess."},
+    16: {"name": "Who Am I?", "plain": "Who Am I?",  "t": "Who Am I?",     "s": "Guess the player or team",
+         "blurb": "Guess a player or team from three clues. The fewer clues you need, the more points you get.",
+         "h1": "Who Am I?", "lead": "Guess from as few clues as you can. Fewer clues, more points."},
+    17: {"name": "Playbook", "plain": "Playbook",    "t": "The Playbook",  "s": "One play to learn today",
+         "blurb": "One soccer or football play a day: what it is, how it works and why it's smart.",
+         "h1": "The Playbook", "lead": "One play a day. Learn it, then watch for it."},
+    18: {"name": "Skill",   "plain": "Skill",        "t": "Skill of the Day", "s": "Something to try at recess",
+         "blurb": "One ball skill to try at recess, in the yard or at practice.",
+         "h1": "Skill of the Day", "lead": "Something to try at recess or practice today."},
 }
 
-# About ten minutes before school: body, brain, words, plan, laugh.
-DEFAULT_FLOW = [14, 15, 1, 7, 5, 6, 2]
+# About twelve minutes before school: wake the body, wake the brain, learn
+# something about the game, then out the door laughing. Story (3) and
+# Breathing (4) are there to switch on; 5 (Coach's card) and 6 (the to-do list)
+# are retired, folded into the Locker Room and replaced by the Playbook.
+DEFAULT_FLOW = [14, 15, 16, 7, 17, 18, 1, 2]
 
 # The flavour tags steer trivia, quotes and stories together.
 TAG_NAMES = {"soccer": "Soccer", "football": "Football", "more": "Other sports"}
@@ -51,17 +58,17 @@ JOKE_KINDS = {"sport": "Sports joke", "dad": "Dad joke", "knock": "Knock knock",
 LAUNCH_LINES = [
     "Kickoff. Go get it.",
     "Warmed up and ready. Go have a great day.",
-    "You've got a plan. Now go play it.",
+    "You learned a new play. Watch for it.",
     "Game face on. Let's go.",
     "That's the pre-game done. Time for the real thing.",
-    "Big goal picked. Go score it.",
+    "Go try today's skill at recess.",
     "Ready. Set. Go!",
     "Coach says: you've got this.",
     "Brain on, body on. See you at the final whistle.",
     "Another day, another chance to get better.",
 ]
 
-# ─── Coach's cards ───────────────────────────────────────────────────────────
+# ─── Locker-room rules ───────────────────────────────────────────────────────────
 # "Category | Line". Short, clear, and things a 10-year-old can actually do.
 CARD_LIBRARY = [
     "Effort | Effort is the one thing you always get to choose.",

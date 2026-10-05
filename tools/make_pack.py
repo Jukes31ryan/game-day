@@ -70,7 +70,8 @@ def load(name):
     return m
 
 
-trivia, quotes, stories, jokes, app = (load(n) for n in ('trivia', 'quotes', 'stories', 'jokes', 'app'))
+trivia, quotes, stories, jokes, app, plays, whoami, skills = (load(n) for n in (
+    'trivia', 'quotes', 'stories', 'jokes', 'app', 'plays', 'whoami', 'skills'))
 puzzles = json.load(open(os.path.join(CONTENT, 'puzzles.json')))
 errs = []
 def check(ok, msg):
@@ -119,6 +120,48 @@ for i, p in enumerate(puzzles):
     for w, c in p['c'].items():
         check(w.lower() not in c.lower(), 'puzzle %d: clue gives away %s' % (i, w))
 
+# ─── the Playbook ────────────────────────────────────────────────────────────
+SPORTS = {'soccer', 'football'}
+KINDS = {'pass', 'run', 'dribble'}
+on_field = lambda x, y: 0 <= x <= 100 and 0 <= y <= 60
+check(len({p['name'] for p in plays.PLAYS}) == len(plays.PLAYS), 'duplicate play name')
+for p in plays.PLAYS:
+    n = 'play %r' % p['name']
+    check(p['s'] in SPORTS, n + ': unknown sport')
+    check(2 <= len(p['how']) <= 3 and all(x.strip() for x in p['how']), n + ': needs 2-3 steps')
+    check(all(len(p[k]) > 20 for k in ('what', 'why', 'look')), n + ': what, why and look all need saying')
+    d = p['d']
+    check(any(t == 'u' for t, *_ in d['p']), n + ': no players from his team')
+    check(all(t in 'ut' and on_field(x, y) for t, x, y in d['p']), n + ': a player is off the field')
+    check(on_field(*d['b']), n + ': the ball is off the field')
+    check(all(k in KINDS and on_field(x1, y1) and on_field(x2, y2) for k, x1, y1, x2, y2 in d['a']),
+          n + ': an arrow is off the field or of an unknown kind')
+
+# ─── Who Am I? ───────────────────────────────────────────────────────────────
+check(len({w['c'][0] for w in whoami.WHOAMI}) == len(whoami.WHOAMI), 'Who Am I?: an answer appears twice')
+for w in whoami.WHOAMI:
+    n = 'Who Am I? %r' % w['c'][0]
+    check(w['s'] in SPORTS, n + ': unknown sport')
+    check(len(w['clues']) == 3 and all(len(c) > 15 for c in w['clues']), n + ': needs 3 clues')
+    check(len(w['c']) == 4 and len({c.lower() for c in w['c']}) == 4, n + ': needs 4 different choices')
+    check(len(w['f']) > 20, n + ': fact too thin')
+    # the answer can't be named in a clue, or clue 1 is the giveaway
+    for c in w['clues']:
+        check(w['c'][0].lower() not in c.lower(), n + ': a clue names the answer')
+
+# ─── Skill of the Day ────────────────────────────────────────────────────────
+# No heading: US Soccer's youth rules don't allow it for players 10 and under.
+# "Behind your head" is fine; heading the ball is not.
+HEADING = re.compile(r'\bhead(ed|ing|er|ers)\b|\bheads? (the|it|a)\b', re.I)
+check(len({k['name'] for k in skills.SKILLS}) == len(skills.SKILLS), 'duplicate skill name')
+for k in skills.SKILLS:
+    n = 'skill %r' % k['name']
+    check(k['s'] in SPORTS, n + ': unknown sport')
+    check(len(k['steps']) == 3 and all(x.strip() for x in k['steps']), n + ': needs 3 steps')
+    check(len(k['goal']) > 8 and len(k['tip']) > 8, n + ': needs a goal and a tip')
+    for v in [k['name'], k['what'], k['goal'], k['tip']] + k['steps']:
+        check(not HEADING.search(v), n + ': no heading drills for under-11s')
+
 # ─── cards and warm-ups ──────────────────────────────────────────────────────
 for card in app.CARD_LIBRARY + app.DEF_AFFIRMS + app.SHARP_CARDS:
     check(card.count(' | ') == 1, 'card needs "Category | Line": ' + card)
@@ -148,7 +191,8 @@ def scan(obj, where):
         for v in obj: scan(v, where)
 for name, obj in [('trivia', trivia.Q), ('quotes', quotes.QUOTES), ('stories', stories.STORIES),
                   ('jokes', jokes.JOKES), ('puzzles', puzzles), ('cards', app.CARD_LIBRARY + app.SHARP_CARDS),
-                  ('warm-ups', app.ROUTINES), ('lines', app.LAUNCH_LINES), ('steps', app.STEPS)]:
+                  ('warm-ups', app.ROUTINES), ('lines', app.LAUNCH_LINES), ('steps', app.STEPS),
+                  ('plays', plays.PLAYS), ('who am I', whoami.WHOAMI), ('skills', skills.SKILLS)]:
     scan(obj, name)
 
 if errs:
@@ -175,6 +219,7 @@ blocks_out = [
     ('LEGACY_AFFIRMS', app.LEGACY_AFFIRMS),
     ('PATTERNS', app.PATTERNS), ('STRETCH_FIGS', FIGS), ('ROUTINES', app.ROUTINES),
     ('LAUNCH_LINES', app.LAUNCH_LINES),
+    ('PLAYS', plays.PLAYS), ('WHOAMI', whoami.WHOAMI), ('SKILLS', skills.SKILLS),
 ]
 # swap each block in place, from the end backwards so offsets stay valid
 spans = blocks(src)
@@ -191,5 +236,7 @@ if '--check' in sys.argv:
         print('index.html is out of date with content/. Run: python3 tools/make_pack.py'); sys.exit(1)
     print('index.html is up to date'); sys.exit(0)
 open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(new)
-print('index.html: %d trivia, %d quotes, %d stories, %d jokes, %d crosswords, %d cards' % (
-    len(trivia.Q), len(DEF_QUOTES), len(STORIES), len(jokes.JOKES), len(puzzles), len(app.CARD_LIBRARY)))
+print('index.html: %d trivia, %d quotes, %d stories, %d jokes, %d crosswords, %d cards, '
+      '%d plays, %d who-am-I, %d skills' % (
+    len(trivia.Q), len(DEF_QUOTES), len(STORIES), len(jokes.JOKES), len(puzzles), len(app.CARD_LIBRARY),
+    len(plays.PLAYS), len(whoami.WHOAMI), len(skills.SKILLS)))

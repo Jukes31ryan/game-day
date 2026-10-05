@@ -24,19 +24,23 @@ await boot({flSettings:{onboarded:true}});
 const counts=await p.evaluate(()=>({
   quotes:S.quotes.length, realQuotes:S.quotes.filter(()=>true).length,
   stories:STORIES.length, jokes:JOKES.length,
-  cw:PUZZLES.length+PUZZLES7.length, cards:CARD_LIBRARY.length}));
+  cw:PUZZLES.length+PUZZLES7.length, cards:CARD_LIBRARY.length,
+  plays:PLAYS.length, who:WHOAMI.length, skills:SKILLS.length}));
 /* each edition's shelf, so a lost block can't pass quietly */
-const WANT={quotes:25,stories:13,jokes:100,cw:30,cards:30};
+const WANT={quotes:25,stories:13,jokes:100,cw:30,cards:30,plays:30,who:35,skills:24};
 chk('quotes',counts.quotes>=WANT.quotes,String(counts.quotes));
 chk('stories',counts.stories>=WANT.stories,String(counts.stories));
 chk('jokes',counts.jokes>=WANT.jokes,String(counts.jokes));
 chk('crosswords',counts.cw===WANT.cw,String(counts.cw));
 chk('cards in the library',counts.cards>=WANT.cards,String(counts.cards));
+chk('plays in the Playbook',counts.plays>=WANT.plays,String(counts.plays));
+chk('players and teams in Who Am I?',counts.who>=WANT.who,String(counts.who));
+chk('skills',counts.skills>=WANT.skills,String(counts.skills));
 /* an array hole counts in .length but is skipped by map/filter, which is how a
    doubled comma once shipped a Spark that rendered "undefined" */
 chk('no array holes anywhere',
   counts.quotes===counts.realQuotes&&
-  await p.evaluate(()=>[S.quotes,S.affirms,JOKES,STORIES,CARD_LIBRARY,SHARP_CARDS,DEF_AFFIRMS]
+  await p.evaluate(()=>[S.quotes,S.affirms,JOKES,STORIES,CARD_LIBRARY,SHARP_CARDS,DEF_AFFIRMS,PLAYS,WHOAMI,SKILLS]
     .every(a=>a.filter(()=>true).length===a.length)));
 
 console.log('\n— every quote, story and joke renders —');
@@ -57,19 +61,25 @@ chk('unattributed lines are never printed as their own author',
 
 // ───────── the modular flow, and the permanence of step ids ─────────
 console.log('\n— the modular flow —');
-await boot({flSettings:{onboarded:true,flow:[6,2]}});
-chk('a two-module morning is honoured',await p.evaluate(()=>JSON.stringify(FLOW))==='[6,2]');
+/* flowV:3 marks a morning saved since the Playbook arrived; without it the
+   upgrade adds the new cards, which cards.test.mjs covers on its own. */
+await boot({flSettings:{onboarded:true,flow:[17,2],flowV:3}});
+chk('a two-module morning is honoured',await p.evaluate(()=>JSON.stringify(FLOW))==='[17,2]');
 chk('the count reflects it',(await p.textContent('#seqCount')).indexOf('/2')>0);
-await p.evaluate(()=>{go(6);mark(6,'done')});await p.waitForTimeout(250);
+await p.evaluate(()=>{go(17);mark(17,'done')});await p.waitForTimeout(250);
 chk('the last module hands off to Launch',
   await p.evaluate(async()=>{flowNext(2);await new Promise(r=>setTimeout(r,250));
     return document.querySelector('.scr.on').id==='s8'}));
-await boot({flSettings:{onboarded:true,flow:[]}});
+await boot({flSettings:{onboarded:true,flow:[],flowV:3}});
 chk('an empty flow falls back rather than shipping a blank app',
   await p.evaluate(()=>FLOW.length>0));
-await boot({flSettings:{onboarded:true,flow:[1,99,3,1]}});
+await boot({flSettings:{onboarded:true,flow:[1,99,3,1],flowV:3}});
 chk('junk and duplicates are filtered out',
   await p.evaluate(()=>JSON.stringify(FLOW))==='[1,3]',
+  await p.evaluate(()=>JSON.stringify(FLOW)));
+await boot({flSettings:{onboarded:true,flow:[5,1,6],flowV:3}});
+chk('the retired cards (the to-do list and the coach\'s card) are dropped',
+  await p.evaluate(()=>JSON.stringify(FLOW))==='[1]',
   await p.evaluate(()=>JSON.stringify(FLOW)));
 
 // ───────── carry-over across a gap, not just from yesterday ─────────
@@ -94,7 +104,7 @@ chk('the most recent day wins, not the oldest',
 
 // ───────── the journal remembers the day as it was ─────────
 console.log('\n— the journal —');
-await boot({flSettings:{onboarded:true,flow:[1,6]},
+await boot({flSettings:{onboarded:true,flow:[1,17],flowV:3},
   flHistory:{[daysAgo(2)]:1},
   ['flDay-'+daysAgo(2)]:{win:'Finish the deck',t1:'One',t2:'Two',note:'a thought I had',
     status:{1:'done',3:'done',6:'done'},software:'Craft | Slow is smooth',
@@ -109,7 +119,7 @@ chk('a module that day recorded still shows, though it is off the flow today',
 
 // ───────── settings persist as a whole, not two fields ─────────
 console.log('\n— settings —');
-await boot({flSettings:{onboarded:true,flow:[1,2],tags:['stoic'],hadLegacy:true}});
+await boot({flSettings:{onboarded:true,flow:[1,2],flowV:3,tags:['stoic'],hadLegacy:true}});
 await p.evaluate(()=>{openSettings();$('setAffirms').value='Mine | A line of my own';saveSettings()});
 await p.waitForTimeout(400);
 const saved=await p.evaluate(()=>readJSON(KP+'Settings',{}));
@@ -177,14 +187,20 @@ chk('the WIN is not stored, it is derived',await p.evaluate(()=>DAY.win)===undef
 await p.evaluate(()=>go(10));await p.waitForTimeout(400);
 chk('and the first save derives it from the picked item',
   await p.evaluate(()=>DAY.win)==='The one thing',await p.evaluate(()=>DAY.win));
-chk("it reads back this morning's WIN",
-  (await p.textContent('#eveWin')).indexOf('The one thing')>=0,
+const skillName=await p.evaluate(()=>SKILLS[skIndex()].name);
+chk("it asks about today's skill, by name",
+  (await p.textContent('#eveWin')).indexOf(skillName)>=0,
   await p.textContent('#eveWin'));
+chk('and not about a big goal',(await p.textContent('#s10')).indexOf('big goal')<0);
 await p.evaluate(()=>{eveHit('yes',document.querySelectorAll('#eveSeg button')[0]);
-  $('eveGrateful').value='a good walk';saveEvening()});
+  $('eveGrateful').value='a good walk';$('eveCount').value='23';saveEvening()});
 await p.waitForTimeout(500);
 chk('and what you write is kept',
   await p.evaluate(()=>readJSON(KP+'Day-'+todayKey(),{}).eve.grateful)==='a good walk');
+chk('the number he got is kept for the day',
+  await p.evaluate(()=>readJSON(KP+'Day-'+todayKey(),{}).skillN)===23);
+chk('and becomes his best for that skill',
+  await p.evaluate(n=>readJSON(KP+'Skill',{})[n],skillName)===23);
 
 // ───────── every screen, both themes, no errors ─────────
 console.log('\n— a walk through the whole app —');
@@ -194,7 +210,7 @@ for(const n of [...await p.evaluate(()=>Object.keys(STEPS).map(Number)),8,9,10,1
   await p.evaluate(x=>go(x),n);await p.waitForTimeout(200);
 }
 await p.evaluate(()=>toggleTheme());await p.waitForTimeout(250);
-for(const n of [1,3,7,6,8,0]){await p.evaluate(x=>go(x),n);await p.waitForTimeout(180)}
+for(const n of [1,3,7,16,17,18,8,0]){await p.evaluate(x=>go(x),n);await p.waitForTimeout(180)}
 chk('no screen throws in either theme',errs.length===before,errs.slice(before).join(';'));
 chk('and it lands back on the dashboard',
   await p.evaluate(()=>document.querySelector('.scr.on').id)==='s0');
