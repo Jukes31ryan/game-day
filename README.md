@@ -1,9 +1,9 @@
 # ⚽ Game Day
 
-> Liam's morning warm-up, built around what he loves: soccer and football.
-> Two easy minutes of moving, five trivia questions, a Who Am I? guess, an easy
-> crossword, one play to learn, one skill to try at recess, a word from the
-> locker room, and a joke on the way out. About twelve minutes before school.
+> A game-day plan for a kid who loves sports. A good day runs like a game:
+> **Pre-Game** in the morning (warm up, fuel up, train your sports brain, lead
+> yourself), and **Post-Game** at night (check in, recover, wind down). Each card
+> lights a tile on his scoreboard; light them all and he wins the day.
 
 ### **[https://jukes31ryan.github.io/Family-Meeting-Hub/game-day/](https://jukes31ryan.github.io/Family-Meeting-Hub/game-day/)**
 
@@ -15,94 +15,96 @@ Family-Meeting-Hub, because Pages isn't switched on for this repo yet.
 ## For grown-ups
 
 - **Add it to his home screen.** Open the link in Safari, then Share → Add to
-  Home Screen. It shows up as *Game Day* with a soccer-ball icon, runs
-  full-screen, and works offline. On iPhone and iPad this also protects his
-  data: Safari deletes website storage after about a week away unless the site
-  is on the home screen.
-- **It's his own app.** Its streak, scores, cards and journal are kept apart
-  from any other app on the same device, and a backup from another app won't
-  restore into it.
-- **Nothing leaves the device.** No accounts, no ads, no tracking, no network
-  requests after the first load, no links out.
-- **He can make it his.** After his first morning it offers to let him choose
-  the parts he wants, their order, and his favourite sports (which steer the
-  trivia, quotes and stories). Settings has the same options any time.
+  Home Screen. It runs full-screen and works offline. On iPhone and iPad this
+  also protects his data: Safari deletes website storage after about a week away
+  unless the site is on the home screen.
+- **Every fact is checked.** Food, sleep, trivia, players, rules and quotes each
+  name the source they were checked against, and the build refuses a fact
+  without one. Anything that couldn't be confirmed was cut. The full list is in
+  the app (Settings → *See every fact and its source*) and in `sources.html`.
+- **It's his own app.** Its streak and scores are kept apart from any other app
+  on the same site, and a backup from another app won't restore into it.
+- **Nothing leaves the device.** No accounts, no ads, no tracking.
+- **Upgrading from v3 keeps his streak**, wins, trivia record, Who Am I? points,
+  skill bests and sport choice.
 
-## What's in it
+## The day
 
-| | |
+The plan underneath is MEEES (Meditate, Educate, Exercise, Eat right, Sleep
+well) plus leading himself. On screen each part gets a kid word: **Move, Fuel,
+Learn, Lead, Sleep, Chill**.
+
+**1st Half: Pre-Game** (morning, about 7 minutes)
+
+| Card | What it is |
 |---|---|
-| **Warm-up** | One easy two-minute routine to wake up: reach, arm circles, side bends, march, leg swings, jumping jacks. Guided on a timer with animated figures. |
-| **Trivia** | 150 questions a 10-year-old would know: 70 soccer, 59 NFL, and 21 on everyday sports (LeBron, home runs, the Olympic rings). Five a day, a fact after every answer, "5 more" if he wants them. A month before anything repeats. |
-| **Who Am I?** | Guess a player or team from three clues, hardest first: 39 of them, from Messi, Mbappé and Mia Hamm to Mahomes, Jerry Rice, the Packers and Real Madrid. 3 points on the first clue, 2 on the second, 1 on the third, with an all-time total and "Play another". |
-| **Crossword** | 30 easy 5×5 grids, mostly soccer and football words (team names, positions, plays), direct clues |
-| **Playbook** | One play a day, out of 30 (15 soccer, 15 football): what it is, how it works step by step, why it works, where to watch for it, and a diagram of the players, runs and passes. The give-and-go, the overlap, pressing, the offside trap; the screen pass, play-action, the blitz, the onside kick. |
-| **Skill of the Day** | One thing to try at recess or practice, out of 24: toe taps, the Cruyff turn, juggling, the step-over; throwing a spiral, the diamond catch, the juke. Three steps, a goal, a tip, and a box for how many he got, with his best kept for each skill. No heading drills: US Soccer doesn't allow heading for players 10 and under. |
-| **Locker Room** | A quote from a soccer or football great (25 of them, each with "What does this mean?" in kid terms) and one of his locker-room rules for the day, from 32: effort, teammates, mistakes, practice, respect |
-| **Joke** | 104 jokes: soccer and football jokes, knock-knocks, riddles, dad jokes and silly ones. Punchlines wait for a tap. |
-| **Story** *(optional)* | 13 one-minute reads: true soccer and football stories (Messi, Pelé, Leicester, Tom Brady, Kurt Warner) and classic fables |
-| **Get in the zone** *(optional)* | Slow breathing, the way players calm down before a penalty kick |
-| **Post-match** | In the evening: did you try today's skill (and how many did you get), what are you grateful for, best play of the day |
+| **Warm-up** (Move) | A two-minute routine on a timer with animated figures. Three rotate by day: morning, soccer and football. |
+| **Fuel Up** (Fuel) | The Food Group Challenge: six quick questions a day. Sort a food into its MyPlate group (fruits, vegetables, grains, protein, dairy), including tricky ones like corn, popcorn and beans, plus quiz questions. Every answer teaches a "Did you know?". 48 foods, 22 nuggets, 20 quiz questions, all checked against USDA MyPlate and NIH. No calories, weight or diet talk, ever. |
+| **Sports Brain** (Learn) | One brain workout a day, a different kind each day, with the rest a tap away: **Trivia** (151 questions: 71 soccer, 59 NFL, 21 other sports; three a day), **Who Am I?** (39 players and teams, three clues, 3-2-1 points), **Playbook** (30 plays with diagrams), **Skill of the Day** (24 things to try at recess, personal bests kept; no heading drills, per U.S. Soccer) and a **crossword** (30 mini grids). |
+| **Captain's Card** (Lead) | Today's challenge, one character play a day out of 32 (*Be attentive. How: when a teacher or parent is talking to you, stop, look at them, and don't talk until they're done.*), and **My assignments**: he writes in what he's responsible for today. |
+| **Kickoff** | A joke for the road (104 of them). |
 
-Trivia is pitched at what a 10-year-old who watches soccer and the NFL would
-know: rules he plays by, players he sees, teams and logos, recent World Cups
-and Super Bowls. It only uses facts that won't change mid-season, with no
-running totals for players who are still playing. Where a famous sports story is usually told wrong (Michael
-Jordan wasn't cut from his school team, he was left on JV), Game Day tells it
-the way it actually happened. Who Am I? follows the same rules: anything
-about a player's club is pinned to a year ("joined Inter Miami in 2023").
+**2nd Half: Post-Game** (after school, about 6 minutes)
+
+| Card | What it is |
+|---|---|
+| **Check-in** (Lead) | He ticks off his assignments, rates today's challenge (Nailed it / Sort of / Tomorrow), and can add the best moment of his day. |
+| **Recovery** (Sleep) | A sleep fact (14, from AASM, NIH and CDC), his bedtime against the 9 to 12 hours kids 6 to 12 need, tonight's game plan, and a one-minute cool-down. |
+| **Lights Out** (Chill) | A sports visualization read one line per slow breath with a breathing circle (14 of them: the perfect free kick, replay your best play, a locker-room body scan), ending on goodnight. |
+
+Rewards stay simple: a star per card, a win for all seven, and a streak of wins
+with one grace day a week. A quote of the day (10, each traced to the person
+named) sits on the home screen.
 
 ## How it's built
 
 A single self-contained `index.html` (vanilla HTML, CSS and JavaScript, no
-framework, no build step to run it), plus `manifest.webmanifest`, `sw.js` and
-icons so it installs and works offline.
+framework), plus `manifest.webmanifest`, `sw.js`, icons and the generated
+`sources.html`. The fonts, Lilita One and Nunito (SIL Open Font License), are
+embedded in the page so the look works offline.
 
-The words are easier to read and edit as Python files in `content/`:
+The words live in `content/`, where they're easy to read and edit:
 
 ```
-content/trivia.py      the trivia bank
-content/whoami.py      Who Am I? players and teams, three clues each
-content/plays.py       the Playbook, with each play's diagram as data
+content/fuel.py        food groups, foods, "Did you know?" nuggets, quiz, sources
+content/sleep.py       sleep facts, tonight's plan, sources
+content/mind.py        Lights Out wind-downs
+content/challenges.py  Captain's Card challenges and quick-add assignments
+content/trivia.py      trivia, with a source for every question
+content/whoami.py      Who Am I? players and teams, with sources
+content/plays.py       the Playbook (diagrams as data), with rule sources
 content/skills.py      Skill of the Day
-content/quotes.py      quotes, with what each one means
-content/stories.py     stories and their takeaways
-content/jokes.py       jokes, by kind
-content/words.py       crossword words and their clues
-content/app.py         module names, default morning, locker-room rules, warm-ups
-content/puzzles.json   the crosswords, made by tools/gen_cw.py
+content/quotes.py      quotes, each with where it was checked
+content/jokes.py       jokes
+content/words.py       crossword words and clues
+content/app.py         warm-up and cool-down routines
+content/puzzles.json   crosswords, made by tools/gen_cw.py
 ```
 
 After editing any of them:
 
 ```
-python3 tools/make_pack.py     # checks everything, then updates index.html
+python3 tools/make_pack.py     # checks everything, then writes index.html and sources.html
 tests/run.sh                   # runs the browser tests
 ```
 
-`make_pack.py` refuses to write anything if a trivia question is malformed, a
-crossword clue gives away its answer, a Who Am I? clue names its own answer, a
-play's diagram puts someone off the field, a skill involves heading the ball,
-or any text trips the adult-word check.
-New crosswords: `python3 tools/gen_cw.py content/words.py content/puzzles.json`.
-New icon: edit `icon.svg`, then `node tools/render_icons.mjs .`
+`make_pack.py` refuses to write anything if a fact has no source, a food or
+sleep source isn't an official health site, food text mentions diet, weight or
+calories, a skill involves heading the ball, a challenge or wind-down slips in a
+statistic or "studies show", a clue gives away its answer, a play's diagram puts
+someone off the field, or any text trips the adult-word check.
 
 ### Tests
 
-Browser tests drive the real app in headless Chromium through Playwright
-(`npm i -D playwright`, then `npx playwright install chromium`).
+Browser tests drive the real app in headless Chromium through Playwright, on a
+controlled clock.
 
 | Suite | Covers |
 |-------|--------|
-| `gameday` | Its own name and storage, leaving other apps' data and offline caches alone, trivia behaviour, an adult-word scan of everything on screen, and `index.html` matching `content/` |
-| `nav` | Every screen names itself, Back says where it goes, the main button says what's next, and the phone's back gesture works |
-| `firstrun` | A first visit lands in the app, not a setup wizard; setup is offered once, after a finished morning |
-| `durable` | Persistent storage, the home-screen and backup reminders, export and import |
-| `joke` | The mix of kinds, tap-to-reveal punchlines, "a different kind", and the journal |
-| `cards` | The Playbook, Who Am I? and Skill of the Day: daily picks that hold all day and change tomorrow, every diagram drawing, the 3-2-1 scoring, personal bests; and the play and skill on home, the wrap-up, the evening and the journal |
-| `soft` | The Locker Room's rule: one a day, rotating through his set |
-| `crossword` | Every grid and clue |
-| `regress` | Content counts, the morning order, the journal, settings, sport filters, the streak, the evening, and every screen in both themes |
+| `pregame` | Home in the morning, the jersey hello, the warm-up timer, the Food Group Challenge (right and wrong answers, score, extra rounds), Sports Brain (daily picks, sport filter, Who Am I? scoring, Playbook, skill bests, crossword), assignments, Kickoff and the scoreboard |
+| `postgame` | Home in the evening, Check-in, bedtime math, tonight's plan, the cool-down, Lights Out, a win, and the streak with its grace day |
+| `migrate` | Upgrading from v3 keeps his streak, records, bests and sport; a brand-new player gets the jersey hello |
+| `gameday` | Its own name, storage and offline cache, leaving other apps alone, backup and restore, settings, the facts page offline, and an adult-word scan of everything he can see |
 
 ## License
 

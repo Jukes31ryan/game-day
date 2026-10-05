@@ -69,7 +69,7 @@ P(S, "The press",
    "Teammates close down the easy passes.",
    "The player with the ball runs out of time and makes a mistake."],
   "Winning the ball near their goal means you only have a short way to go to score.",
-  "Teams like Liverpool and Barcelona are famous for it. Look for three players swarming the ball at once.",
+  "Liverpool under Jürgen Klopp and Barcelona under Pep Guardiola made it famous. Look for three players swarming the ball at once.",
   [["t", 80, 30], ["t", 88, 18], ["t", 88, 44], ["u", 68, 30], ["u", 74, 16], ["u", 74, 46]], [80, 30],
   [["run", 69, 30, 78, 30], ["run", 75, 17, 85, 20], ["run", 75, 45, 85, 42]])
 
@@ -129,7 +129,7 @@ P(S, "Shielding the ball",
   ["Stand sideways between the defender and the ball.",
    "Keep the ball on your far foot, away from them.",
    "Use your arm for balance, not to push, and wait for help or a gap."],
-  "The defender can't reach the ball without going through you, which is a foul.",
+  "The defender can't reach the ball without pushing past you, and pushing is a foul.",
   "Big strikers do this with their back to goal to hold the ball until teammates arrive.",
   [["u", 50, 30], ["t", 44, 30], ["u", 64, 20]], [53, 30],
   [["pass", 54, 29, 63, 21]])
@@ -140,7 +140,7 @@ P(S, "The counter-attack",
    "Pass forward quickly, as early as you can.",
    "Teammates sprint forward to join in while the other team is out of position."],
   "When a team attacks, its defenders move up. Win the ball then, and there's lots of space behind them.",
-  "Some of the best goals happen 10 seconds after a team was defending.",
+  "Some great goals come just seconds after a team was defending.",
   [["u", 28, 30], ["u", 50, 32], ["u", 40, 14], ["u", 40, 46], ["t", 33, 39], ["t", 74, 30]], [28, 30],
   [["pass", 29, 30, 48, 32], ["dribble", 52, 32, 64, 32], ["run", 41, 14, 74, 20], ["run", 41, 46, 74, 42]])
 
@@ -221,7 +221,7 @@ P(F, "The slant",
    "He plants his outside foot and cuts in at an angle.",
    "The quarterback throws it quickly, before the defender can react."],
   "It's fast and hard to stop. The receiver's body shields the ball from the defender.",
-  "It's one of the most common passes in the NFL, often on third and short.",
+  "It's a quick pass you'll see a lot, especially when a team needs just a few yards.",
   [["u", 50, 12], ["t", 56, 12], ["u", 42, 30]], [42, 30],
   [["run", 51, 12, 58, 12], ["run", 58, 13, 72, 26], ["pass", 43, 29, 70, 25]])
 
@@ -267,11 +267,11 @@ P(F, "The two-minute drill",
 
 P(F, "The onside kick",
   "A short kickoff the kicking team tries to get back.",
-  ["The kicker sends the ball bouncing along the ground.",
-   "It has to go at least 10 yards before the kicking team can touch it.",
+  ["The kicking team has to tell the referee first. In the NFL, surprise onside kicks aren't allowed.",
+   "The kicker sends the ball bouncing along the ground. It has to go at least 10 yards before the kicking team can touch it.",
    "The kicking team races to grab it and keep the ball."],
-  "If it works, they get the ball back right after scoring. It's a big risk, so it's mostly used by a team that's losing.",
-  "You'll see it when a team is behind late in the game and needs more time with the ball.",
+  "If it works, they keep the ball right after kicking off. If it fails, the other team gets the ball much closer to scoring than usual.",
+  "You'll usually see it when a team is behind late in the game and needs the ball back.",
   [["u", 38, 30], ["u", 40, 14], ["u", 40, 46], ["t", 56, 20], ["t", 56, 40]], [38, 30],
   [["dribble", 39, 29, 50, 25], ["run", 41, 14, 50, 21], ["run", 41, 46, 50, 29]])
 
@@ -290,8 +290,8 @@ P(F, "The red zone",
   ["The field gets short, so there's less room for long passes.",
    "Teams use quick, accurate passes and strong runs.",
    "A field goal is good, but a touchdown is the real goal."],
-  "Teams that score touchdowns in the red zone, instead of settling for field goals, win more games.",
-  "TV graphics often shade the last 20 yards red.",
+  "A touchdown is worth 6 points plus a try for more. A field goal is only 3. So getting into the end zone matters.",
+  "Listen for commentators saying a team is \"in the red zone\". It means they're close to scoring.",
   [["u", 74, 30], ["u", 86, 14], ["t", 90, 18], ["t", 88, 36]], [74, 30],
   [["run", 87, 14, 94, 22], ["pass", 75, 29, 93, 23]])
 
@@ -324,3 +324,25 @@ P(F, "The fake punt",
   "It's rare and risky, which is exactly why it surprises people.",
   [["u", 30, 30], ["u", 46, 26], ["u", 46, 34], ["u", 48, 8], ["t", 88, 30], ["t", 56, 24]], [30, 30],
   [["run", 49, 8, 68, 10], ["pass", 31, 29, 66, 11]])
+
+
+# ---------------------------------------------------------------------------
+# The strategies are coaching ideas. Where a play leans on a rule (offside,
+# the onside kick, a false start, stopping the clock), the rule was checked
+# here. tools/make_pack.py lists these in sources.html.
+SRC = {
+    "ifab_offside": ("IFAB: Law 11, Offside", "https://www.theifab.com/laws/latest/offside/"),
+    "nfl_rules":    ("NFL Football Operations: rulebook", "https://operations.nfl.com/the-rules/nfl-rulebook/"),
+    "nfl_2026":     ("ESPN: NFL rules changes for 2026, including onside kicks", "https://www.espn.com/nfl/story/_/id/49868175/nfl-rules-changes-2026-red-challenge-flags-kickoffs-penalties-hip-drop"),
+    "press":        ("Gegenpressing", "https://en.wikipedia.org/wiki/Gegenpressing"),
+}
+RULES = {
+    "The through ball": "ifab_offside",
+    "The offside trap": "ifab_offside",
+    "The press": "press",
+    "The two-minute drill": "nfl_rules",
+    "The onside kick": ("nfl_rules", "nfl_2026"),
+    "The red zone": "nfl_rules",
+    "The hard count": "nfl_rules",
+    "The fake punt": "nfl_rules",
+}

@@ -11,7 +11,7 @@
    "BOOTS": "Soccer shoes",
    "STEEL": "Pittsburgh's team is the ___ers",
    "TOTAL": "The final ___ of points",
-   "WATER": "Drink lots of it at practice"
+   "WATER": "Fill your bottle with it before practice"
   }
  },
  {
@@ -372,7 +372,7 @@
   ],
   "c": {
    "BILLS": "Buffalo's NFL team",
-   "HEAD": "Soccer players can hit the ball with it, but not with their hands",
+   "HEAD": "Where your helmet or cap goes",
    "PASS": "Kick or throw the ball to a teammate",
    "PRIZE": "Something you win",
    "SALAD": "Lettuce dish"

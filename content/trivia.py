@@ -36,7 +36,7 @@ T(S, 'How far is the penalty spot from the goal line?', '12 yards', '6 yards', '
 T(S, "The ball goes over the goal line, but not in the goal, and an attacker touched it last. What's the restart?", 'A goal kick', 'A corner kick', 'A throw-in', 'A penalty',
   'If a defender touched it last, the attacking team gets a corner kick instead.')
 T(S, 'A defender touches the ball last before it goes over their own goal line (not in the goal). What does the other team get?', 'A corner kick', 'A goal kick', 'A penalty', 'A free kick',
-  'Corners are a great chance to score, especially with a big header.')
+  'Corners are a great chance to score.')
 T(S, 'How does a team restart play when the ball goes out over the sideline?', 'A throw-in', 'A kick-in', 'A drop ball', 'A corner kick',
   'The thrower has to use both hands, bring the ball from behind the head, and keep both feet on the ground.')
 T(S, 'What is it called when a player scores three goals in one game?', 'A hat-trick', 'A three-peat', 'A grand slam', 'A triple-double',
@@ -45,12 +45,12 @@ T(S, "When a goalkeeper doesn't let in a single goal all game, it's called a...?
   "In the USA it's also called a shutout.")
 T(S, 'What is a "nutmeg"?', "Kicking the ball between a defender's legs", 'A spinning shot', 'A long throw-in', 'A diving header',
   'Players love doing it and hate having it done to them.')
-T(S, 'What is "offside"?', 'Being closer to the goal than the last defender when the ball is passed to you', 'Kicking the ball out of bounds', 'Touching the ball with your hand', 'Standing in the center circle at kickoff',
-  "You can't be offside in your own half, or straight from a throw-in, goal kick or corner kick.")
+T(S, 'What is "offside"?', 'Being closer to the goal than the ball and the second-to-last defender when a teammate passes to you', 'Kicking the ball out of bounds', 'Touching the ball with your hand', 'Standing in the center circle at kickoff',
+  "The goalkeeper usually counts as one of those last two defenders. You can't be offside in your own half, or straight from a throw-in, goal kick or corner kick.")
 T(S, 'At kickoff, where is the ball placed?', 'On the center spot', 'On the penalty spot', 'In the corner arc', 'On the goal line',
   'Every player has to be in their own half until the ball is kicked.')
 T(S, 'How many substitutes can a team usually use in a top professional game today?', '5', '3', '2', '11',
-  'For many years it was only 3. The limit went up to 5 in 2020.')
+  'For many years it was only 3. Five subs were first allowed in 2020 and made permanent in 2022.')
 T(S, 'What does "VAR" stand for?', 'Video Assistant Referee', 'Very Accurate Ref', 'Video And Replay', 'Viewing Angle Review',
   "VAR was first used at a men's World Cup in 2018 in Russia.")
 T(S, 'If a knockout World Cup game is tied after extra time, what happens?', 'A penalty shootout', 'The game is replayed', 'A coin toss', 'Both teams go through',
@@ -90,7 +90,7 @@ T(S, 'Which MLS club did Lionel Messi join in 2023?', 'Inter Miami', 'LA Galaxy'
 T(S, "What is the Ballon d'Or?", 'An award for the best player in the world that year', 'A famous stadium in France', 'The World Cup trophy', 'A French soccer club',
   'The name is French for "Golden Ball".')
 T(S, "Which player has won the men's Ballon d'Or the most times?", 'Lionel Messi', 'Cristiano Ronaldo', 'Pelé', 'Zinedine Zidane',
-  'Messi has won it eight times.')
+  'Messi won it for the eighth time in 2023.')
 T(S, 'Which US player is nicknamed "Captain America"?', 'Christian Pulisic', 'Landon Donovan', 'Clint Dempsey', 'Tim Howard',
   'He won the Champions League with Chelsea in 2021.')
 T(S, 'Harry Kane is the all-time top goalscorer for which national team?', 'England', 'Scotland', 'Wales', 'Ireland',
@@ -100,9 +100,9 @@ T(S, 'Which country does Erling Haaland play for?', 'Norway', 'Sweden', 'Denmark
 T(S, 'Which country does Kylian Mbappé play for?', 'France', 'Belgium', 'Spain', 'Cameroon',
   'He won the World Cup with France when he was only 19.')
 T(S, 'Which country is Mohamed Salah from?', 'Egypt', 'Morocco', 'Senegal', 'Algeria',
-  'Fans in Egypt treat him like a superhero.')
+  'He grew up in a small village in Egypt called Nagrig.')
 T(S, 'What is the top soccer league in England called?', 'The Premier League', 'La Liga', 'Serie A', 'The Bundesliga',
-  "It started in 1992, and it's watched in more countries than any other league.")
+  "It started in 1992, and 20 teams play in it each season.")
 T(S, 'La Liga is the top soccer league in which country?', 'Spain', 'Italy', 'France', 'Portugal',
   'Real Madrid and Barcelona are its two most famous clubs.')
 T(S, 'LA Galaxy, Seattle Sounders and Inter Miami all play in which league?', 'MLS', 'NWSL', 'The Premier League', 'La Liga',
@@ -112,7 +112,7 @@ T(S, 'What is the name of the tournament for the best club teams in Europe?', 'T
 T(S, 'Which club has won the European Cup, now called the Champions League, more times than any other?', 'Real Madrid', 'Barcelona', 'Bayern Munich', 'Liverpool',
   'Their home stadium is the Santiago Bernabéu in Madrid.')
 T(S, 'Which club plays its home games at the Camp Nou?', 'Barcelona', 'Real Madrid', 'Atlético Madrid', 'Valencia',
-  "It's one of the biggest stadiums in the world.")
+  "Barcelona moved back into the rebuilt Camp Nou in November 2025.")
 T(S, 'What are the big matches between Real Madrid and Barcelona called?', 'El Clásico', 'The Derby', 'The Old Firm', 'The Super Bowl',
   'The Old Firm is the rivalry between Celtic and Rangers in Scotland.')
 T(S, 'Which English club is nicknamed "The Red Devils"?', 'Manchester United', 'Liverpool', 'Arsenal', 'Chelsea',
@@ -147,7 +147,7 @@ T(F, 'How many players does each team have on the field in the NFL?', '11', '9',
 T(F, 'How long is an NFL field from one goal line to the other?', '100 yards', '80 yards', '120 yards', '90 yards',
   "Add the two 10-yard end zones and it's 120 yards long.")
 T(F, 'How long is an NFL game, on the game clock?', '60 minutes', '90 minutes', '48 minutes', '40 minutes',
-  'Four quarters of 15 minutes. With all the stops, a game usually takes more than three hours.')
+  'Four quarters of 15 minutes each.')
 T(F, 'What is it called when the defense tackles the quarterback behind the line of scrimmage?', 'A sack', 'A block', 'A fumble', 'A punt',
   'Sacks became an official NFL stat in 1982.')
 T(F, 'What is it called when a defender catches a pass meant for the other team?', 'An interception', 'A fumble', 'A touchback', 'A safety',
@@ -169,9 +169,9 @@ T(F, 'Which position throws most of the passes?', 'Quarterback', 'Running back',
 T(F, 'Which player kicks field goals?', 'The kicker', 'The quarterback', 'The punter', 'The center',
   'The punter is a different player. He kicks the ball away on fourth down.')
 T(F, 'What does NFL stand for?', 'National Football League', 'North Football League', 'National Field League', 'New Football League',
-  'The league started in 1920.')
+  'The league played its first season in 1920.')
 T(F, "What is the NFL's championship game called?", 'The Super Bowl', 'The World Series', 'The Stanley Cup', 'The Rose Bowl',
-  "It's played in early February, and more people watch it than almost anything else on TV in America.")
+  "It's played in early February.")
 T(F, 'What is the Super Bowl trophy called?', 'The Vince Lombardi Trophy', 'The Stanley Cup', 'The Heisman Trophy', "The Larry O'Brien Trophy",
   "It's named after the coach whose Green Bay Packers won the first two Super Bowls.")
 T(F, 'Which player has won the most Super Bowls?', 'Tom Brady', 'Joe Montana', 'Peyton Manning', 'Patrick Mahomes',
@@ -185,20 +185,20 @@ T(F, 'Which team won the Super Bowl in February 2024?', 'Kansas City Chiefs', 'S
 T(F, 'Which team won the Super Bowl in February 2025?', 'Philadelphia Eagles', 'Kansas City Chiefs', 'Buffalo Bills', 'Detroit Lions',
   'They beat the Kansas City Chiefs 40-22.')
 T(F, 'Which two NFL teams host a game every Thanksgiving?', 'Detroit Lions and Dallas Cowboys', 'Chicago Bears and Green Bay Packers', 'New York Giants and Jets', 'Kansas City Chiefs and Denver Broncos',
-  'The Lions have played on Thanksgiving since 1934.')
+  'The Lions\' Thanksgiving tradition started in 1934.')
 T(F, 'Fans of which NFL team wear foam "cheesehead" hats?', 'Green Bay Packers', 'Chicago Bears', 'Minnesota Vikings', 'Buffalo Bills',
   'Wisconsin, where Green Bay is, is famous for making cheese.')
 T(F, 'Which NFL team has a star on its helmet?', 'Dallas Cowboys', 'Houston Texans', 'Arizona Cardinals', 'New York Giants',
   'The Cowboys are often called "America\'s Team".')
 T(F, 'Which NFL team has a horseshoe on its helmet?', 'Indianapolis Colts', 'Denver Broncos', 'Kansas City Chiefs', 'Las Vegas Raiders',
-  'A horseshoe is meant to bring good luck.')
+  'The horseshoe goes back to 1953, when the team started in Baltimore, a city known for horse racing.')
 T(F, 'How many teams are in the NFL?', '32', '30', '28', '36',
   "They're split into two conferences, the AFC and the NFC, and the winners meet in the Super Bowl.")
 T(F, 'Is the Super Bowl played in the same stadium every year?', 'No, a different city hosts it each year', 'Yes, always in Miami', 'Yes, always in Los Angeles', "It's played at the home of the better team",
   'Cities are chosen years in advance.')
 # GENERAL
 T(M, 'How many players does each basketball team have on the court?', '5', '6', '7', '4',
-  'Five players, but an NBA team can have up to 15 on the roster.', 'Basketball')
+  'That makes ten players on the court at once.', 'Basketball')
 T(M, 'How many points is a shot from behind the three-point line worth?', '3', '2', '4', '1',
   'The NBA added the three-point line in 1979.', 'Basketball')
 T(M, "Who is the NBA's all-time leading scorer?", 'LeBron James', 'Kareem Abdul-Jabbar', 'Michael Jordan', 'Kobe Bryant',
@@ -206,7 +206,7 @@ T(M, "Who is the NBA's all-time leading scorer?", 'LeBron James', 'Kareem Abdul-
 T(M, 'Michael Jordan won six NBA championships with which team?', 'Chicago Bulls', 'Los Angeles Lakers', 'Boston Celtics', 'Washington Wizards',
   'He won three in a row twice: 1991-93 and 1996-98.', 'Basketball')
 T(M, 'Who has made the most three-pointers in NBA history?', 'Stephen Curry', 'Ray Allen', 'Klay Thompson', 'James Harden',
-  'He changed the way basketball is played. Now everyone shoots threes.', 'Basketball')
+  'He was the first NBA player to make 4,000 three-pointers.', 'Basketball')
 T(M, 'What is "traveling" in basketball?', 'Taking too many steps without dribbling', 'Throwing the ball out of bounds', 'Fouling a shooter', 'Holding the ball too long',
   'The other team gets the ball.', 'Basketball')
 T(M, 'How many strikes make an out?', '3', '2', '4', '5',
@@ -226,7 +226,7 @@ T(M, 'What do hockey players hit instead of a ball?', 'A puck', 'A birdie', 'A d
 T(M, 'Which hockey player is known as "The Great One"?', 'Wayne Gretzky', 'Sidney Crosby', 'Alex Ovechkin', 'Connor McDavid',
   'He has more points than any player in NHL history.', 'Hockey')
 T(M, 'How many rings are on the Olympic flag?', '5', '4', '6', '7',
-  'They stand for the five parts of the world that take part in the Olympics.', 'Olympics')
+  'They stand for five continents coming together for the Games.', 'Olympics')
 T(M, 'Which swimmer has won the most Olympic gold medals ever?', 'Michael Phelps', 'Katie Ledecky', 'Mark Spitz', 'Caeleb Dressel',
   'He won 23 golds and 28 medals in total.', 'Olympics')
 T(M, 'Usain Bolt, the fastest man ever over 100 meters, is from which country?', 'Jamaica', 'USA', 'Kenya', 'Canada',
@@ -262,7 +262,7 @@ T(S, "Which English club did Erling Haaland join in 2022?", "Manchester City", "
 T(S, "What is Erling Haaland's famous goal celebration?", "Sitting cross-legged like he's meditating", "A backflip", "Sucking his thumb", "Pretending to call someone on the phone",
   "It looks like meditation, and it's become his trademark.")
 T(S, "When Cristiano Ronaldo scores, he jumps, spins and shouts what?", "Siu!", "Goal!", "Olé!", "Vamos!",
-  "It sounds like \"sí\", Spanish for \"yes\". Kids all over the world copy it.")
+  "Ronaldo says it just means \"yes!\" He first did it in 2013.")
 T(S, "Which English club did Mohamed Salah join in 2017?", "Liverpool", "Chelsea", "Arsenal", "Tottenham",
   "Fans sing songs about him at Anfield.")
 T(S, "Which club did Kylian Mbappé join in 2024?", "Real Madrid", "Barcelona", "Liverpool", "Bayern Munich",
@@ -311,12 +311,10 @@ T(F, "In the NFL Draft, which team usually gets the very first pick?", "The team
   "It's meant to help the weakest teams get better.")
 T(F, "What is the two-minute warning?", "A break when there are 2 minutes left in each half", "A penalty for being slow", "Two minutes before kickoff", "A warning for arguing with the referee",
   "Teams use it to plan their last plays.")
-T(F, "A football is often nicknamed what?", "A pigskin", "A melon", "A rocket", "A cowhide",
+T(F, "A football is often nicknamed what?", "A pigskin", "A melon", "A rocket", "A brick",
   "Footballs are actually made of cowhide leather now.")
-T(F, "How many laces are on an NFL football?", "8", "4", "6", "12",
-  "The laces help the quarterback grip the ball and make it spin.")
 T(F, "The Denver Broncos' stadium is nicknamed after the city's height. What's it called?", "Mile High", "Sky Field", "Mountain Dome", "Cloud Nine",
-  "Denver is one mile above sea level. The air is thinner, so kicks fly a little farther.")
+  "Denver is about one mile above sea level. That's why it's called the Mile High City.")
 T(F, "In February 2020, Patrick Mahomes won his first Super Bowl by beating which team?", "San Francisco 49ers", "Philadelphia Eagles", "Buffalo Bills", "Tampa Bay Buccaneers",
   "The Chiefs were losing in the fourth quarter and came back to win 31-20.")
 T(F, "Travis Kelce became famous playing which position for the Chiefs?", "Tight end", "Quarterback", "Kicker", "Running back",
@@ -327,5 +325,272 @@ T(F, "What is the kick that starts each half called?", "The kickoff", "The punt"
   "A kickoff also happens after every touchdown and field goal.")
 T(F, "What is a pick-six?", "An interception returned for a touchdown", "A six-yard run", "The sixth pick in the draft", "A field goal from six yards",
   "\"Pick\" is another word for an interception, and a touchdown is worth 6.")
+T(S, "Which country won the 2026 men's World Cup?", "Spain", "Argentina", "France", "Brazil",
+  "Spain beat Argentina 1-0 in extra time in the final in New Jersey. It was Spain's second World Cup. The first was in 2010.")
+T(F, "Which team won the Super Bowl in February 2026?", "Seattle Seahawks", "New England Patriots", "Kansas City Chiefs", "Philadelphia Eagles",
+  "The Seahawks beat the Patriots 29-13 for their second Super Bowl title.")
 T(F, "What is the Pro Bowl?", "The NFL's all-star game", "The first game of the season", "A bowling game for players", "The college championship",
-  "Fans, players and coaches vote on who gets picked.")
+  "Fans, players and coaches all vote. Since 2023 it's been played as flag football.")
+
+
+# ---------------------------------------------------------------------------
+# Where each answer was checked. tools/make_pack.py matches every question to
+# exactly one CHECKED prefix and refuses the pack if any question has none.
+# The list is printed for grown-ups in sources.html.
+W = "https://en.wikipedia.org/wiki/"
+SRC = {
+    # soccer rules
+    "ifab":       ("IFAB: Laws of the Game", "https://www.theifab.com/laws/latest/"),
+    "ifab_subs":  ("IFAB: five substitutes made permanent", "https://www.theifab.com/news/the-ifab-permanently-approves-five-substitute-option-in-top-level-competitions/"),
+    "fifa_var":   ("FIFA: VAR at the 2018 World Cup", "https://inside.fifa.com/innovation/standards/video-assistant-referee/var-at-the-2018-fifa-world-cup"),
+    "glossary":   ("Glossary of association football terms", W + "Glossary_of_association_football_terms"),
+    "hattrick":   ("Hat-trick", W + "Hat-trick"),
+    "squadnum":   ("Squad number (association football)", W + "Squad_number_(association_football)"),
+    # World Cups
+    "worldcup":   ("FIFA World Cup", W + "FIFA_World_Cup"),
+    "wc2022":     ("2022 FIFA World Cup final", W + "2022_FIFA_World_Cup_final"),
+    "wc2026":     ("FIFA: How the World Cup 26 will work with 48 teams", "https://www.fifa.com/en/articles/article-fifa-world-cup-2026-mexico-canada-usa-new-format-tournament-football-soccer"),
+    "wc2026final":("NPR: Spain wins the 2026 World Cup", "https://www.npr.org/2026/07/19/nx-s1-5899071/2026-world-cup-fifa-argentina-spain-final-championship"),
+    "goldenglove":("FIFA: Golden Glove winners", "https://www.fifa.com/en/tournaments/mens/worldcup/articles/golden-glove-winners-goalkeepers-highlights"),
+    "wwc":        ("FIFA Women's World Cup", W + "FIFA_Women%27s_World_Cup"),
+    "usmnt":      ("United States men's national soccer team", W + "United_States_men%27s_national_soccer_team"),
+    "brazil":     ("Brazil national football team", W + "Brazil_national_football_team"),
+    # players
+    "messi":      ("Lionel Messi", W + "Lionel_Messi"),
+    "ronaldo":    ("Cristiano Ronaldo", W + "Cristiano_Ronaldo"),
+    "pele":       ("Pelé", W + "Pel%C3%A9"),
+    "pulisic":    ("Christian Pulisic", W + "Christian_Pulisic"),
+    "kane":       ("ESPN: How Harry Kane broke Wayne Rooney's England record", "https://global.espn.com/football/story/_/id/37634100/how-harry-kane-broke-wayne-rooney-england-goals-record"),
+    "haaland":    ("Erling Haaland", W + "Erling_Haaland"),
+    "mbappe":     ("Kylian Mbappé", W + "Kylian_Mbapp%C3%A9"),
+    "salah":      ("Mohamed Salah", W + "Mohamed_Salah"),
+    "ballondor":  ("Ballon d'Or", W + "Ballon_d%27Or"),
+    # leagues and clubs
+    "prem":       ("Premier League", W + "Premier_League"),
+    "laliga":     ("La Liga", W + "La_Liga"),
+    "mls":        ("Major League Soccer", W + "Major_League_Soccer"),
+    "ucl":        ("UEFA Champions League", W + "UEFA_Champions_League"),
+    "campnou":    ("Camp Nou", W + "Camp_Nou"),
+    "clasico":    ("El Clásico", W + "El_Cl%C3%A1sico"),
+    "oldfirm":    ("Old Firm", W + "Old_Firm"),
+    "manutd":     ("Old Trafford", W + "Old_Trafford"),
+    "arsenal":    ("Arsenal F.C.", W + "Arsenal_F.C."),
+    "liverpool":  ("You'll Never Walk Alone", W + "You%27ll_Never_Walk_Alone"),
+    "bayern":     ("FC Bayern Munich", W + "FC_Bayern_Munich"),
+    "barca":      ("FC Barcelona", W + "FC_Barcelona"),
+    "intermiami": ("Inter Miami CF", W + "Inter_Miami_CF"),
+    "miamikit":   ("ESPN: Inter Miami's pink home kit", "https://global.espn.com/football/story/_/id/39416106/inter-miami-adidas-reveal-new-easy-pink-home-kit"),
+    "eafc":       ("EA Sports FC", W + "EA_Sports_FC"),
+    # NFL rules and game
+    "nflrules":   ("NFL Football Operations: rulebook", "https://operations.nfl.com/the-rules/nfl-rulebook/"),
+    "positions":  ("American football positions", W + "American_football_positions"),
+    "sack":       ("Quarterback sack", W + "Quarterback_sack"),
+    "flag":       ("Penalty flag", W + "Penalty_flag"),
+    "hailmary":   ("Hail Mary pass", W + "Hail_Mary_pass"),
+    "firstdown":  ("1st & Ten (graphics system)", W + "1st_%26_Ten_(graphics_system)"),
+    "pigskin":    ("Football (ball)", W + "Football_(ball)"),
+    "draft":      ("NFL draft", W + "NFL_draft"),
+    "interception":("Interception", W + "Interception"),
+    "nfl":        ("National Football League", W + "National_Football_League"),
+    "superbowl":  ("Super Bowl", W + "Super_Bowl"),
+    "lombardi":   ("Vince Lombardi Trophy", W + "Vince_Lombardi_Trophy"),
+    "probowl":    ("Pro Bowl", W + "Pro_Bowl"),
+    # NFL players, teams, games
+    "brady":      ("Tom Brady", W + "Tom_Brady"),
+    "sblv":       ("CNN: Buccaneers win Super Bowl LV", "https://edition.cnn.com/2021/02/07/us/chiefs-vs-buccaneers-super-bowl-lv"),
+    "mahomes":    ("Patrick Mahomes", W + "Patrick_Mahomes"),
+    "sbliv":      ("Super Bowl LIV", W + "Super_Bowl_LIV"),
+    "sblviii":    ("NFL.com: Super Bowl LVIII", "https://www.nfl.com/news/neil-reynolds-wraps-super-bowl-lviii"),
+    "sblix":      ("ESPN: Super Bowl LIX recap", "https://www.espn.com/nfl/recap/_/gameId/401671889"),
+    "sblx":       ("Pro Football Reference: Super Bowl LX", "https://www.pro-football-reference.com/boxscores/202602080nwe.htm"),
+    "kelce":      ("Travis Kelce", W + "Travis_Kelce"),
+    "thanksgiving":("Pro Football Hall of Fame: the Thanksgiving tradition", "https://profootballhof.com/blogs/2020/12/blogs-stories-from-the-pro-football-hall-of-fame-archives-thanksgiving-game-tradition-dates-to-1934"),
+    "packers":    ("Cheesehead", W + "Cheesehead"),
+    "cowboys":    ("Dallas Cowboys", W + "Dallas_Cowboys"),
+    "colts":      ("Indianapolis Colts", W + "Indianapolis_Colts"),
+    "seahawks":   ("12th man (football)", W + "12th_man_(football)"),
+    "chargers":   ("Los Angeles Chargers", W + "Los_Angeles_Chargers"),
+    "bucs":       ("CBS Sports: the Buccaneers' pirate ship cannons", "https://www.cbssports.com/nfl/news/2021-super-bowl-nfl-says-buccaneers-cant-fire-cannons-from-famed-pirate-ship-following-touchdowns"),
+    "heisman":    ("Heisman Trophy", W + "Heisman_Trophy"),
+    "steelers":   ("Steelers.com: Asked and Answered", "https://www.steelers.com/news/asked-and-answered-oct-15-x2845"),
+    "ravens":     ("Baltimore Ravens", W + "Baltimore_Ravens"),
+    "broncos":    ("Empower Field at Mile High", W + "Empower_Field_at_Mile_High"),
+    "jaguars":    ("Jacksonville Jaguars", W + "Jacksonville_Jaguars"),
+    # other sports
+    "basketball": ("Basketball", W + "Basketball"),
+    "threept":    ("Three-point field goal", W + "Three-point_field_goal"),
+    "lebron":     ("LeBron James", W + "LeBron_James"),
+    "jordan":     ("Michael Jordan", W + "Michael_Jordan"),
+    "curry":      ("Stephen Curry", W + "Stephen_Curry"),
+    "travel":     ("Traveling (basketball)", W + "Traveling_(basketball)"),
+    "strikeout":  ("Strikeout", W + "Strikeout"),
+    "inning":     ("Inning", W + "Inning"),
+    "grandslam":  ("Grand slam (baseball)", W + "Grand_slam_(baseball)"),
+    "worldseries":("World Series", W + "World_Series"),
+    "ohtani":     ("Shohei Ohtani", W + "Shohei_Ohtani"),
+    "stanleycup": ("Stanley Cup", W + "Stanley_Cup"),
+    "puck":       ("Hockey puck", W + "Hockey_puck"),
+    "gretzky":    ("Wayne Gretzky", W + "Wayne_Gretzky"),
+    "rings":      ("Olympic symbols", W + "Olympic_symbols"),
+    "phelps":     ("Michael Phelps", W + "Michael_Phelps"),
+    "bolt":       ("Usain Bolt", W + "Usain_Bolt"),
+    "biles":      ("Simone Biles", W + "Simone_Biles"),
+    "la2028":     ("2028 Summer Olympics", W + "2028_Summer_Olympics"),
+    "golf":       ("Golf", W + "Golf"),
+    "bowling":    ("Perfect game (bowling)", W + "Perfect_game_(bowling)"),
+}
+
+# (start of the question, source key or keys)
+CHECKED = [
+    ("How many players does each soccer team", "ifab"),
+    ("How long is a professional soccer match", "ifab"),
+    ("Which player is allowed to use their hands", "ifab"),
+    ("What color card does a referee show", "ifab"),
+    ("How far is the penalty spot", "ifab"),
+    ("The ball goes over the goal line, but not in", "ifab"),
+    ("A defender touches the ball last", "ifab"),
+    ("How does a team restart play when the ball goes out over the sideline", "ifab"),
+    ("What is it called when a player scores three", "hattrick"),
+    ("When a goalkeeper doesn't let in", "glossary"),
+    ("What is a \"nutmeg\"", "glossary"),
+    ("What is \"offside\"", "ifab"),
+    ("At kickoff, where is the ball", "ifab"),
+    ("How many substitutes", "ifab_subs"),
+    ("What does \"VAR\" stand for", "fifa_var"),
+    ("If a knockout World Cup game is tied", "ifab"),
+    ("What does the assistant referee", "ifab"),
+    ("What is it called when a player accidentally scores", "glossary"),
+    ("Which body part are field players NOT", "ifab"),
+    ("Traditionally, which shirt number", "squadnum"),
+    ("Pelé, Maradona and Messi all made", "squadnum"),
+    ("Which country has won the most men's World Cups", "worldcup"),
+    ("Which country won the 2022 men's World Cup", "wc2022"),
+    ("Who scored a hat-trick in the 2022", "wc2022"),
+    ("How often is the men's FIFA World Cup", "worldcup"),
+    ("Which three countries hosted the 2026", "wc2026"),
+    ("Which player is the only one to win three World Cups", "pele"),
+    ("What is the \"Golden Boot\"", "goldenglove"),
+    ("How many Women's World Cups", "wwc"),
+    ("In which country was Lionel Messi born", "messi"),
+    ("Which country is Cristiano Ronaldo from", "ronaldo"),
+    ("Which MLS club did Lionel Messi join", "intermiami"),
+    ("What is the Ballon d'Or", "ballondor"),
+    ("Which player has won the men's Ballon d'Or", "ballondor"),
+    ("Which US player is nicknamed", "pulisic"),
+    ("Harry Kane is the all-time top goalscorer", "kane"),
+    ("Which country does Erling Haaland", "haaland"),
+    ("Which country does Kylian Mbappé", "mbappe"),
+    ("Which country is Mohamed Salah from", "salah"),
+    ("What is the top soccer league in England", "prem"),
+    ("La Liga is the top soccer league", "laliga"),
+    ("LA Galaxy, Seattle Sounders and Inter Miami", "mls"),
+    ("What is the name of the tournament for the best club teams", "ucl"),
+    ("Which club has won the European Cup", "ucl"),
+    ("Which club plays its home games at the Camp Nou", "campnou"),
+    ("What are the big matches between Real Madrid and Barcelona", ("clasico", "oldfirm")),
+    ("Which English club is nicknamed \"The Red Devils\"", "manutd"),
+    ("Which London club is nicknamed \"The Gunners\"", "arsenal"),
+    ("Which club plays at Anfield", "liverpool"),
+    ("Bayern Munich is a club from", "bayern"),
+    ("Which club is known as \"Barça\"", "barca"),
+    ("What color is Brazil's famous home shirt", "brazil"),
+    ("How many points is a touchdown worth", "nflrules"),
+    ("How many points is a field goal worth", "nflrules"),
+    ("How many points is a safety worth", "nflrules"),
+    ("After a touchdown, how many points", "nflrules"),
+    ("Instead of kicking after a touchdown", "nflrules"),
+    ("How many yards does the offense need", "nflrules"),
+    ("How many downs does the offense get", "nflrules"),
+    ("How many players does each team have on the field in the NFL", "nflrules"),
+    ("How long is an NFL field", "nflrules"),
+    ("How long is an NFL game", "nflrules"),
+    ("What is it called when the defense tackles the quarterback", "sack"),
+    ("What is it called when a defender catches a pass", "nflrules"),
+    ("What is it called when a player drops the ball", "nflrules"),
+    ("What color flag does a referee throw", "flag"),
+    ("What is the line where the ball is placed", "nflrules"),
+    ("What is a \"Hail Mary\"", "hailmary"),
+    ("What is a \"fair catch\"", "nflrules"),
+    ("What happens if an NFL game is tied", "nflrules"),
+    ("Which position throws most of the passes", "positions"),
+    ("Which player kicks field goals", "positions"),
+    ("What does NFL stand for", "nfl"),
+    ("What is the NFL's championship game called", "superbowl"),
+    ("What is the Super Bowl trophy called", "lombardi"),
+    ("Which player has won the most Super Bowls", "brady"),
+    ("Who has thrown for the most yards", "brady"),
+    ("Patrick Mahomes won his first Super Bowl with which team", "mahomes"),
+    ("Which team won the Super Bowl in February 2024", "sblviii"),
+    ("Which team won the Super Bowl in February 2025", "sblix"),
+    ("Which two NFL teams host a game every Thanksgiving", "thanksgiving"),
+    ("Fans of which NFL team wear foam", "packers"),
+    ("Which NFL team has a star on its helmet", "cowboys"),
+    ("Which NFL team has a horseshoe", "colts"),
+    ("How many teams are in the NFL", "nfl"),
+    ("Is the Super Bowl played in the same stadium", "superbowl"),
+    ("How many players does each basketball team", "basketball"),
+    ("How many points is a shot from behind the three-point line", "threept"),
+    ("Who is the NBA's all-time leading scorer", "lebron"),
+    ("Michael Jordan won six NBA championships", "jordan"),
+    ("Who has made the most three-pointers", "curry"),
+    ("What is \"traveling\" in basketball", "travel"),
+    ("How many strikes make an out", "strikeout"),
+    ("How many innings are in a normal", "inning"),
+    ("What is a home run with the bases loaded", "grandslam"),
+    ("What is Major League Baseball's championship", "worldseries"),
+    ("Shohei Ohtani is famous", "ohtani"),
+    ("What trophy does the NHL champion win", "stanleycup"),
+    ("What do hockey players hit", "puck"),
+    ("Which hockey player is known as", "gretzky"),
+    ("How many rings are on the Olympic flag", "rings"),
+    ("Which swimmer has won the most Olympic gold", "phelps"),
+    ("Usain Bolt, the fastest man", "bolt"),
+    ("What sport is Simone Biles famous for", "biles"),
+    ("Which US city will host the 2028", "la2028"),
+    ("How many holes are in a standard round", "golf"),
+    ("What's the highest score you can get in a single game of bowling", "bowling"),
+    ("What does a yellow card mean", "ifab"),
+    ("What happens if a player gets two yellow cards", "ifab"),
+    ("What do soccer players wear under their socks", "ifab"),
+    ("Why does the referee add extra minutes", "ifab"),
+    ("What does MLS stand for", "mls"),
+    ("What color is Inter Miami's famous home shirt", "miamikit"),
+    ("Before joining Inter Miami", "messi"),
+    ("Lionel Messi played most of his career", "messi"),
+    ("Which English club did Erling Haaland join", "haaland"),
+    ("What is Erling Haaland's famous goal celebration", "haaland"),
+    ("When Cristiano Ronaldo scores", "ronaldo"),
+    ("Which English club did Mohamed Salah join", "salah"),
+    ("Which club did Kylian Mbappé join in 2024", "mbappe"),
+    ("The FIFA video games got a new name", "eafc"),
+    ("What is the US men's national soccer team often called", "usmnt"),
+    ("Which country hosted the 2022 World Cup", "wc2022"),
+    ("Which club plays its home games at Old Trafford", "manutd"),
+    ("What is a free kick", "ifab"),
+    ("How many points is a touchdown plus the extra point", "nflrules"),
+    ("On TV, there's a yellow line", "firstdown"),
+    ("Which player snaps the ball", "positions"),
+    ("What is the area at each end of the field", "nflrules"),
+    ("When a referee raises both arms", "nflrules"),
+    ("Tom Brady won his last Super Bowl", "sblv"),
+    ("Seattle Seahawks fans are known", "seahawks"),
+    ("Which NFL team has a lightning bolt", "chargers"),
+    ("Which NFL team's stadium has a big pirate ship", "bucs"),
+    ("What is the Heisman Trophy for", "heisman"),
+    ("Which NFL team puts its logo on only one side", "steelers"),
+    ("The Baltimore Ravens are named after", "ravens"),
+    ("Which player catches passes and runs long routes", "positions"),
+    ("Who blocks to protect the quarterback", "positions"),
+    ("In the NFL Draft, which team", "draft"),
+    ("What is the two-minute warning", "nflrules"),
+    ("A football is often nicknamed", "pigskin"),
+    ("The Denver Broncos' stadium", "broncos"),
+    ("In February 2020, Patrick Mahomes", "sbliv"),
+    ("Travis Kelce became famous", "kelce"),
+    ("Which NFL team plays in Jacksonville", "jaguars"),
+    ("What is the kick that starts each half", "nflrules"),
+    ("What is a pick-six", "interception"),
+    ("Which country won the 2026 men's World Cup", "wc2026final"),
+    ("Which team won the Super Bowl in February 2026", "sblx"),
+    ("What is the Pro Bowl", "probowl"),
+]

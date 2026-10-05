@@ -58,7 +58,7 @@ GROUPS = [
      "tip": "Make at least half your grains whole grains.",
      "src": ["carbs", "whole"]},
     {"k": "protein", "name": "Protein", "c": "#8B5CF6",
-     "does": "Protein helps your body build and repair muscles and other tissue.",
+     "does": "Protein helps your body build and repair muscles.",
      "tip": "Vary your protein: try beans, eggs, fish, nuts and more.",
      "src": ["protein_body", "protein"]},
     {"k": "dairy", "name": "Dairy", "c": "#2F7BF0",
@@ -131,7 +131,7 @@ NUGGETS = {
     ],
     "grain": [
         ("Grains give you carbohydrates, your body's main source of energy.", "carbs"),
-        ("A whole grain keeps all three parts of the seed: the bran, the germ and the endosperm.", "whole"),
+        ("Whole grains use the whole seed. They're a good source of fiber.", "whole"),
         ("Popcorn is a whole grain!", "popcorn"),
         ("MyPlate says to make at least half your grains whole grains, like oatmeal and brown rice.", "whole"),
     ],
@@ -148,6 +148,52 @@ NUGGETS = {
         ("Fortified soy milk counts in the Dairy group too.", "dairy"),
     ],
 }
+
+# ─── Quiz questions: what the groups DO ──────────────────────────────────────
+# Sorting apples is easy at 10. These ask what food does for his body, the
+# part worth knowing by middle school. [question, [right, wrong, wrong], why, source]
+QUIZ = [
+    ("Which group gives you calcium for strong bones and teeth?", ["Dairy", "Fruits", "Grains"],
+     "Milk, yogurt and cheese have calcium. Almost all the calcium in your body is in your bones and teeth.", "calcium"),
+    ("What is your body's main source of energy?", ["Carbohydrates", "Calcium", "Vitamin A"],
+     "Your body turns carbs into a sugar called glucose, its main fuel. Grains are full of carbs.", "carbs"),
+    ("Which group helps build and repair your muscles?", ["Protein", "Fruits", "Grains"],
+     "Protein helps your body repair cells and make new ones, like when your muscles grow.", "protein_body"),
+    ("Iron helps your blood carry something to your muscles. What is it?", ["Oxygen", "Water", "Calcium"],
+     "Iron is part of hemoglobin, which carries oxygen from your lungs to the rest of your body.", "iron"),
+    ("Which vitamin helps your body soak up calcium?", ["Vitamin D", "Vitamin C", "Vitamin A"],
+     "Vitamin D helps your body absorb calcium, so the two work as a team for strong bones.", "vitd"),
+    ("Carrots and sweet potatoes have a vitamin your eyes need. Which one?", ["Vitamin A", "Vitamin D", "Iron"],
+     "Vitamin A is important for good vision.", "vita"),
+    ("Which vitamin helps your body heal cuts and scrapes?", ["Vitamin C", "Vitamin D", "Calcium"],
+     "Your body uses vitamin C to make collagen, which helps wounds heal. Oranges and strawberries have lots.", "vitc"),
+    ("MyPlate says half your plate should be what?", ["Fruits and vegetables", "Grains and protein", "Dairy and grains"],
+     "Make half your plate fruits and vegetables. That's MyPlate's number one tip.", "halfplate"),
+    ("Beans can count in two food groups. Which two?", ["Vegetables and Protein", "Grains and Dairy", "Fruits and Protein"],
+     "Beans, peas and lentils are on two teams: they count as a vegetable or a protein.", "beans"),
+    ("Which one is a whole grain?", ["Popcorn", "White bread", "Cheese"],
+     "Popcorn is a whole grain! White bread is a refined grain, and cheese is dairy.", ["popcorn", "whole"]),
+    ("Butter is made from milk. Is it in the Dairy group?", ["No", "Yes"],
+     "No. Butter and cream cheese have little calcium, so MyPlate leaves them out of the Dairy group.", "dairy"),
+    ("Which of these counts as fruit?", ["Raisins", "Corn", "Popcorn"],
+     "Dried fruit counts as fruit. Corn is a vegetable, and popcorn is a grain.", "fruit"),
+    ("Which has more fiber?", ["A whole apple", "Apple juice"],
+     "Whole fruit gives you fiber. That's why MyPlate says to eat mostly whole fruit, not juice.", "fruit"),
+    ("Which one is NOT in the Protein group?", ["Cheese", "Eggs", "Peanut butter"],
+     "Cheese is in the Dairy group. Eggs and peanut butter are protein foods.", "dairy"),
+    ("Broccoli and spinach are on which vegetable team?", ["Dark green", "Starchy", "Red and orange"],
+     "MyPlate sorts vegetables into teams. Broccoli and spinach are dark green.", "veg"),
+    ("Potatoes, corn and green peas are what kind of vegetable?", ["Starchy", "Dark green", "Red and orange"],
+     "They're starchy vegetables, but they're still vegetables.", "veg"),
+    ("Where is almost all of the calcium in your body?", ["Your bones and teeth", "Your muscles", "Your blood"],
+     "Almost all of it is stored in your bones and teeth, giving them their strength.", "calcium"),
+    ("Is fortified soy milk in the Dairy group?", ["Yes", "No"],
+     "Yes. Fortified soy milk counts in the Dairy group.", "dairy"),
+    ("Bananas have potassium. What does your body need it for?", ["Your muscles to work", "Seeing in the dark", "Growing hair"],
+     "Potassium helps your muscles work, including your heart.", "potassium"),
+    ("What did MyPlate replace in 2011?", ["The food pyramid", "The food circle", "The food ladder"],
+     "The USDA swapped the food pyramid for MyPlate in 2011.", "since2011"),
+]
 
 # The round's sign-off line, under the group spotlight.
 EXTRAS = [

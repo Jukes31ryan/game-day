@@ -49,7 +49,7 @@ HOME: Where you live
 *CAPS: Games played for your country, in soccer
 *KITS: A team's uniforms, in soccer
 *DRAW: A tie game, in soccer
-*HEAD: Soccer players can hit the ball with it, but not with their hands
+*HEAD: Where your helmet or cap goes
 *CUPS: Trophies shaped like big bowls
 *JOGS: Runs slowly
 *COACH: Person who trains the team
@@ -83,7 +83,7 @@ PLATE: You eat dinner off it
 *BOOTS: Soccer shoes
 *SHOES: Sneakers, for example
 *TOWEL: Dry off after the game with one
-*WATER: Drink lots of it at practice
+*WATER: Fill your bottle with it before practice
 *SQUAD: The whole team
 *RIVAL: A team you really want to beat
 *FOULS: Rule breaks

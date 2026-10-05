@@ -165,7 +165,7 @@ FIGS = {
 # One short warm-up. He doesn't need to choose a routine at 6:45am; he needs
 # two easy minutes that wake his body up. Nothing jarring first thing.
 ROUTINES = {
-    "morning": {"name": "Morning warm-up", "note": "Two easy minutes to wake your body up. No rushing, it's early.", "moves": [
+    "morning": {"name": "Wake-up warm-up", "note": "Two easy minutes to wake your body up. No rushing, it's early.", "moves": [
         ["Big reach", 20, "Reach both arms up to the ceiling and stretch as tall as you can.", "reach"],
         ["Arm circles", 20, "Big slow circles backward, then forward.", "shoulder"],
         ["Side bends", 20, "One arm up, lean slowly to the side. Then the other side.", "side"],
@@ -173,4 +173,29 @@ ROUTINES = {
         ["Leg swings", 20, "Hold a wall or a chair. Swing one leg forward and back, then switch.", "swing"],
         ["Jumping jacks", 20, "Ten easy jumping jacks to finish. You're awake!", "jack"],
     ]},
+    "soccer": {"name": "Soccer warm-up", "note": "Get your legs ready like a soccer player before kickoff.", "moves": [
+        ["March in place", 20, "Knees up, arms swinging. Start easy.", "knee"],
+        ["Ankle circles", 20, "Lift one foot and draw slow circles with your toes. Then the other foot.", "ankle"],
+        ["Leg swings", 20, "Hold a wall. Swing one leg forward and back, then switch.", "swing"],
+        ["Heel kicks", 20, "Jog in place and gently kick your heels up behind you.", "kick"],
+        ["Side bends", 20, "One arm up, lean slowly to the side. Then the other side.", "side"],
+        ["Jumping jacks", 20, "Ten easy jumping jacks. Game ready!", "jack"],
+    ]},
+    "football": {"name": "Football warm-up", "note": "Loosen up your arms and core like a quarterback.", "moves": [
+        ["Arm circles", 20, "Big slow circles backward, then forward. Warm up that throwing arm.", "shoulder"],
+        ["Big reach", 20, "Reach up high like you're catching a pass over your head.", "reach"],
+        ["Easy twists", 20, "Feet planted, turn your shoulders slowly side to side.", "twist"],
+        ["High-knee march", 20, "March in place, bringing your knees up high.", "knee"],
+        ["Leg swings", 20, "Hold a wall. Swing one leg forward and back, then switch.", "swing"],
+        ["Jumping jacks", 20, "Ten easy jumping jacks. Ready for the snap!", "jack"],
+    ]},
 }
+
+# The evening cool-down, in Recovery: slow and gentle, ready for bed.
+COOLDOWN = {"name": "Cool-down", "note": "Slow and easy. Breathe out as you stretch.", "moves": [
+    ["Big reach", 20, "Reach up tall, then slowly bring your arms down.", "reach"],
+    ["Side bends", 20, "Lean slowly to one side, then the other. No bouncing.", "side"],
+    ["Easy twists", 20, "Turn your shoulders slowly side to side.", "twist"],
+    ["Forward fold", 20, "Knees soft, let your arms hang down toward your toes. Breathe out.", "fold"],
+    ["Neck stretch", 20, "Slowly tip one ear toward your shoulder, then the other side.", "neck"],
+]}

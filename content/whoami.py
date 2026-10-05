@@ -168,7 +168,7 @@ W(F, ["We play in Arlington, Texas, under a giant video board.",
       "We have a blue star on our helmets.",
       "People call us \"America's Team\"."],
   "Dallas Cowboys", "Houston Texans", "Philadelphia Eagles", "New York Giants",
-  "The nickname \"America's Team\" came from a team highlight film in 1979.")
+  "The nickname \"America's Team\" came from the team's 1978 highlight film.")
 
 W(F, ["Our logo comes from a symbol used by the steel industry.",
       "Our fans wave the Terrible Towel.",
@@ -230,7 +230,7 @@ W(S, ["Our stadium is Anfield.",
   "Liverpool", "Everton", "Manchester United", "Chelsea",
   "Fans have sung \"You'll Never Walk Alone\" before home games since the 1960s.")
 
-W(S, ["Sir Alex Ferguson managed us for 26 years.",
+W(S, ["Sir Alex Ferguson managed us for more than 25 years.",
       "Our stadium, Old Trafford, is nicknamed the Theatre of Dreams.",
       "We're the Red Devils."],
   "Manchester United", "Manchester City", "Liverpool", "Arsenal",
@@ -253,3 +253,30 @@ W(S, ["We wear light blue and white stripes.",
       "Messi captained us to the 2022 World Cup."],
   "Argentina", "Uruguay", "Brazil", "Spain",
   "The 2022 final against France ended 3-3, and Argentina won on penalties. Many call it the best final ever.")
+
+
+# ---------------------------------------------------------------------------
+# Where each one was checked, by answer. tools/make_pack.py refuses an entry
+# without one, and lists them all for grown-ups in sources.html.
+_W = "https://en.wikipedia.org/wiki/"
+SRC = {a: (a, _W + page) for a, page in [
+    ("Lionel Messi", "Lionel_Messi"), ("Cristiano Ronaldo", "Cristiano_Ronaldo"),
+    ("Kylian Mbappé", "Kylian_Mbapp%C3%A9"), ("Erling Haaland", "Erling_Haaland"),
+    ("Mohamed Salah", "Mohamed_Salah"), ("Harry Kane", "Harry_Kane"),
+    ("Christian Pulisic", "Christian_Pulisic"), ("Pelé", "Pel%C3%A9"),
+    ("David Beckham", "David_Beckham"), ("Mia Hamm", "Mia_Hamm"), ("Neymar", "Neymar"),
+    ("Diego Maradona", "Diego_Maradona"), ("Jude Bellingham", "Jude_Bellingham"),
+    ("Lamine Yamal", "Lamine_Yamal"), ("Patrick Mahomes", "Patrick_Mahomes"),
+    ("Tom Brady", "Tom_Brady"), ("Travis Kelce", "Travis_Kelce"),
+    ("Peyton Manning", "Peyton_Manning"), ("Jerry Rice", "Jerry_Rice"),
+    ("Lamar Jackson", "Lamar_Jackson"), ("Josh Allen", "Josh_Allen"),
+    ("Justin Jefferson", "Justin_Jefferson"), ("Saquon Barkley", "Saquon_Barkley"),
+    ("Green Bay Packers", "Green_Bay_Packers"), ("Dallas Cowboys", "Dallas_Cowboys"),
+    ("Pittsburgh Steelers", "Pittsburgh_Steelers"), ("Kansas City Chiefs", "Kansas_City_Chiefs"),
+    ("Seattle Seahawks", "Beast_Quake"), ("New England Patriots", "New_England_Patriots"),
+    ("Buffalo Bills", "Buffalo_Bills"), ("Tampa Bay Buccaneers", "Super_Bowl_LV"),
+    ("Inter Miami", "Inter_Miami_CF"), ("Barcelona", "La_Masia"),
+    ("Real Madrid", "Real_Madrid_CF"), ("Liverpool", "You%27ll_Never_Walk_Alone"),
+    ("Manchester United", "Alex_Ferguson"), ("Arsenal", "The_Invincibles_(football)"),
+    ("Brazil", "Brazil_national_football_team"), ("Argentina", "2022_FIFA_World_Cup_final"),
+]}

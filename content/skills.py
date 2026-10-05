@@ -213,3 +213,18 @@ K(F, "Punting",
    "Kick it with your laces, toes pointed, and follow through high."],
   "5 punts that go further than your last one.",
   "A good drop makes a good punt. Practise just dropping it flat.")
+
+
+# ---------------------------------------------------------------------------
+# Where the facts and rules in these skills were checked. tools/make_pack.py
+# lists them in sources.html.
+SRC = {
+    "heading": ("U.S. Soccer: the concussion initiative and reducing heading",
+                "https://www.ussoccer.com/soccer-forward/resource-hub/the-concussion-initiative-and-reducing-heading"),
+    "cruyff":  ("Cruyff turn", "https://en.wikipedia.org/wiki/Cruyff_turn"),
+    "throwin": ("IFAB: Law 15, The Throw-in", "https://www.theifab.com/laws/latest/the-throw-in/"),
+}
+FACTS = {
+    "The Cruyff turn": "cruyff",
+    "The throw-in": "throwin",
+}

@@ -23,7 +23,7 @@
 :root{
 --fd:'Lilita One',ui-rounded,'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
 --fb:'Nunito',ui-rounded,system-ui,-apple-system,'Segoe UI',sans-serif;
-/* one color per part of the day, the same in both themes */
+/* one color per part of the day */
 --ex:#FF7A1A;--ex-d:#D45E07;
 --eat:#1FB45A;--eat-d:#13893F;
 --edu:#2F7BF0;--edu-d:#1A5BC4;
@@ -40,17 +40,8 @@ body,body[data-theme="day"]{
 --shadow:0 5px 0 rgba(27,31,59,.13);--board:#1B1F3B;--tile-off:#2C3264;--tile-off-ink:#59619A;
 --chrome:rgba(238,248,255,.96);
 }
-/* ── NIGHT GAME: stadium lights ── */
-body[data-theme="night"]{
---bg:radial-gradient(ellipse 60% 40% at 12% -6%,rgba(255,250,215,.30),transparent 70%),
-     radial-gradient(ellipse 60% 40% at 88% -6%,rgba(255,250,215,.30),transparent 70%),
-     linear-gradient(180deg,#141A44 0,#0B1030 420px,#0A0E28 100%);
---card:#1A2150;--card2:#222B62;--ink:#F4F6FF;--ink2:#BBC3EA;--ink3:#7F89BC;--line:#2B3575;
---shadow:0 5px 0 rgba(0,0,0,.35);--board:#060A24;--tile-off:#1A2056;--tile-off-ink:#3F4890;
---chrome:rgba(11,16,48,.92);
-}
 html,body{height:100%;width:100%;overflow:hidden;overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
-body{font-family:var(--fb);font-weight:700;color:var(--ink);background:var(--bg);background-color:#0B1030;
+body{font-family:var(--fb);font-weight:700;color:var(--ink);background:var(--bg);background-color:#EEF8FF;
 -webkit-font-smoothing:antialiased;transition:color .3s}
 button{font-family:inherit;color:inherit;cursor:pointer;-webkit-user-select:none;user-select:none}
 .d{font-family:var(--fd);font-weight:400;letter-spacing:.01em}
@@ -60,7 +51,7 @@ button{font-family:inherit;color:inherit;cursor:pointer;-webkit-user-select:none
 padding:calc(env(safe-area-inset-top) + 12px) 16px calc(env(safe-area-inset-bottom) + 120px)}
 .scr.on{display:block}
 .scr.on > .wrap{animation:scrIn .32s var(--spring) both}
-.scr.back.on > .wrap{animation-name:scrBack}
+.scr.rev.on > .wrap{animation-name:scrBack}
 @keyframes scrIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
 @keyframes scrBack{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
 .wrap{max-width:520px;margin:0 auto}
@@ -81,7 +72,6 @@ letter-spacing:.06em;text-transform:uppercase}
 .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .icon-btn{width:46px;height:46px;border-radius:15px;border:none;background:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;
 box-shadow:0 3px 0 rgba(0,0,0,.12)}
-body[data-theme="night"] .icon-btn{background:rgba(255,255,255,.1)}
 .icon-btn svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .hello{font-family:var(--fb);font-weight:900;font-size:21px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.15)}
 
@@ -96,14 +86,19 @@ background-size:7px 7px;pointer-events:none}
 .jersey svg{width:100%;height:100%}
 .jersey b{position:absolute;left:0;right:0;top:20px;text-align:center;font-family:var(--fd);font-weight:400;font-size:22px;color:#fff;
 text-shadow:0 2px 0 rgba(0,0,0,.25)}
-.tiles{display:grid;grid-template-columns:repeat(5,1fr) 1.05fr;gap:7px;margin-top:16px;position:relative}
-.tile{border-radius:14px;background:var(--tile-off);aspect-ratio:1/1.12;display:flex;flex-direction:column;align-items:center;justify-content:center;
-font-family:var(--fd);font-size:30px;color:var(--tile-off-ink);border:none;padding:0;transition:background .3s,color .3s}
-.tile small{font-family:var(--fb);font-size:8.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin-top:2px;opacity:.9}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:16px;position:relative}
+.tile{border-radius:14px;background:var(--tile-off);aspect-ratio:1/1.18;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+font-size:26px;line-height:1;color:var(--tile-off-ink);border:none;padding:0;transition:background .3s,color .3s}
+.tile .ti{filter:grayscale(1);opacity:.4;display:flex;align-items:center;justify-content:center;height:28px;font-size:23px;line-height:1}
+.tile .ti svg{width:30px;height:22px}
+.tile.lit .ti,.tile.half .ti{filter:none;opacity:1}
+.tile small{font-family:var(--fb);font-size:11.5px;font-weight:900;letter-spacing:.02em;color:#8C95D8}
+.tile.lit small,.tile.half small{color:#fff}
 .tile.lit{background:var(--c);color:#fff;box-shadow:0 0 18px color-mix(in srgb,var(--c) 70%,transparent),inset 0 -4px 0 rgba(0,0,0,.18);
 animation:litPop .5s var(--spring)}
 .tile.cap{position:relative;overflow:hidden;--band-ink:var(--tile-off)}
-.tile.cap svg{margin-top:4px}
+.tile.cap .ti{color:#8C95D8}
+.tile.cap.lit .ti,.tile.cap.half .ti{color:#fff}
 .tile.cap.lit{--band-ink:var(--cap-d)}
 .tile.cap.half{background:linear-gradient(0deg,var(--cap) 50%,var(--tile-off) 50%);color:#fff;--band-ink:var(--cap-d)}
 .band-big{display:inline-block;color:#fff;--band-ink:var(--cap-d);line-height:0}
@@ -134,11 +129,10 @@ display:flex;align-items:center;justify-content:center;font-family:var(--fd);fon
 .ctile.done::after{content:"";position:absolute;inset:0;border-radius:22px;box-shadow:inset 0 0 0 4px rgba(255,255,255,.55);pointer-events:none}
 .ctile.wide{grid-column:1/-1;min-height:96px;flex-direction:row;align-items:center;gap:14px;justify-content:flex-start}
 .ctile.wide .nm{margin-top:0}
-.ctile .when{position:absolute;top:48px;right:10px;font-size:10.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+.ctile .when{position:absolute;top:12px;right:10px;font-size:10.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
 background:rgba(0,0,0,.18);padding:4px 8px;border-radius:8px}
 .quote{margin-top:26px;border-left:8px solid var(--cap)}
 .quote .ql{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--cap-d)}
-body[data-theme="night"] .quote .ql{color:var(--cap)}
 .quote .qt{font-size:19px;font-weight:800;line-height:1.35;margin-top:8px}
 .quote .qa{font-size:13px;font-weight:900;color:var(--ink3);margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
 
@@ -149,7 +143,6 @@ box-shadow:0 3px 0 var(--line);font-weight:900;font-size:15px}
 .back svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .dots{flex:1;display:flex;gap:6px;justify-content:flex-end}
 .dots i{display:block;width:26px;height:10px;border-radius:6px;background:rgba(255,255,255,.45)}
-body[data-theme="night"] .dots i{background:rgba(255,255,255,.12)}
 .dots i.on{background:var(--c)}
 .dots i.done{background:var(--gold)}
 .hero{border-radius:26px;background:var(--c);color:#fff;padding:18px 18px 20px;box-shadow:0 6px 0 var(--cd);position:relative;overflow:hidden}
@@ -163,50 +156,200 @@ body[data-theme="night"] .dots i{background:rgba(255,255,255,.12)}
 .foot{position:fixed;left:0;right:0;bottom:0;padding:14px 16px calc(env(safe-area-inset-bottom) + 14px);
 background:linear-gradient(180deg,transparent,var(--chrome) 34%);z-index:5}
 .foot .btn3d{max-width:520px;margin:0 auto}
+#card.gated .foot{display:none}
+.skip-link{display:block;margin:6px auto 0;border:none;background:none;font-weight:900;font-size:14px;color:var(--ink3);
+text-decoration:underline;text-underline-offset:3px;padding:10px}
+body[data-theme="day"] .skip-link{color:#4D6C93}
 
 /* ── FUEL UP: THE FOOD GROUP SORT ── */
 .fs-top{display:flex;align-items:center;justify-content:space-between;font-weight:900;font-size:14px;color:var(--ink3);
 text-transform:uppercase;letter-spacing:.08em}
 .fs-score{color:var(--eat-d)}
-body[data-theme="night"] .fs-score{color:var(--eat)}
 .fs-food{display:flex;align-items:center;gap:16px;margin:14px 0 4px}
 .fs-emo{font-size:76px;line-height:1;filter:drop-shadow(0 5px 0 rgba(0,0,0,.12));animation:pop .45s var(--spring)}
 @keyframes pop{0%{transform:scale(.4) rotate(-12deg)}100%{transform:none}}
 .fs-name{font-family:var(--fd);font-size:32px;line-height:1.05}
 .fs-q{font-size:15px;font-weight:900;color:var(--ink2);margin-top:4px}
-.fs-plate{width:74px;height:74px;flex:0 0 auto;margin-left:auto}
-.fs-plate svg{width:100%;height:100%}
 .gbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
 .gbtn{border:none;border-radius:16px;min-height:58px;font-family:var(--fd);font-size:21px;color:#fff;background:var(--gc);
 box-shadow:0 5px 0 color-mix(in srgb,var(--gc) 70%,#000);transition:transform .08s,box-shadow .08s,opacity .2s;text-shadow:0 2px 0 rgba(0,0,0,.15)}
 .gbtn:active{transform:translateY(3px);box-shadow:0 2px 0 color-mix(in srgb,var(--gc) 70%,#000)}
 .gbtn:last-child{grid-column:1/-1}
-.gbtn.dim{opacity:.28}
-.gbtn.right{outline:4px solid var(--gold);outline-offset:2px}
-.gbtn.wrong{background:repeating-linear-gradient(135deg,var(--gc) 0 10px,color-mix(in srgb,var(--gc) 75%,#000) 10px 20px)}
+.gbtn.dim,.qbtn.dim{opacity:.3}
+.gbtn.right{outline:5px solid #19C35A;outline-offset:2px}
+.gbtn.wrong{outline:5px solid #FF3B3B;outline-offset:2px;opacity:.85}
+.fs-quiz{margin:12px 0 4px}
+.fs-tag{font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--edu)}
+.fs-qq{font-family:var(--fb);font-weight:900;font-size:23px;line-height:1.3;margin-top:6px}
+.qbtns{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.qbtn{border:3px solid var(--line);border-radius:16px;background:var(--card);min-height:56px;padding:12px 16px;text-align:left;
+font-size:18px;font-weight:900;box-shadow:0 4px 0 var(--line);transition:transform .08s}
+.qbtn:active{transform:translateY(3px)}
+.qbtn.right{border-color:#19C35A;background:color-mix(in srgb,#19C35A 16%,var(--card))}
+.qbtn.wrong{border-color:#FF3B3B;background:color-mix(in srgb,#FF3B3B 14%,var(--card))}
 .gbtn:disabled{cursor:default}
 .fs-res{margin-top:16px;animation:pop .35s var(--spring)}
 .fs-head{font-family:var(--fd);font-size:25px;line-height:1.1}
 .fs-head.ok{color:var(--eat-d)}
-body[data-theme="night"] .fs-head.ok{color:var(--eat)}
-.fs-head.no{color:var(--ex-d)}
-body[data-theme="night"] .fs-head.no{color:var(--ex)}
+.fs-head.no{color:#D92B2B}
 .fs-why{font-size:16px;font-weight:800;line-height:1.4;margin-top:6px}
 .dyk{margin-top:14px;border-radius:18px;padding:14px 16px;background:color-mix(in srgb,var(--cap) 22%,var(--card));border:3px solid var(--cap)}
 .dyk b{display:block;font-family:var(--fd);font-weight:400;font-size:19px;color:var(--cap-d);margin-bottom:4px}
-body[data-theme="night"] .dyk b{color:var(--cap)}
 .dyk p{font-size:17px;font-weight:800;line-height:1.4}
 .src{font-size:11.5px;font-weight:800;color:var(--ink3);margin-top:8px;line-height:1.35}
 .fs-next{margin-top:16px}
 .fs-done{text-align:center}
 .fs-big{font-family:var(--fd);font-size:60px;line-height:1;color:var(--eat-d);margin-top:6px}
-body[data-theme="night"] .fs-big{color:var(--eat)}
 .fs-title{font-family:var(--fd);font-size:26px;margin-top:4px}
 .spot{text-align:left;margin-top:16px;border-radius:18px;padding:16px;color:#fff;background:var(--gc);box-shadow:0 5px 0 color-mix(in srgb,var(--gc) 70%,#000)}
 .spot .pill{background:rgba(255,255,255,.22)}
 .spot h3{font-family:var(--fd);font-weight:400;font-size:26px;margin-top:8px}
 .spot p{font-size:16px;font-weight:800;line-height:1.4;margin-top:6px}
 .spot .src{color:rgba(255,255,255,.85)}
+
+/* ── WARM-UP ── */
+.wu{text-align:center}
+.wu-name{font-size:24px}
+.wu-note{font-size:14px;color:var(--ink2);margin-top:4px;line-height:1.4}
+.wu-ring{position:relative;width:210px;height:210px;margin:18px auto 6px}
+.wu-ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.wu-track{fill:none;stroke:var(--card2);stroke-width:10}
+.wu-prog{fill:none;stroke:var(--c);stroke-width:10;stroke-linecap:round;stroke-dasharray:339.3;transition:stroke-dashoffset 1s linear}
+.wu-fig{position:absolute;inset:34px;color:var(--c)}
+.wu-fig svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;transform:none}
+.wu-move{font-size:28px;margin-top:6px}
+.wu-cue{font-size:16px;font-weight:800;color:var(--ink2);line-height:1.4;margin:6px 6px 0;min-height:44px}
+.wu-time{font-size:40px;margin-top:6px;font-variant-numeric:tabular-nums}
+.wu-dots{display:flex;justify-content:center;gap:6px;margin:10px 0 16px}
+.wu-dots i{width:10px;height:10px;border-radius:50%;background:var(--card2)}
+.wu-dots i.on{background:var(--c);transform:scale(1.3)}
+.wu-dots i.seen{background:var(--gold)}
+.wu-go .fig-sway{animation:figSway 3.2s ease-in-out infinite}
+.wu-go .fig-roll{animation:figRoll 4s linear infinite;transform-origin:center}
+.wu-go .fig-arch{animation:figArch 4s ease-in-out infinite}
+.wu-go .fig-reach{animation:figReach 1.6s ease-in-out infinite}
+.wu-go .fig-sink{animation:figSink 4.4s ease-in-out infinite}
+.wu-go .fig-twist{animation:figTwist 4s ease-in-out infinite}
+@keyframes figSway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes figRoll{to{transform:rotate(360deg)}}
+@keyframes figArch{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-5px) scaleY(.9)}}
+@keyframes figReach{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes figSink{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes figTwist{0%,100%{transform:rotate(-11deg) skewX(0deg)}50%{transform:rotate(11deg) skewX(-4deg)}}
+.safety{font-size:13px;color:var(--ink3);font-weight:800;margin-top:12px}
+
+/* ── SPORTS BRAIN ── */
+.bz-today{display:flex;align-items:center;gap:10px;font-weight:900;font-size:14px;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em}
+.bz-today span{font-size:22px}
+.more{margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:none;border-radius:14px;padding:10px 14px;font-weight:900;font-size:15px;background:var(--card2);color:var(--ink);
+box-shadow:0 3px 0 var(--line)}
+.chip.on{background:var(--edu);color:#fff;box-shadow:0 3px 0 var(--edu-d)}
+.chip:active{transform:translateY(2px)}
+.big-q{font-weight:900;font-size:22px;line-height:1.3;margin-top:8px}
+.who-clue{display:flex;gap:10px;font-size:17px;font-weight:800;line-height:1.4;margin-top:10px;animation:pop .35s var(--spring)}
+.who-clue b{flex:0 0 58px;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--edu);padding-top:4px}
+.who-clue.locked{color:var(--ink3);font-style:italic;animation:none}
+.who-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 4px}
+.who-pts{font-size:15px;font-weight:900;color:var(--ink2)}
+.sport-pill{background:var(--card2);color:var(--ink2)}
+.pb-name,.sk-name{font-family:var(--fd);font-size:30px;line-height:1.05;margin-top:8px}
+.pb-what,.sk-what{font-size:16px;font-weight:800;color:var(--ink2);line-height:1.4;margin-top:6px}
+.steps{list-style:none;counter-reset:st;display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.steps li{counter-increment:st;display:flex;gap:12px;font-size:16px;font-weight:800;line-height:1.4}
+.steps li::before{content:counter(st);flex:0 0 28px;height:28px;border-radius:10px;background:var(--edu);color:#fff;
+font-family:var(--fd);font-size:16px;display:flex;align-items:center;justify-content:center}
+.box{margin-top:14px;padding:14px 16px;border-radius:16px;background:var(--card2);font-size:16px;font-weight:800;line-height:1.4}
+.box b{display:block;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--edu);margin-bottom:4px}
+.pb-wrap{margin:14px 0 4px}
+.pb-svg{display:block;width:100%;height:auto;border-radius:14px}
+.pb-grass{fill:color-mix(in srgb,#3DBE5C 30%,var(--card))}
+.pb-line{fill:none;stroke:color-mix(in srgb,var(--ink) 30%,transparent);stroke-width:.45}
+.pb-zone{fill:color-mix(in srgb,#3DBE5C 45%,var(--card))}
+.pb-u{fill:#2F7BF0;stroke:var(--card);stroke-width:.6}
+.pb-t{fill:#F0443A;stroke:var(--card);stroke-width:.6}
+.pb-ball{fill:#fff;stroke:#222;stroke-width:.45}
+.pb-a{fill:none;stroke:var(--ink);stroke-width:.75;stroke-linecap:round}
+.pb-a.pass{stroke-dasharray:2.2 1.6}
+.pb-a.dribble{stroke-dasharray:.1 1.4;stroke-width:1.05}
+.pb-head{fill:var(--ink)}
+.pb-key{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;font-weight:800;color:var(--ink2);margin-top:8px}
+.pb-key span{display:inline-flex;align-items:center;gap:6px}
+.pb-key i{display:inline-block;width:11px;height:11px;border-radius:50%}
+.pb-key svg{width:22px;height:8px}
+.count-row{display:flex;gap:10px;margin-top:10px}
+.count-row .txt-in{flex:1;min-width:0}
+.best{font-size:15px;font-weight:900;color:var(--ink2);margin-top:8px;min-height:20px}
+/* crossword */
+.cw-grid{display:grid;gap:3px;width:100%;max-width:300px;margin:12px auto 0}
+.cw-cell{position:relative;aspect-ratio:1;background:var(--card2);border-radius:8px}
+.cw-cell.blk{background:none}
+.cw-cell input{width:100%;height:100%;border:none;background:none;text-align:center;font-family:var(--fd);font-size:24px;color:var(--ink);
+text-transform:uppercase;outline:none;caret-color:transparent;padding:0;border-radius:8px}
+.cw-cell.hl{background:color-mix(in srgb,var(--edu) 22%,var(--card2))}
+.cw-cell.sel{box-shadow:inset 0 0 0 3px var(--edu)}
+.cw-cell.good input{color:#19A34A}
+.cw-cell.bad input{color:#E53935}
+.cw-cell.won{animation:pop .5s var(--spring) both}
+.cw-num{position:absolute;top:2px;left:4px;font-size:9px;font-weight:900;color:var(--ink3);pointer-events:none}
+.cw-clue{margin-top:14px;padding:12px 14px;border-radius:14px;background:var(--card2);min-height:62px}
+.cw-clue-l{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--edu);display:flex;justify-content:space-between}
+.cw-clue-l button{border:none;background:none;color:var(--edu);font-weight:900;font-size:13px}
+.cw-clue-t{font-size:17px;font-weight:800;margin-top:4px}
+.cw-msg{font-size:15px;font-weight:900;min-height:22px;margin-top:10px;text-align:center}
+
+/* ── CAPTAIN'S CARD ── */
+.ch-name{font-family:var(--fd);font-size:34px;line-height:1.05;margin-top:6px;color:var(--cap-d)}
+.ch-goal{font-size:20px;font-weight:900;margin-top:4px}
+.jobs{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.job{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:var(--card2);font-size:17px;font-weight:900}
+.job span{flex:1}
+.job button{border:none;background:none;font-size:20px;color:var(--ink3);padding:0 4px}
+.job.done span{text-decoration:line-through;opacity:.6}
+.job .tick{width:30px;height:30px;border-radius:10px;border:3px solid var(--line);background:var(--card);font-size:16px;color:#fff;display:flex;align-items:center;justify-content:center;padding:0}
+.job.done .tick{background:#19C35A;border-color:#19C35A}
+.add-row{display:flex;gap:8px;margin-top:10px}
+.add-row .txt-in{flex:1;min-width:0;font-size:16px;padding:10px 12px}
+.add-row .btn3d{width:auto;padding:0 18px;min-height:48px;font-size:18px}
+.ideas{margin-top:12px}
+.ideas .chip{font-size:13.5px;padding:8px 11px}
+.empty{font-size:15px;color:var(--ink3);font-weight:800;margin-top:8px}
+
+/* ── KICKOFF ── */
+.joke{margin-top:6px;text-align:center}
+.joke-q{font-size:21px;font-weight:900;line-height:1.35;white-space:pre-line}
+.joke-a{font-family:var(--fd);font-size:26px;line-height:1.15;margin-top:14px;color:var(--ex-d)}
+.joke-tap{margin-top:14px}
+
+/* ── CHECK-IN ── */
+.rate{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.rate button{border:3px solid var(--line);border-radius:16px;background:var(--card);padding:12px 4px;font-weight:900;font-size:14px;
+display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:0 4px 0 var(--line)}
+.rate button span{font-size:28px;line-height:1}
+.rate button.on{border-color:var(--cap);background:color-mix(in srgb,var(--cap) 20%,var(--card));box-shadow:0 4px 0 var(--cap-d)}
+
+/* ── RECOVERY ── */
+.bed{display:flex;align-items:center;gap:14px}
+.bed .moon{font-size:44px}
+.bed-big{font-family:var(--fd);font-size:26px;line-height:1.1}
+.bed-p{font-size:15px;font-weight:800;color:var(--ink2);margin-top:4px;line-height:1.4}
+.plan{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+
+/* ── LIGHTS OUT ── */
+.lo{text-align:center}
+.lo-title{font-family:var(--fd);font-size:26px;margin-top:4px}
+.breath{position:relative;width:220px;height:220px;margin:16px auto 8px;display:flex;align-items:center;justify-content:center}
+.breath-ring{position:absolute;inset:0;border-radius:50%;border:3px dashed color-mix(in srgb,var(--med) 45%,transparent)}
+.breath-ball{width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7FE8DD,var(--med));
+box-shadow:0 0 40px color-mix(in srgb,var(--med) 60%,transparent);transform:scale(1);transition:transform 4s ease-in-out}
+.breath-ball.in{transform:scale(2.05)}
+.breath-cue{font-size:14px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--med);min-height:20px}
+.lo-line{font-size:21px;font-weight:900;line-height:1.4;min-height:88px;margin:10px 4px 0;transition:opacity .6s}
+.lo-dots{display:flex;justify-content:center;gap:6px;margin:6px 0 14px}
+.lo-dots i{width:9px;height:9px;border-radius:50%;background:var(--card2)}
+.lo-dots i.on{background:var(--med)}
+.lo-dots i.seen{background:color-mix(in srgb,var(--med) 50%,var(--card2))}
 
 /* ── PLACEHOLDER ── */
 .soon{text-align:center;padding:30px 18px}
@@ -230,6 +373,8 @@ background:var(--card2);color:var(--ink);outline:none}
 .seg button{flex:1;border:none;background:none;border-radius:12px;padding:11px 6px;font-weight:900;font-size:14px;color:var(--ink2)}
 .seg button.on{background:var(--card);color:var(--ink);box-shadow:0 3px 0 var(--line)}
 
+.srcs p{font-size:14px;color:var(--ink2);margin-bottom:10px;line-height:1.4}
+.srcs a{display:block;font-size:13.5px;font-weight:800;color:var(--edu);padding:7px 0;border-top:1px solid var(--line);text-decoration:none}
 /* confetti */
 #fx{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
 .cf{position:absolute;top:-20px;width:10px;height:14px;border-radius:3px;animation:fall linear forwards}
@@ -238,6 +383,8 @@ background:var(--card2);color:var(--ink);outline:none}
 background:var(--board);color:var(--gold);font-family:var(--fd);font-size:20px;padding:12px 20px;border-radius:18px;
 box-shadow:0 6px 0 rgba(0,0,0,.3);transition:transform .45s var(--spring);white-space:nowrap}
 .toast.on{transform:translate(-50%,0)}
+.hi{margin:0 0 14px;text-align:center}.hi-t{font-family:var(--fd);font-size:24px}.hi-p{color:var(--ink3);font-weight:700;margin:2px 0 12px}
+.hi-b{display:flex;gap:12px;justify-content:center;align-items:center}.hi-b .btn3d{width:auto;padding:12px 22px}
 #updateBar{position:fixed;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom) + 90px);z-index:40;border:none}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -250,6 +397,9 @@ box-shadow:0 6px 0 rgba(0,0,0,.3);transition:transform .45s var(--spring);white-
 <div class="hello" id="hello"></div>
 <button class="icon-btn" onclick="go('settings')" aria-label="Settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0-1.2-2.9H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 2.9-1.2V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0 1.2 2.9H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 </div>
+
+<div class="stk hi" id="jerseyHi" hidden><div class="hi-t">Make it your jersey!</div><div class="hi-p">Pick your name, number and color.</div>
+<div class="hi-b"><button class="btn3d" style="--c:var(--edu);--cd:var(--edu-d)" onclick="jerseyHi(true)">Pick mine</button><button class="skip-link" style="margin:0" onclick="jerseyHi(false)">Later</button></div></div>
 
 <div class="board" id="board">
 <div class="board-top">
@@ -304,37 +454,22 @@ const APP_VERSION='v4';
 
 /* ═══════════ CONTENT (written by tools/make_pack.py from content/) ═══════════ */
 const DEF_QUOTES=[
-"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing. | Pelé",
+"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do. | Pelé",
 "The more difficult the victory, the greater the happiness in winning. | Pelé",
-"Everything is practice. | Pelé",
 "You have to fight to reach your dream. You have to sacrifice and work hard for it. | Lionel Messi",
-"Talent without working hard is nothing. | Cristiano Ronaldo",
-"Playing football is very simple, but playing simple football is the hardest thing there is. | Johan Cruyff",
+"Talent is useless without hard work. Nothing falls from the skies. | Cristiano Ronaldo",
 "Every disadvantage has its advantage. | Johan Cruyff",
-"I am a member of a team, and I rely on the team, I defer to it and sacrifice for it, because the team, not the individual, is the ultimate champion. | Mia Hamm",
-"Always work hard, never give up, and fight until the end because it's never really over until the whistle blows. | Alex Morgan",
 "Make failure your fuel. | Abby Wambach",
-"Hard work will always overcome natural talent when natural talent does not work hard. | Sir Alex Ferguson",
 "I've missed more than 9,000 shots in my career. I've lost almost 300 games. 26 times I've been trusted to take the game-winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed. | Michael Jordan",
 "You miss 100% of the shots you don't take. | Wayne Gretzky",
-"It's not whether you get knocked down; it's whether you get up. | Vince Lombardi",
-"Hard work beats talent when talent doesn't work hard. | Tim Notke",
-"The day you think there is no improvements to be made is a sad one for any player. | Lionel Messi",
-"Practice does not make perfect. Only perfect practice makes perfect. | Vince Lombardi",
-"Perfection is not attainable, but if we chase perfection we can catch excellence. | Vince Lombardi",
-"Today I will do what others won't, so tomorrow I can accomplish what others can't. | Jerry Rice",
-"Pressure is something you feel when you don't know what you're doing. | Peyton Manning",
-"When you're good at something, you'll tell everyone. When you're great at something, they'll tell you. | Walter Payton",
-"Enthusiasm is everything. It must be taut and vibrating like a guitar string. | Pelé",
-"I've always believed that if you put in the work, the results will come. | David Beckham",
-"We have to change from doubters to believers. | Jürgen Klopp",
-"You can overcome anything, if and only if you love something enough. | Lionel Messi"
+"We are going to relentlessly chase perfection, knowing full well we will not catch it. But in the process we will catch excellence. | Vince Lombardi",
+"You have to change from doubters to believers. | Jürgen Klopp"
 ];
 const FOOD_GROUPS=[
 {"k":"fruit","name":"Fruits","c":"#F0443A","does":"Fruits give you vitamins, like vitamin C, plus potassium and fiber.","tip":"Make half your plate fruits and veggies, and eat mostly whole fruit, not juice.","src":["fruit","halfplate"]},
 {"k":"veg","name":"Vegetables","c":"#22A845","does":"Veggies give you vitamins, like vitamin A for your eyes, plus fiber.","tip":"Vary your veggies: eat lots of different colors.","src":["vita","beans","groups"]},
 {"k":"grain","name":"Grains","c":"#F08A1C","does":"Grains give you carbohydrates, your body's main source of energy.","tip":"Make at least half your grains whole grains.","src":["carbs","whole"]},
-{"k":"protein","name":"Protein","c":"#8B5CF6","does":"Protein helps your body build and repair muscles and other tissue.","tip":"Vary your protein: try beans, eggs, fish, nuts and more.","src":["protein_body","protein"]},
+{"k":"protein","name":"Protein","c":"#8B5CF6","does":"Protein helps your body build and repair muscles.","tip":"Vary your protein: try beans, eggs, fish, nuts and more.","src":["protein_body","protein"]},
 {"k":"dairy","name":"Dairy","c":"#2F7BF0","does":"Dairy gives you calcium, which builds strong bones and teeth.","tip":"Choose milk, yogurt, cheese or fortified soy milk.","src":["calcium","dairy"]}
 ];
 const FOODS=[
@@ -390,12 +525,34 @@ const FOODS=[
 const FOOD_NUGGETS={
 "fruit":[["Fruit can be fresh, frozen, canned or dried, and it all counts.","fruit"],["Whole fruit gives you more fiber than juice, so MyPlate says to eat mostly whole fruit.","fruit"],["Oranges and strawberries have vitamin C. Your body uses it to heal cuts and scrapes.","vitc"],["Bananas have potassium. Your muscles need it to work.","potassium"],["MyPlate says to make half your plate fruits and vegetables.","halfplate"]],
 "veg":[["Carrots and sweet potatoes have vitamin A. Your eyes need it to see.","vita"],["MyPlate sorts veggies into teams: dark green, red and orange, beans and peas, starchy, and other.","veg"],["Broccoli and spinach are on the dark green team.","veg"],["Corn, potatoes and green peas are starchy vegetables.","veg"],["MyPlate says to make half your plate fruits and vegetables.","halfplate"]],
-"grain":[["Grains give you carbohydrates, your body's main source of energy.","carbs"],["A whole grain keeps all three parts of the seed: the bran, the germ and the endosperm.","whole"],["Popcorn is a whole grain!","popcorn"],["MyPlate says to make at least half your grains whole grains, like oatmeal and brown rice.","whole"]],
+"grain":[["Grains give you carbohydrates, your body's main source of energy.","carbs"],["Whole grains use the whole seed. They're a good source of fiber.","whole"],["Popcorn is a whole grain!","popcorn"],["MyPlate says to make at least half your grains whole grains, like oatmeal and brown rice.","whole"]],
 "protein":[["Protein helps your body build and repair muscles.","protein_body"],["Iron, in meat and beans, helps your blood carry oxygen to your muscles.","iron"],["Beans, peas and lentils are on two teams. They count as a vegetable or a protein.","beans"],["Protein foods aren't just meat. Eggs, beans, nuts, seeds and tofu count too.","protein"]],
 "dairy":[["Almost all the calcium in your body is in your bones and teeth.","calcium"],["Vitamin D helps your body soak up calcium.","vitd"],["Butter and cream cheese are made from milk, but they're not in the Dairy group. They have little calcium.","dairy"],["Fortified soy milk counts in the Dairy group too.","dairy"]]
 };
 const FOOD_EXTRAS=[
 ["MyPlate replaced the old food pyramid in 2011.","since2011"]
+];
+const FOOD_QUIZ=[
+{"q":"Which group gives you calcium for strong bones and teeth?","c":["Dairy","Fruits","Grains"],"why":"Milk, yogurt and cheese have calcium. Almost all the calcium in your body is in your bones and teeth.","src":"calcium"},
+{"q":"What is your body's main source of energy?","c":["Carbohydrates","Calcium","Vitamin A"],"why":"Your body turns carbs into a sugar called glucose, its main fuel. Grains are full of carbs.","src":"carbs"},
+{"q":"Which group helps build and repair your muscles?","c":["Protein","Fruits","Grains"],"why":"Protein helps your body repair cells and make new ones, like when your muscles grow.","src":"protein_body"},
+{"q":"Iron helps your blood carry something to your muscles. What is it?","c":["Oxygen","Water","Calcium"],"why":"Iron is part of hemoglobin, which carries oxygen from your lungs to the rest of your body.","src":"iron"},
+{"q":"Which vitamin helps your body soak up calcium?","c":["Vitamin D","Vitamin C","Vitamin A"],"why":"Vitamin D helps your body absorb calcium, so the two work as a team for strong bones.","src":"vitd"},
+{"q":"Carrots and sweet potatoes have a vitamin your eyes need. Which one?","c":["Vitamin A","Vitamin D","Iron"],"why":"Vitamin A is important for good vision.","src":"vita"},
+{"q":"Which vitamin helps your body heal cuts and scrapes?","c":["Vitamin C","Vitamin D","Calcium"],"why":"Your body uses vitamin C to make collagen, which helps wounds heal. Oranges and strawberries have lots.","src":"vitc"},
+{"q":"MyPlate says half your plate should be what?","c":["Fruits and vegetables","Grains and protein","Dairy and grains"],"why":"Make half your plate fruits and vegetables. That's MyPlate's number one tip.","src":"halfplate"},
+{"q":"Beans can count in two food groups. Which two?","c":["Vegetables and Protein","Grains and Dairy","Fruits and Protein"],"why":"Beans, peas and lentils are on two teams: they count as a vegetable or a protein.","src":"beans"},
+{"q":"Which one is a whole grain?","c":["Popcorn","White bread","Cheese"],"why":"Popcorn is a whole grain! White bread is a refined grain, and cheese is dairy.","src":["popcorn","whole"]},
+{"q":"Butter is made from milk. Is it in the Dairy group?","c":["No","Yes"],"why":"No. Butter and cream cheese have little calcium, so MyPlate leaves them out of the Dairy group.","src":"dairy"},
+{"q":"Which of these counts as fruit?","c":["Raisins","Corn","Popcorn"],"why":"Dried fruit counts as fruit. Corn is a vegetable, and popcorn is a grain.","src":"fruit"},
+{"q":"Which has more fiber?","c":["A whole apple","Apple juice"],"why":"Whole fruit gives you fiber. That's why MyPlate says to eat mostly whole fruit, not juice.","src":"fruit"},
+{"q":"Which one is NOT in the Protein group?","c":["Cheese","Eggs","Peanut butter"],"why":"Cheese is in the Dairy group. Eggs and peanut butter are protein foods.","src":"dairy"},
+{"q":"Broccoli and spinach are on which vegetable team?","c":["Dark green","Starchy","Red and orange"],"why":"MyPlate sorts vegetables into teams. Broccoli and spinach are dark green.","src":"veg"},
+{"q":"Potatoes, corn and green peas are what kind of vegetable?","c":["Starchy","Dark green","Red and orange"],"why":"They're starchy vegetables, but they're still vegetables.","src":"veg"},
+{"q":"Where is almost all of the calcium in your body?","c":["Your bones and teeth","Your muscles","Your blood"],"why":"Almost all of it is stored in your bones and teeth, giving them their strength.","src":"calcium"},
+{"q":"Is fortified soy milk in the Dairy group?","c":["Yes","No"],"why":"Yes. Fortified soy milk counts in the Dairy group.","src":"dairy"},
+{"q":"Bananas have potassium. What does your body need it for?","c":["Your muscles to work","Seeing in the dark","Growing hair"],"why":"Potassium helps your muscles work, including your heart.","src":"potassium"},
+{"q":"What did MyPlate replace in 2011?","c":["The food pyramid","The food circle","The food ladder"],"why":"The USDA swapped the food pyramid for MyPlate in 2011.","src":"since2011"}
 ];
 const FOOD_SRC={
 "groups":["USDA: All About MyPlate Food Groups","https://www.usda.gov/about-usda/news/blog/back-basics-all-about-myplate-food-groups"],
@@ -424,14 +581,14 @@ const TRIVIA=[
 {"s":"soccer","q":"What color card does a referee show to send a player off?","c":["Red","Yellow","Green","Blue"],"f":"Two yellow cards in the same game add up to a red, and the team plays with one fewer player."},
 {"s":"soccer","q":"How far is the penalty spot from the goal line?","c":["12 yards","6 yards","18 yards","20 yards"],"f":"That's 11 meters. The goalkeeper has to keep at least part of one foot on the line until the ball is kicked."},
 {"s":"soccer","q":"The ball goes over the goal line, but not in the goal, and an attacker touched it last. What's the restart?","c":["A goal kick","A corner kick","A throw-in","A penalty"],"f":"If a defender touched it last, the attacking team gets a corner kick instead."},
-{"s":"soccer","q":"A defender touches the ball last before it goes over their own goal line (not in the goal). What does the other team get?","c":["A corner kick","A goal kick","A penalty","A free kick"],"f":"Corners are a great chance to score, especially with a big header."},
+{"s":"soccer","q":"A defender touches the ball last before it goes over their own goal line (not in the goal). What does the other team get?","c":["A corner kick","A goal kick","A penalty","A free kick"],"f":"Corners are a great chance to score."},
 {"s":"soccer","q":"How does a team restart play when the ball goes out over the sideline?","c":["A throw-in","A kick-in","A drop ball","A corner kick"],"f":"The thrower has to use both hands, bring the ball from behind the head, and keep both feet on the ground."},
 {"s":"soccer","q":"What is it called when a player scores three goals in one game?","c":["A hat-trick","A three-peat","A grand slam","A triple-double"],"f":"The phrase started in cricket in the 1800s, when a bowler who took three wickets in a row was given a hat."},
 {"s":"soccer","q":"When a goalkeeper doesn't let in a single goal all game, it's called a...?","c":["Clean sheet","Hat-trick","Brace","Nutmeg"],"f":"In the USA it's also called a shutout."},
 {"s":"soccer","q":"What is a \"nutmeg\"?","c":["Kicking the ball between a defender's legs","A spinning shot","A long throw-in","A diving header"],"f":"Players love doing it and hate having it done to them."},
-{"s":"soccer","q":"What is \"offside\"?","c":["Being closer to the goal than the last defender when the ball is passed to you","Kicking the ball out of bounds","Touching the ball with your hand","Standing in the center circle at kickoff"],"f":"You can't be offside in your own half, or straight from a throw-in, goal kick or corner kick."},
+{"s":"soccer","q":"What is \"offside\"?","c":["Being closer to the goal than the ball and the second-to-last defender when a teammate passes to you","Kicking the ball out of bounds","Touching the ball with your hand","Standing in the center circle at kickoff"],"f":"The goalkeeper usually counts as one of those last two defenders. You can't be offside in your own half, or straight from a throw-in, goal kick or corner kick."},
 {"s":"soccer","q":"At kickoff, where is the ball placed?","c":["On the center spot","On the penalty spot","In the corner arc","On the goal line"],"f":"Every player has to be in their own half until the ball is kicked."},
-{"s":"soccer","q":"How many substitutes can a team usually use in a top professional game today?","c":["5","3","2","11"],"f":"For many years it was only 3. The limit went up to 5 in 2020."},
+{"s":"soccer","q":"How many substitutes can a team usually use in a top professional game today?","c":["5","3","2","11"],"f":"For many years it was only 3. Five subs were first allowed in 2020 and made permanent in 2022."},
 {"s":"soccer","q":"What does \"VAR\" stand for?","c":["Video Assistant Referee","Very Accurate Ref","Video And Replay","Viewing Angle Review"],"f":"VAR was first used at a men's World Cup in 2018 in Russia."},
 {"s":"soccer","q":"If a knockout World Cup game is tied after extra time, what happens?","c":["A penalty shootout","The game is replayed","A coin toss","Both teams go through"],"f":"Each team takes five penalties. If it's still tied, they keep going one kick each until one team scores and the other misses."},
 {"s":"soccer","q":"What does the assistant referee (the linesman) carry?","c":["A flag","A whistle","A stopwatch","A red card only"],"f":"They raise the flag for offside, throw-ins and fouls the referee might miss."},
@@ -451,18 +608,18 @@ const TRIVIA=[
 {"s":"soccer","q":"Which country is Cristiano Ronaldo from?","c":["Portugal","Spain","Brazil","Italy"],"f":"He grew up on Madeira, a small island in the Atlantic Ocean."},
 {"s":"soccer","q":"Which MLS club did Lionel Messi join in 2023?","c":["Inter Miami","LA Galaxy","Seattle Sounders","Orlando City"],"f":"David Beckham is one of Inter Miami's owners."},
 {"s":"soccer","q":"What is the Ballon d'Or?","c":["An award for the best player in the world that year","A famous stadium in France","The World Cup trophy","A French soccer club"],"f":"The name is French for \"Golden Ball\"."},
-{"s":"soccer","q":"Which player has won the men's Ballon d'Or the most times?","c":["Lionel Messi","Cristiano Ronaldo","Pelé","Zinedine Zidane"],"f":"Messi has won it eight times."},
+{"s":"soccer","q":"Which player has won the men's Ballon d'Or the most times?","c":["Lionel Messi","Cristiano Ronaldo","Pelé","Zinedine Zidane"],"f":"Messi won it for the eighth time in 2023."},
 {"s":"soccer","q":"Which US player is nicknamed \"Captain America\"?","c":["Christian Pulisic","Landon Donovan","Clint Dempsey","Tim Howard"],"f":"He won the Champions League with Chelsea in 2021."},
 {"s":"soccer","q":"Harry Kane is the all-time top goalscorer for which national team?","c":["England","Scotland","Wales","Ireland"],"f":"He passed Wayne Rooney's record in 2023."},
 {"s":"soccer","q":"Which country does Erling Haaland play for?","c":["Norway","Sweden","Denmark","Germany"],"f":"His dad, Alf-Inge Haaland, also played in England's Premier League."},
 {"s":"soccer","q":"Which country does Kylian Mbappé play for?","c":["France","Belgium","Spain","Cameroon"],"f":"He won the World Cup with France when he was only 19."},
-{"s":"soccer","q":"Which country is Mohamed Salah from?","c":["Egypt","Morocco","Senegal","Algeria"],"f":"Fans in Egypt treat him like a superhero."},
-{"s":"soccer","q":"What is the top soccer league in England called?","c":["The Premier League","La Liga","Serie A","The Bundesliga"],"f":"It started in 1992, and it's watched in more countries than any other league."},
+{"s":"soccer","q":"Which country is Mohamed Salah from?","c":["Egypt","Morocco","Senegal","Algeria"],"f":"He grew up in a small village in Egypt called Nagrig."},
+{"s":"soccer","q":"What is the top soccer league in England called?","c":["The Premier League","La Liga","Serie A","The Bundesliga"],"f":"It started in 1992, and 20 teams play in it each season."},
 {"s":"soccer","q":"La Liga is the top soccer league in which country?","c":["Spain","Italy","France","Portugal"],"f":"Real Madrid and Barcelona are its two most famous clubs."},
 {"s":"soccer","q":"LA Galaxy, Seattle Sounders and Inter Miami all play in which league?","c":["MLS","NWSL","The Premier League","La Liga"],"f":"Major League Soccer played its first season in 1996."},
 {"s":"soccer","q":"What is the name of the tournament for the best club teams in Europe?","c":["The Champions League","The Gold Cup","The Copa América","The Premier League"],"f":"Its famous anthem plays before every game."},
 {"s":"soccer","q":"Which club has won the European Cup, now called the Champions League, more times than any other?","c":["Real Madrid","Barcelona","Bayern Munich","Liverpool"],"f":"Their home stadium is the Santiago Bernabéu in Madrid."},
-{"s":"soccer","q":"Which club plays its home games at the Camp Nou?","c":["Barcelona","Real Madrid","Atlético Madrid","Valencia"],"f":"It's one of the biggest stadiums in the world."},
+{"s":"soccer","q":"Which club plays its home games at the Camp Nou?","c":["Barcelona","Real Madrid","Atlético Madrid","Valencia"],"f":"Barcelona moved back into the rebuilt Camp Nou in November 2025."},
 {"s":"soccer","q":"What are the big matches between Real Madrid and Barcelona called?","c":["El Clásico","The Derby","The Old Firm","The Super Bowl"],"f":"The Old Firm is the rivalry between Celtic and Rangers in Scotland."},
 {"s":"soccer","q":"Which English club is nicknamed \"The Red Devils\"?","c":["Manchester United","Liverpool","Arsenal","Chelsea"],"f":"They play at Old Trafford in Manchester."},
 {"s":"soccer","q":"Which London club is nicknamed \"The Gunners\"?","c":["Arsenal","Chelsea","Tottenham","West Ham"],"f":"The club was started in 1886 by workers at the Royal Arsenal, a factory that made weapons."},
@@ -479,7 +636,7 @@ const TRIVIA=[
 {"s":"football","q":"How many downs does the offense get to go 10 yards?","c":["4","3","5","6"],"f":"Most teams punt on fourth down if they're far from a first down."},
 {"s":"football","q":"How many players does each team have on the field in the NFL?","c":["11","9","12","10"],"f":"The same as soccer! But in football, teams swap in whole groups: one for offense, one for defense."},
 {"s":"football","q":"How long is an NFL field from one goal line to the other?","c":["100 yards","80 yards","120 yards","90 yards"],"f":"Add the two 10-yard end zones and it's 120 yards long."},
-{"s":"football","q":"How long is an NFL game, on the game clock?","c":["60 minutes","90 minutes","48 minutes","40 minutes"],"f":"Four quarters of 15 minutes. With all the stops, a game usually takes more than three hours."},
+{"s":"football","q":"How long is an NFL game, on the game clock?","c":["60 minutes","90 minutes","48 minutes","40 minutes"],"f":"Four quarters of 15 minutes each."},
 {"s":"football","q":"What is it called when the defense tackles the quarterback behind the line of scrimmage?","c":["A sack","A block","A fumble","A punt"],"f":"Sacks became an official NFL stat in 1982."},
 {"s":"football","q":"What is it called when a defender catches a pass meant for the other team?","c":["An interception","A fumble","A touchback","A safety"],"f":"If they run it back for a touchdown, people call it a pick-six."},
 {"s":"football","q":"What is it called when a player drops the ball while it's still in play?","c":["A fumble","An interception","A sack","A punt"],"f":"Either team can grab a fumble."},
@@ -490,25 +647,25 @@ const TRIVIA=[
 {"s":"football","q":"What happens if an NFL game is tied after four quarters?","c":["They play overtime","It ends in a tie right away","A coin toss decides it","They kick field goals until someone misses"],"f":"In the playoffs they keep playing until somebody wins."},
 {"s":"football","q":"Which position throws most of the passes?","c":["Quarterback","Running back","Tight end","Linebacker"],"f":"The quarterback is often called the QB."},
 {"s":"football","q":"Which player kicks field goals?","c":["The kicker","The quarterback","The punter","The center"],"f":"The punter is a different player. He kicks the ball away on fourth down."},
-{"s":"football","q":"What does NFL stand for?","c":["National Football League","North Football League","National Field League","New Football League"],"f":"The league started in 1920."},
-{"s":"football","q":"What is the NFL's championship game called?","c":["The Super Bowl","The World Series","The Stanley Cup","The Rose Bowl"],"f":"It's played in early February, and more people watch it than almost anything else on TV in America."},
+{"s":"football","q":"What does NFL stand for?","c":["National Football League","North Football League","National Field League","New Football League"],"f":"The league played its first season in 1920."},
+{"s":"football","q":"What is the NFL's championship game called?","c":["The Super Bowl","The World Series","The Stanley Cup","The Rose Bowl"],"f":"It's played in early February."},
 {"s":"football","q":"What is the Super Bowl trophy called?","c":["The Vince Lombardi Trophy","The Stanley Cup","The Heisman Trophy","The Larry O'Brien Trophy"],"f":"It's named after the coach whose Green Bay Packers won the first two Super Bowls."},
 {"s":"football","q":"Which player has won the most Super Bowls?","c":["Tom Brady","Joe Montana","Peyton Manning","Patrick Mahomes"],"f":"Seven: six with the New England Patriots and one with the Tampa Bay Buccaneers."},
 {"s":"football","q":"Who has thrown for the most yards and touchdowns in NFL history?","c":["Tom Brady","Peyton Manning","Drew Brees","Brett Favre"],"f":"He threw 649 touchdown passes in the regular season."},
 {"s":"football","q":"Patrick Mahomes won his first Super Bowl with which team?","c":["Kansas City Chiefs","Buffalo Bills","Dallas Cowboys","Texas Tech"],"f":"He also played baseball growing up. His dad was a Major League pitcher."},
 {"s":"football","q":"Which team won the Super Bowl in February 2024?","c":["Kansas City Chiefs","San Francisco 49ers","Philadelphia Eagles","Baltimore Ravens"],"f":"They beat the 49ers 25-22 in overtime, only the second Super Bowl ever to go to overtime."},
 {"s":"football","q":"Which team won the Super Bowl in February 2025?","c":["Philadelphia Eagles","Kansas City Chiefs","Buffalo Bills","Detroit Lions"],"f":"They beat the Kansas City Chiefs 40-22."},
-{"s":"football","q":"Which two NFL teams host a game every Thanksgiving?","c":["Detroit Lions and Dallas Cowboys","Chicago Bears and Green Bay Packers","New York Giants and Jets","Kansas City Chiefs and Denver Broncos"],"f":"The Lions have played on Thanksgiving since 1934."},
+{"s":"football","q":"Which two NFL teams host a game every Thanksgiving?","c":["Detroit Lions and Dallas Cowboys","Chicago Bears and Green Bay Packers","New York Giants and Jets","Kansas City Chiefs and Denver Broncos"],"f":"The Lions' Thanksgiving tradition started in 1934."},
 {"s":"football","q":"Fans of which NFL team wear foam \"cheesehead\" hats?","c":["Green Bay Packers","Chicago Bears","Minnesota Vikings","Buffalo Bills"],"f":"Wisconsin, where Green Bay is, is famous for making cheese."},
 {"s":"football","q":"Which NFL team has a star on its helmet?","c":["Dallas Cowboys","Houston Texans","Arizona Cardinals","New York Giants"],"f":"The Cowboys are often called \"America's Team\"."},
-{"s":"football","q":"Which NFL team has a horseshoe on its helmet?","c":["Indianapolis Colts","Denver Broncos","Kansas City Chiefs","Las Vegas Raiders"],"f":"A horseshoe is meant to bring good luck."},
+{"s":"football","q":"Which NFL team has a horseshoe on its helmet?","c":["Indianapolis Colts","Denver Broncos","Kansas City Chiefs","Las Vegas Raiders"],"f":"The horseshoe goes back to 1953, when the team started in Baltimore, a city known for horse racing."},
 {"s":"football","q":"How many teams are in the NFL?","c":["32","30","28","36"],"f":"They're split into two conferences, the AFC and the NFC, and the winners meet in the Super Bowl."},
 {"s":"football","q":"Is the Super Bowl played in the same stadium every year?","c":["No, a different city hosts it each year","Yes, always in Miami","Yes, always in Los Angeles","It's played at the home of the better team"],"f":"Cities are chosen years in advance."},
-{"s":"more","q":"How many players does each basketball team have on the court?","c":["5","6","7","4"],"f":"Five players, but an NBA team can have up to 15 on the roster.","l":"Basketball"},
+{"s":"more","q":"How many players does each basketball team have on the court?","c":["5","6","7","4"],"f":"That makes ten players on the court at once.","l":"Basketball"},
 {"s":"more","q":"How many points is a shot from behind the three-point line worth?","c":["3","2","4","1"],"f":"The NBA added the three-point line in 1979.","l":"Basketball"},
 {"s":"more","q":"Who is the NBA's all-time leading scorer?","c":["LeBron James","Kareem Abdul-Jabbar","Michael Jordan","Kobe Bryant"],"f":"He passed Kareem Abdul-Jabbar's record in 2023.","l":"Basketball"},
 {"s":"more","q":"Michael Jordan won six NBA championships with which team?","c":["Chicago Bulls","Los Angeles Lakers","Boston Celtics","Washington Wizards"],"f":"He won three in a row twice: 1991-93 and 1996-98.","l":"Basketball"},
-{"s":"more","q":"Who has made the most three-pointers in NBA history?","c":["Stephen Curry","Ray Allen","Klay Thompson","James Harden"],"f":"He changed the way basketball is played. Now everyone shoots threes.","l":"Basketball"},
+{"s":"more","q":"Who has made the most three-pointers in NBA history?","c":["Stephen Curry","Ray Allen","Klay Thompson","James Harden"],"f":"He was the first NBA player to make 4,000 three-pointers.","l":"Basketball"},
 {"s":"more","q":"What is \"traveling\" in basketball?","c":["Taking too many steps without dribbling","Throwing the ball out of bounds","Fouling a shooter","Holding the ball too long"],"f":"The other team gets the ball.","l":"Basketball"},
 {"s":"more","q":"How many strikes make an out?","c":["3","2","4","5"],"f":"A foul ball counts as a strike, but usually can't be strike three.","l":"Baseball"},
 {"s":"more","q":"How many innings are in a normal Major League game?","c":["9","7","10","6"],"f":"If it's tied after nine, they keep playing extra innings.","l":"Baseball"},
@@ -518,7 +675,7 @@ const TRIVIA=[
 {"s":"more","q":"What trophy does the NHL champion win?","c":["The Stanley Cup","The Lombardi Trophy","The Gold Cup","The Commissioner's Trophy"],"f":"Every player on the winning team gets to spend a day with the Cup.","l":"Hockey"},
 {"s":"more","q":"What do hockey players hit instead of a ball?","c":["A puck","A birdie","A disc","A shuttle"],"f":"Pucks are frozen before games so they don't bounce as much.","l":"Hockey"},
 {"s":"more","q":"Which hockey player is known as \"The Great One\"?","c":["Wayne Gretzky","Sidney Crosby","Alex Ovechkin","Connor McDavid"],"f":"He has more points than any player in NHL history.","l":"Hockey"},
-{"s":"more","q":"How many rings are on the Olympic flag?","c":["5","4","6","7"],"f":"They stand for the five parts of the world that take part in the Olympics.","l":"Olympics"},
+{"s":"more","q":"How many rings are on the Olympic flag?","c":["5","4","6","7"],"f":"They stand for five continents coming together for the Games.","l":"Olympics"},
 {"s":"more","q":"Which swimmer has won the most Olympic gold medals ever?","c":["Michael Phelps","Katie Ledecky","Mark Spitz","Caeleb Dressel"],"f":"He won 23 golds and 28 medals in total.","l":"Olympics"},
 {"s":"more","q":"Usain Bolt, the fastest man ever over 100 meters, is from which country?","c":["Jamaica","USA","Kenya","Canada"],"f":"His world record is 9.58 seconds, set in 2009.","l":"Olympics"},
 {"s":"more","q":"What sport is Simone Biles famous for?","c":["Gymnastics","Swimming","Figure skating","Track"],"f":"She's won more world and Olympic medals than any other gymnast in history.","l":"Olympics"},
@@ -535,7 +692,7 @@ const TRIVIA=[
 {"s":"soccer","q":"Lionel Messi played most of his career for which club?","c":["Barcelona","Real Madrid","Manchester United","Bayern Munich"],"f":"He scored more than 600 goals for Barcelona."},
 {"s":"soccer","q":"Which English club did Erling Haaland join in 2022?","c":["Manchester City","Liverpool","Arsenal","Chelsea"],"f":"He scored 36 Premier League goals in his first season, a new record."},
 {"s":"soccer","q":"What is Erling Haaland's famous goal celebration?","c":["Sitting cross-legged like he's meditating","A backflip","Sucking his thumb","Pretending to call someone on the phone"],"f":"It looks like meditation, and it's become his trademark."},
-{"s":"soccer","q":"When Cristiano Ronaldo scores, he jumps, spins and shouts what?","c":["Siu!","Goal!","Olé!","Vamos!"],"f":"It sounds like \"sí\", Spanish for \"yes\". Kids all over the world copy it."},
+{"s":"soccer","q":"When Cristiano Ronaldo scores, he jumps, spins and shouts what?","c":["Siu!","Goal!","Olé!","Vamos!"],"f":"Ronaldo says it just means \"yes!\" He first did it in 2013."},
 {"s":"soccer","q":"Which English club did Mohamed Salah join in 2017?","c":["Liverpool","Chelsea","Arsenal","Tottenham"],"f":"Fans sing songs about him at Anfield."},
 {"s":"soccer","q":"Which club did Kylian Mbappé join in 2024?","c":["Real Madrid","Barcelona","Liverpool","Bayern Munich"],"f":"He'd played for Paris Saint-Germain before that."},
 {"s":"soccer","q":"The FIFA video games got a new name in 2023. What are they called now?","c":["EA Sports FC","FIFA Ultimate","World Soccer","Goal 24"],"f":"The games are made by EA Sports. FC stands for Football Club."},
@@ -559,15 +716,16 @@ const TRIVIA=[
 {"s":"football","q":"Who blocks to protect the quarterback?","c":["The offensive line","The cornerbacks","The kickers","The referees"],"f":"There are five of them, and they're usually the biggest players on the team."},
 {"s":"football","q":"In the NFL Draft, which team usually gets the very first pick?","c":["The team with the worst record","The Super Bowl winner","The team with the best record","A random team"],"f":"It's meant to help the weakest teams get better."},
 {"s":"football","q":"What is the two-minute warning?","c":["A break when there are 2 minutes left in each half","A penalty for being slow","Two minutes before kickoff","A warning for arguing with the referee"],"f":"Teams use it to plan their last plays."},
-{"s":"football","q":"A football is often nicknamed what?","c":["A pigskin","A melon","A rocket","A cowhide"],"f":"Footballs are actually made of cowhide leather now."},
-{"s":"football","q":"How many laces are on an NFL football?","c":["8","4","6","12"],"f":"The laces help the quarterback grip the ball and make it spin."},
-{"s":"football","q":"The Denver Broncos' stadium is nicknamed after the city's height. What's it called?","c":["Mile High","Sky Field","Mountain Dome","Cloud Nine"],"f":"Denver is one mile above sea level. The air is thinner, so kicks fly a little farther."},
+{"s":"football","q":"A football is often nicknamed what?","c":["A pigskin","A melon","A rocket","A brick"],"f":"Footballs are actually made of cowhide leather now."},
+{"s":"football","q":"The Denver Broncos' stadium is nicknamed after the city's height. What's it called?","c":["Mile High","Sky Field","Mountain Dome","Cloud Nine"],"f":"Denver is about one mile above sea level. That's why it's called the Mile High City."},
 {"s":"football","q":"In February 2020, Patrick Mahomes won his first Super Bowl by beating which team?","c":["San Francisco 49ers","Philadelphia Eagles","Buffalo Bills","Tampa Bay Buccaneers"],"f":"The Chiefs were losing in the fourth quarter and came back to win 31-20."},
 {"s":"football","q":"Travis Kelce became famous playing which position for the Chiefs?","c":["Tight end","Quarterback","Kicker","Running back"],"f":"A tight end blocks like a lineman and catches passes like a receiver."},
 {"s":"football","q":"Which NFL team plays in Jacksonville, Florida?","c":["Jaguars","Panthers","Dolphins","Buccaneers"],"f":"Florida has three NFL teams: the Jaguars, the Dolphins and the Buccaneers."},
 {"s":"football","q":"What is the kick that starts each half called?","c":["The kickoff","The punt","The field goal","The extra point"],"f":"A kickoff also happens after every touchdown and field goal."},
 {"s":"football","q":"What is a pick-six?","c":["An interception returned for a touchdown","A six-yard run","The sixth pick in the draft","A field goal from six yards"],"f":"\"Pick\" is another word for an interception, and a touchdown is worth 6."},
-{"s":"football","q":"What is the Pro Bowl?","c":["The NFL's all-star game","The first game of the season","A bowling game for players","The college championship"],"f":"Fans, players and coaches vote on who gets picked."}
+{"s":"soccer","q":"Which country won the 2026 men's World Cup?","c":["Spain","Argentina","France","Brazil"],"f":"Spain beat Argentina 1-0 in extra time in the final in New Jersey. It was Spain's second World Cup. The first was in 2010."},
+{"s":"football","q":"Which team won the Super Bowl in February 2026?","c":["Seattle Seahawks","New England Patriots","Kansas City Chiefs","Philadelphia Eagles"],"f":"The Seahawks beat the Patriots 29-13 for their second Super Bowl title."},
+{"s":"football","q":"What is the Pro Bowl?","c":["The NFL's all-star game","The first game of the season","A bowling game for players","The college championship"],"f":"Fans, players and coaches all vote. Since 2023 it's been played as flag football."}
 ];
 const TRV_SPORT={
 "soccer":"Soccer",
@@ -614,7 +772,7 @@ const WHOAMI=[
 {"s":"football","clues":["I won a college national championship at LSU in 2019.","My touchdown dance, the Griddy, got copied all over the world.","I'm a wide receiver for the Minnesota Vikings."],"c":["Justin Jefferson","Ja'Marr Chase","CeeDee Lamb","Tyreek Hill"],"f":"In 2022 he led the NFL with 1,809 receiving yards and was named Offensive Player of the Year."},
 {"s":"football","clues":["I played college football at Penn State.","I started my NFL career with the New York Giants.","In 2024 I ran for over 2,000 yards for the Philadelphia Eagles."],"c":["Saquon Barkley","Derrick Henry","Christian McCaffrey","Jalen Hurts"],"f":"The Eagles won the Super Bowl at the end of that 2024 season."},
 {"s":"football","clues":["We won the first two Super Bowls ever played.","Our fans wear foam cheese on their heads.","We play at Lambeau Field in Green Bay, Wisconsin."],"c":["Green Bay Packers","Chicago Bears","Minnesota Vikings","Detroit Lions"],"f":"The Packers are the only NFL team owned by their fans, not by one rich owner."},
-{"s":"football","clues":["We play in Arlington, Texas, under a giant video board.","We have a blue star on our helmets.","People call us \"America's Team\"."],"c":["Dallas Cowboys","Houston Texans","Philadelphia Eagles","New York Giants"],"f":"The nickname \"America's Team\" came from a team highlight film in 1979."},
+{"s":"football","clues":["We play in Arlington, Texas, under a giant video board.","We have a blue star on our helmets.","People call us \"America's Team\"."],"c":["Dallas Cowboys","Houston Texans","Philadelphia Eagles","New York Giants"],"f":"The nickname \"America's Team\" came from the team's 1978 highlight film."},
 {"s":"football","clues":["Our logo comes from a symbol used by the steel industry.","Our fans wave the Terrible Towel.","We play in Pittsburgh, in black and gold."],"c":["Pittsburgh Steelers","Baltimore Ravens","Cleveland Browns","Cincinnati Bengals"],"f":"The Steelers are the only NFL team with their logo on just one side of the helmet."},
 {"s":"football","clues":["We started out in Dallas, as the Dallas Texans.","Our stadium, Arrowhead, is one of the loudest in the world.","Patrick Mahomes is our quarterback."],"c":["Kansas City Chiefs","Las Vegas Raiders","Denver Broncos","Los Angeles Chargers"],"f":"In 2014 Chiefs fans set a world record for the loudest crowd roar at an outdoor stadium."},
 {"s":"football","clues":["Our fans call themselves the 12th Man.","In 2011 our crowd cheered so hard for a touchdown run that it showed up on an earthquake sensor.","We play in Seattle, in blue and bright green."],"c":["Seattle Seahawks","San Francisco 49ers","Los Angeles Rams","Arizona Cardinals"],"f":"That run, by Marshawn Lynch, is called the \"Beast Quake\"."},
@@ -625,7 +783,7 @@ const WHOAMI=[
 {"s":"soccer","clues":["Our motto is \"More than a club\".","Our stadium is the Camp Nou.","We play in red and blue stripes, and Messi spent 17 seasons with us."],"c":["Barcelona","Real Madrid","Atlético Madrid","Sevilla"],"f":"Their academy, La Masia, produced Messi, Xavi, Iniesta and Lamine Yamal."},
 {"s":"soccer","clues":["Our stadium is the Santiago Bernabéu.","We play in all white and are nicknamed Los Blancos.","We've won the Champions League more times than any other club."],"c":["Real Madrid","Barcelona","Bayern Munich","Juventus"],"f":"They won the first five European Cups in a row, from 1956 to 1960."},
 {"s":"soccer","clues":["Our stadium is Anfield.","Our anthem is \"You'll Never Walk Alone\".","We play in red, in the English city where the Beatles came from."],"c":["Liverpool","Everton","Manchester United","Chelsea"],"f":"Fans have sung \"You'll Never Walk Alone\" before home games since the 1960s."},
-{"s":"soccer","clues":["Sir Alex Ferguson managed us for 26 years.","Our stadium, Old Trafford, is nicknamed the Theatre of Dreams.","We're the Red Devils."],"c":["Manchester United","Manchester City","Liverpool","Arsenal"],"f":"Under Ferguson they won 13 Premier League titles."},
+{"s":"soccer","clues":["Sir Alex Ferguson managed us for more than 25 years.","Our stadium, Old Trafford, is nicknamed the Theatre of Dreams.","We're the Red Devils."],"c":["Manchester United","Manchester City","Liverpool","Arsenal"],"f":"Under Ferguson they won 13 Premier League titles."},
 {"s":"soccer","clues":["We're nicknamed the Gunners.","We play at the Emirates Stadium in north London.","In 2003-04 we went a whole Premier League season without losing."],"c":["Arsenal","Chelsea","Tottenham Hotspur","West Ham United"],"f":"That team is called the Invincibles: 26 wins, 12 draws, no losses."},
 {"s":"soccer","clues":["We have played in every men's World Cup ever held.","We wear yellow shirts and blue shorts.","Pelé won three World Cups with us."],"c":["Brazil","Argentina","Portugal","Colombia"],"f":"Pelé, Ronaldo, Ronaldinho and Neymar all played for Brazil."},
 {"s":"soccer","clues":["We wear light blue and white stripes.","Diego Maradona led us to the 1986 World Cup.","Messi captained us to the 2022 World Cup."],"c":["Argentina","Uruguay","Brazil","Spain"],"f":"The 2022 final against France ended 3-3, and Argentina won on penalties. Many call it the best final ever."}
@@ -635,14 +793,14 @@ const PLAYS=[
 {"s":"soccer","name":"The overlap","what":"A teammate runs around the outside of the player with the ball.","how":["The winger has the ball near the sideline, with a defender in front.","A teammate sprints past on the outside.","The winger slides the ball into that teammate's path."],"why":"The defender has to choose: stay with the winger or chase the runner. Either way, someone gets free.","look":"Full-backs do this all the time. Look for a defender suddenly appearing in a wide attack.","d":{"p":[["u",60,16],["t",67,18],["u",44,8]],"b":[60,16],"a":[["run",45,7,80,5],["pass",61,15,78,6]]}},
 {"s":"soccer","name":"Switching the play","what":"A long pass from the crowded side of the field to the empty side.","how":["Your team has the ball on one side, and lots of defenders have moved over.","Look across the field for a teammate in space.","Play a long pass over to them."],"why":"Defenders slide toward the ball. Switching it fast catches them out, with lots of room on the other side.","look":"Look for a long diagonal pass across the field, then a player with time to run forward.","d":{"p":[["u",40,14],["t",48,9],["t",50,20],["t",56,13],["u",62,50]],"b":[40,14],"a":[["pass",41,16,61,48]]}},
 {"s":"soccer","name":"The through ball","what":"A pass into the space behind the defenders, for a teammate to run onto.","how":["A striker starts level with the last defender.","As the striker starts running, the passer plays the ball into the gap behind the defense.","The striker gets there first and is through on goal."],"why":"Defenders are facing the wrong way. The striker is already running toward goal, so they can't catch up.","look":"Watch strikers like Haaland time their runs. If they go too early, they're offside.","d":{"p":[["u",44,30],["t",64,20],["t",64,40],["u",58,36]],"b":[44,30],"a":[["run",59,36,81,27],["pass",45,30,80,27]]}},
-{"s":"soccer","name":"The press","what":"Chase the ball as a team the moment you lose it, to win it back near their goal.","how":["As soon as the other team gets the ball, the closest player rushes them.","Teammates close down the easy passes.","The player with the ball runs out of time and makes a mistake."],"why":"Winning the ball near their goal means you only have a short way to go to score.","look":"Teams like Liverpool and Barcelona are famous for it. Look for three players swarming the ball at once.","d":{"p":[["t",80,30],["t",88,18],["t",88,44],["u",68,30],["u",74,16],["u",74,46]],"b":[80,30],"a":[["run",69,30,78,30],["run",75,17,85,20],["run",75,45,85,42]]}},
+{"s":"soccer","name":"The press","what":"Chase the ball as a team the moment you lose it, to win it back near their goal.","how":["As soon as the other team gets the ball, the closest player rushes them.","Teammates close down the easy passes.","The player with the ball runs out of time and makes a mistake."],"why":"Winning the ball near their goal means you only have a short way to go to score.","look":"Liverpool under Jürgen Klopp and Barcelona under Pep Guardiola made it famous. Look for three players swarming the ball at once.","d":{"p":[["t",80,30],["t",88,18],["t",88,44],["u",68,30],["u",74,16],["u",74,46]],"b":[80,30],"a":[["run",69,30,78,30],["run",75,17,85,20],["run",75,45,85,42]]}},
 {"s":"soccer","name":"Staying compact","what":"When defending, the whole team stays close together.","how":["Defenders and midfielders form two lines.","Keep the lines close together, and move left and right as the ball moves.","Leave no big gaps for the other team to pass through."],"why":"If there are no gaps, the other team has to pass around you instead of through you, which is much harder.","look":"Watch a team defending a lead late in a game. Everyone is packed in front of their own goal.","d":{"p":[["u",22,18],["u",22,26],["u",22,34],["u",22,42],["u",32,20],["u",32,30],["u",32,40],["t",50,30]],"b":[50,30],"a":[]}},
 {"s":"soccer","name":"The offside trap","what":"Defenders step forward together just before a pass, leaving an attacker offside.","how":["The defenders stand in a straight line.","Just as the other team is about to pass, they all step up together.","The attacker is suddenly behind them, and the flag goes up for offside."],"why":"It wins the ball back without a tackle. But if one defender doesn't step up, the trick fails.","look":"Look for a line of defenders moving forward at the same moment, with their arms up appealing.","d":{"p":[["u",28,16],["u",28,26],["u",28,36],["u",28,46],["t",32,31],["t",46,28]],"b":[46,28],"a":[["run",29,16,37,16],["run",29,26,37,26],["run",29,36,37,36],["run",29,46,37,46]]}},
 {"s":"soccer","name":"Using the width","what":"Keep players near both sidelines to stretch the other team out.","how":["Two players stay very wide, near the sidelines.","Defenders have to spread out to watch them.","That opens gaps in the middle for passes and runs."],"why":"A spread-out defense has holes. A bunched-up attack is easy to defend.","look":"When a coach shouts \"Get wide!\", this is why.","d":{"p":[["u",60,4],["u",60,56],["u",48,30],["t",64,16],["t",64,44],["u",70,30]],"b":[48,30],"a":[["pass",49,29,69,30]]}},
 {"s":"soccer","name":"The third-man run","what":"Player one passes to player two, who flicks it on for player three, who was already running.","how":["Player one passes to player two.","Player three starts running before that pass even arrives.","Player two passes first time into player three's path."],"why":"Defenders watch the ball and the player near it. The third player's run is the one nobody is watching.","look":"It's a move top teams practise over and over. It looks like magic when it works.","d":{"p":[["u",36,40],["u",52,30],["u",46,50],["t",56,38]],"b":[36,40],"a":[["pass",37,39,51,31],["run",47,50,72,46],["pass",53,31,71,45]]}},
 {"s":"soccer","name":"The near-post run","what":"On a cross, an attacker sprints to the post closest to the ball.","how":["A winger gets ready to cross from near the end line.","An attacker sprints toward the near post.","The cross is whipped in low and hard, and the attacker gets there first."],"why":"Defenders and goalkeepers expect the ball to come to the middle. A quick run to the near post gets there before them.","look":"Watch corner kicks and crosses: one player always darts to the front post.","d":{"p":[["u",88,8],["u",74,30],["t",84,37],["t",97,30]],"b":[88,8],"a":[["run",75,30,92,24],["pass",88,9,93,23]]}},
-{"s":"soccer","name":"Shielding the ball","what":"Use your body to keep a defender away from the ball.","how":["Stand sideways between the defender and the ball.","Keep the ball on your far foot, away from them.","Use your arm for balance, not to push, and wait for help or a gap."],"why":"The defender can't reach the ball without going through you, which is a foul.","look":"Big strikers do this with their back to goal to hold the ball until teammates arrive.","d":{"p":[["u",50,30],["t",44,30],["u",64,20]],"b":[53,30],"a":[["pass",54,29,63,21]]}},
-{"s":"soccer","name":"The counter-attack","what":"Win the ball and attack fast, before the other team gets back.","how":["Your team wins the ball in its own half.","Pass forward quickly, as early as you can.","Teammates sprint forward to join in while the other team is out of position."],"why":"When a team attacks, its defenders move up. Win the ball then, and there's lots of space behind them.","look":"Some of the best goals happen 10 seconds after a team was defending.","d":{"p":[["u",28,30],["u",50,32],["u",40,14],["u",40,46],["t",33,39],["t",74,30]],"b":[28,30],"a":[["pass",29,30,48,32],["dribble",52,32,64,32],["run",41,14,74,20],["run",41,46,74,42]]}},
+{"s":"soccer","name":"Shielding the ball","what":"Use your body to keep a defender away from the ball.","how":["Stand sideways between the defender and the ball.","Keep the ball on your far foot, away from them.","Use your arm for balance, not to push, and wait for help or a gap."],"why":"The defender can't reach the ball without pushing past you, and pushing is a foul.","look":"Big strikers do this with their back to goal to hold the ball until teammates arrive.","d":{"p":[["u",50,30],["t",44,30],["u",64,20]],"b":[53,30],"a":[["pass",54,29,63,21]]}},
+{"s":"soccer","name":"The counter-attack","what":"Win the ball and attack fast, before the other team gets back.","how":["Your team wins the ball in its own half.","Pass forward quickly, as early as you can.","Teammates sprint forward to join in while the other team is out of position."],"why":"When a team attacks, its defenders move up. Win the ball then, and there's lots of space behind them.","look":"Some great goals come just seconds after a team was defending.","d":{"p":[["u",28,30],["u",50,32],["u",40,14],["u",40,46],["t",33,39],["t",74,30]],"b":[28,30],"a":[["pass",29,30,48,32],["dribble",52,32,64,32],["run",41,14,74,20],["run",41,46,74,42]]}},
 {"s":"soccer","name":"First touch away from pressure","what":"Control the ball into open space, away from the defender.","how":["Before the ball arrives, look over your shoulder to see where the defender is.","Use your first touch to push the ball away from them.","Now you have time to pass, shoot or dribble."],"why":"A great first touch buys you time. A bad one gives the ball away.","look":"Watch midfielders take a quick look before the ball comes. That's how they know where to touch it.","d":{"p":[["u",48,30],["t",55,26],["u",34,30]],"b":[48,30],"a":[["pass",35,30,47,30],["dribble",49,31,52,42]]}},
 {"s":"soccer","name":"The pass back to reset","what":"When everything is blocked, pass backwards and start again.","how":["You have the ball but defenders block every pass forward.","Instead of forcing it, pass back to a teammate.","They can switch the play or find a new way forward."],"why":"Keeping the ball is better than losing it. A pass back isn't giving up, it's choosing a better moment.","look":"Top teams pass backward a lot. They're waiting for the defense to make a mistake.","d":{"p":[["u",60,30],["t",68,21],["t",68,39],["t",67,30],["u",44,30]],"b":[60,30],"a":[["pass",59,30,45,30]]}},
 {"s":"soccer","name":"Playing out from the back","what":"The goalkeeper and defenders start attacks with short passes, not long kicks.","how":["The goalkeeper rolls or passes the ball to a defender.","The defenders pass between each other to find a free player.","The ball moves up the field one pass at a time."],"why":"A long kick is often lost. Short passes keep the ball and pull the other team out of shape.","look":"Watch the start of a goal kick: defenders spread wide and the keeper passes short.","d":{"p":[["u",4,30],["u",16,14],["u",16,46],["u",30,30],["t",24,20]],"b":[4,30],"a":[["pass",5,31,15,45],["pass",17,45,29,31]]}},
@@ -650,14 +808,14 @@ const PLAYS=[
 {"s":"football","name":"Play-action","what":"The quarterback fakes a handoff, then throws deep.","how":["The quarterback pretends to hand the ball to the running back.","The defense moves up to stop the run.","The quarterback pulls the ball back and throws over their heads."],"why":"If the defense believes it's a run, the receivers get open behind them.","look":"Look for the running back diving into the line without the ball, then a long pass.","d":{"p":[["u",40,30],["u",36,38],["u",46,8],["t",62,28]],"b":[40,30],"a":[["run",37,38,47,35],["run",61,28,55,30],["run",47,8,84,10],["pass",41,29,82,11]]}},
 {"s":"football","name":"The blitz","what":"The defense sends extra players to rush the quarterback.","how":["Usually only the defensive linemen rush the quarterback.","On a blitz, linebackers or defensive backs rush too.","There are more rushers than blockers, so someone gets a free run."],"why":"It can lead to a sack. But fewer players are left to cover receivers, so it's risky.","look":"Look for a defender sprinting through the line the moment the ball is snapped.","d":{"p":[["u",38,30],["u",46,25],["u",46,35],["t",54,25],["t",54,35],["t",60,12],["t",60,48]],"b":[38,30],"a":[["run",59,13,41,27],["run",59,47,41,33]]}},
 {"s":"football","name":"Man or zone coverage","what":"Two ways to guard receivers: follow one player, or guard an area.","how":["In man coverage, each defender sticks to one receiver wherever they go.","In zone coverage, each defender guards a patch of the field.","Quarterbacks look at the defense before the snap to figure out which it is."],"why":"Man coverage is tight but can be beaten by a fast player. Zone leaves gaps between the areas.","look":"If a defender follows a receiver all the way across the field, that's man coverage.","d":{"p":[["u",50,10],["u",50,50],["t",58,10],["t",58,50],["u",40,30]],"b":[40,30],"a":[["run",51,10,80,26],["run",59,11,78,25],["run",51,50,80,50],["run",59,50,78,50]]}},
-{"s":"football","name":"The slant","what":"A receiver takes a few steps, then cuts sharply toward the middle.","how":["The receiver runs straight for three steps.","He plants his outside foot and cuts in at an angle.","The quarterback throws it quickly, before the defender can react."],"why":"It's fast and hard to stop. The receiver's body shields the ball from the defender.","look":"It's one of the most common passes in the NFL, often on third and short.","d":{"p":[["u",50,12],["t",56,12],["u",42,30]],"b":[42,30],"a":[["run",51,12,58,12],["run",58,13,72,26],["pass",43,29,70,25]]}},
+{"s":"football","name":"The slant","what":"A receiver takes a few steps, then cuts sharply toward the middle.","how":["The receiver runs straight for three steps.","He plants his outside foot and cuts in at an angle.","The quarterback throws it quickly, before the defender can react."],"why":"It's fast and hard to stop. The receiver's body shields the ball from the defender.","look":"It's a quick pass you'll see a lot, especially when a team needs just a few yards.","d":{"p":[["u",50,12],["t",56,12],["u",42,30]],"b":[42,30],"a":[["run",51,12,58,12],["run",58,13,72,26],["pass",43,29,70,25]]}},
 {"s":"football","name":"The option","what":"The quarterback watches one defender, then decides to keep the ball or pitch it.","how":["The quarterback runs toward the edge with the running back behind him.","He watches the defender on the end.","If the defender comes at him, he pitches to the running back. If not, he keeps it and runs."],"why":"Whatever the defender does is wrong. He can't stop two players at once.","look":"Running quarterbacks love it. Look for a quick sideways toss right before a tackle.","d":{"p":[["u",40,26],["u",36,34],["t",60,38]],"b":[40,26],"a":[["run",41,27,54,38],["run",59,38,56,38],["run",37,35,58,54],["pass",54,39,56,52]]}},
 {"s":"football","name":"The draw","what":"It looks like a pass, but it's a run up the middle.","how":["The quarterback drops back like he's going to throw.","The pass rushers charge upfield toward him.","Then he hands the ball to the running back, who runs right through the gap they left."],"why":"Rushers who are chasing the quarterback are out of position to stop a run.","look":"Look for a late handoff after the quarterback has already dropped back.","d":{"p":[["u",40,30],["u",40,36],["u",46,26],["u",46,34],["t",54,24],["t",54,36],["t",64,22]],"b":[40,30],"a":[["run",39,30,34,30],["run",53,23,38,20],["run",53,37,38,42],["run",41,35,62,33]]}},
 {"s":"football","name":"The QB sneak","what":"On a very short distance, the quarterback takes the snap and pushes straight ahead.","how":["The offense needs only a yard or less.","The quarterback takes the snap from under center.","He lowers his shoulders and pushes straight forward behind the center."],"why":"It's the fastest way to gain a tiny bit of ground. The ball is across the line before the defense can react.","look":"Look for it on fourth and inches, often near the goal line.","d":{"p":[["u",43,30],["u",47,30],["u",47,23],["u",47,37],["t",53,26],["t",53,34]],"b":[43,30],"a":[["run",44,30,60,30]]}},
 {"s":"football","name":"The two-minute drill","what":"A hurry-up offense at the end of a half, racing the clock.","how":["The offense skips the huddle and plays fast.","Receivers catch the ball and step out of bounds to stop the clock.","The quarterback can spike the ball into the ground to stop the clock too."],"why":"Every second counts. A team can go the length of the field in under two minutes.","look":"Watch the last two minutes of a close game. It's when the best quarterbacks shine.","d":{"p":[["u",42,30],["u",50,10],["t",58,10]],"b":[42,30],"a":[["run",51,10,66,10],["run",66,10,72,3],["pass",43,29,71,4]]}},
-{"s":"football","name":"The onside kick","what":"A short kickoff the kicking team tries to get back.","how":["The kicker sends the ball bouncing along the ground.","It has to go at least 10 yards before the kicking team can touch it.","The kicking team races to grab it and keep the ball."],"why":"If it works, they get the ball back right after scoring. It's a big risk, so it's mostly used by a team that's losing.","look":"You'll see it when a team is behind late in the game and needs more time with the ball.","d":{"p":[["u",38,30],["u",40,14],["u",40,46],["t",56,20],["t",56,40]],"b":[38,30],"a":[["dribble",39,29,50,25],["run",41,14,50,21],["run",41,46,50,29]]}},
+{"s":"football","name":"The onside kick","what":"A short kickoff the kicking team tries to get back.","how":["The kicking team has to tell the referee first. In the NFL, surprise onside kicks aren't allowed.","The kicker sends the ball bouncing along the ground. It has to go at least 10 yards before the kicking team can touch it.","The kicking team races to grab it and keep the ball."],"why":"If it works, they keep the ball right after kicking off. If it fails, the other team gets the ball much closer to scoring than usual.","look":"You'll usually see it when a team is behind late in the game and needs the ball back.","d":{"p":[["u",38,30],["u",40,14],["u",40,46],["t",56,20],["t",56,40]],"b":[38,30],"a":[["dribble",39,29,50,25],["run",41,14,50,21],["run",41,46,50,29]]}},
 {"s":"football","name":"Double coverage","what":"Two defenders guard one dangerous receiver.","how":["One defender stays close to the receiver underneath.","A second defender stays deeper, over the top.","The receiver has nowhere to go, short or long."],"why":"It takes away the other team's best player. But it leaves someone else with only one defender.","look":"Look at where the defense puts two players. That's who they're most afraid of.","d":{"p":[["u",50,12],["t",57,17],["t",76,6],["u",40,30]],"b":[40,30],"a":[["run",51,12,80,13],["run",58,17,78,17],["run",77,6,82,9]]}},
-{"s":"football","name":"The red zone","what":"The area inside the other team's 20-yard line, close to scoring.","how":["The field gets short, so there's less room for long passes.","Teams use quick, accurate passes and strong runs.","A field goal is good, but a touchdown is the real goal."],"why":"Teams that score touchdowns in the red zone, instead of settling for field goals, win more games.","look":"TV graphics often shade the last 20 yards red.","d":{"p":[["u",74,30],["u",86,14],["t",90,18],["t",88,36]],"b":[74,30],"a":[["run",87,14,94,22],["pass",75,29,93,23]]}},
+{"s":"football","name":"The red zone","what":"The area inside the other team's 20-yard line, close to scoring.","how":["The field gets short, so there's less room for long passes.","Teams use quick, accurate passes and strong runs.","A field goal is good, but a touchdown is the real goal."],"why":"A touchdown is worth 6 points plus a try for more. A field goal is only 3. So getting into the end zone matters.","look":"Listen for commentators saying a team is \"in the red zone\". It means they're close to scoring.","d":{"p":[["u",74,30],["u",86,14],["t",90,18],["t",88,36]],"b":[74,30],"a":[["run",87,14,94,22],["pass",75,29,93,23]]}},
 {"s":"football","name":"The prevent defense","what":"Late in a game, the winning team plays deep to stop long passes.","how":["Defenders back up far from the line.","They let the offense complete short passes.","They stop anything deep, so the clock keeps running."],"why":"If you're ahead, giving up 5 yards is fine. Giving up a touchdown is not.","look":"Look for defenders standing very far back in the last minute of a close game.","d":{"p":[["u",42,30],["u",50,12],["u",50,48],["t",82,12],["t",84,30],["t",82,48]],"b":[42,30],"a":[["run",51,12,60,14],["pass",43,29,59,15]]}},
 {"s":"football","name":"The hard count","what":"The quarterback changes the rhythm of his call to trick the defense into jumping early.","how":["The quarterback shouts the snap count with a sudden loud change in his voice.","A defender thinks the ball is about to be snapped and jumps across the line.","That's a penalty, and the offense gets five free yards."],"why":"Free yards without even running a play.","look":"Listen to the quarterback before the snap. Sometimes he yells \"Hut!\" extra loud on purpose.","d":{"p":[["u",40,30],["u",46,24],["u",46,30],["u",46,36],["t",54,24],["t",54,34]],"b":[46,30],"a":[["run",53,24,48,19]]}},
 {"s":"football","name":"The fake punt","what":"On fourth down, the team lines up to punt, then runs or passes instead.","how":["The team lines up like it's going to punt the ball away.","The defense drops back to catch the punt.","Instead, the punter or another player runs or throws for the first down."],"why":"The defense is set up for a kick, not a play, so there's lots of space.","look":"It's rare and risky, which is exactly why it surprises people.","d":{"p":[["u",30,30],["u",46,26],["u",46,34],["u",48,8],["t",88,30],["t",56,24]],"b":[30,30],"a":[["run",49,8,68,10],["pass",31,29,66,11]]}}
@@ -802,7 +960,7 @@ const JOKE_KINDS={
 "silly":"Silly"
 };
 const PUZZLES=[
-{"r":["#T#S#","BOOTS","#T#E#","WATER","#L#L#"],"c":{"BOOTS":"Soccer shoes","STEEL":"Pittsburgh's team is the ___ers","TOTAL":"The final ___ of points","WATER":"Drink lots of it at practice"}},
+{"r":["#T#S#","BOOTS","#T#E#","WATER","#L#L#"],"c":{"BOOTS":"Soccer shoes","STEEL":"Pittsburgh's team is the ___ers","TOTAL":"The final ___ of points","WATER":"Fill your bottle with it before practice"}},
 {"r":["HAWKS","#P#I#","SPACE","#L#K#","BEAST"],"c":{"APPLE":"Red or green fruit","BEAST":"A big wild animal","HAWKS":"Seattle Sea___","KICKS":"Does what a punter does","SPACE":"Where astronauts go"}},
 {"r":["SPEED","#H#A#","SONGS","#N#L#","SEVEN"],"c":{"EAGLE":"Philadelphia's team is the ___s","PHONE":"You call people on it","SEVEN":"Days in a week","SONGS":"You sing them","SPEED":"What a fast winger has"}},
 {"r":["#P#S#","JUMPS","#N#O#","STORY","#S#T#"],"c":{"JUMPS":"Leaps","PUNTS":"Kicks on fourth down","SPORT":"Soccer or football, for example","STORY":"A tale"}},
@@ -825,7 +983,7 @@ const PUZZLES=[
 {"r":["#BOOT","#E#C#","RAVEN","#C#A#","SHIN#"],"c":{"BEACH":"Sandy place by the sea","BOOT":"A soccer shoe, or a big kick","OCEAN":"Huge body of salt water","RAVEN":"The bird Baltimore's NFL team is named after","SHIN":"Front of your leg, below the knee"}},
 {"r":["#KITS","#O#I#","EARTH","#L#L#","RACE#"],"c":{"EARTH":"Our planet","KITS":"A team's uniforms, in soccer","KOALA":"Australian animal that eats leaves","RACE":"A contest to see who's fastest","TITLE":"A championship"}},
 {"r":["#SAVE","#N#I#","CARDS","#K#E#","ZERO#"],"c":{"CARDS":"Yellow and red ones","SAVE":"What a goalkeeper makes when they stop a shot","SNAKE":"Long animal that slithers","VIDEO":"Something you watch on a screen","ZERO":"Nothing, as a number"}},
-{"r":["#PASS","#R#A#","BILLS","#Z#A#","HEAD#"],"c":{"BILLS":"Buffalo's NFL team","HEAD":"Soccer players can hit the ball with it, but not with their hands","PASS":"Kick or throw the ball to a teammate","PRIZE":"Something you win","SALAD":"Lettuce dish"}},
+{"r":["#PASS","#R#A#","BILLS","#Z#A#","HEAD#"],"c":{"BILLS":"Buffalo's NFL team","HEAD":"Where your helmet or cap goes","PASS":"Kick or throw the ball to a teammate","PRIZE":"Something you win","SALAD":"Lettuce dish"}},
 {"r":["#PADS","#A#O#","CROWD","#T#N#","EYES#"],"c":{"CROWD":"All the fans together","DOWNS":"Four chances to go 10 yards, in football","EYES":"You see with them","PADS":"Football players wear these for protection","PARTY":"A birthday celebration"}},
 {"r":["#S#D#","THIRD","#O#I#","GOALS","#T#L#"],"c":{"DRILL":"A practice exercise","GOALS":"More than one score in soccer","SHOOT":"Try to score","THIRD":"Bronze-medal place"}},
 {"r":["CLUB#","#I#R#","TOTAL","#N#C#","#SEED"],"c":{"BRACE":"Two goals by the same player","CLUB":"A soccer team, like Barcelona or Liverpool","LIONS":"Detroit's NFL team","SEED":"A plant grows from it","TOTAL":"The final ___ of points"}},
@@ -838,8 +996,114 @@ const PATTERNS={
 "box":{"note":"Four counts each way, like drawing a box. Athletes use it before big moments.","phases":[["Breathe in",4,1],["Hold",4,1],["Breathe out",4,0],["Hold",4,0]]},
 "478":{"note":"A long, slow breath out. Great for calming down when you're nervous.","phases":[["Breathe in",4,1],["Hold",7,1],["Breathe out",8,0]]}
 };
+const SLEEP_FACTS=[
+["Kids ages 6 to 12 need 9 to 12 hours of sleep every night.","aasm"],
+["When you're a teenager, you'll need 8 to 10 hours of sleep a night.","aasm"],
+["During deep sleep, your body releases a hormone that helps kids grow and builds muscle.","nhlbi_guide"],
+["Sleep is when your body repairs itself after a hard day of playing.","nhlbi_guide"],
+["Sleep helps your brain learn. It makes the memories from your day stronger, like the move you practiced.","nhlbi_effects"],
+["Your immune system needs sleep to help you stay healthy.","nhlbi_effects"],
+["Kids who don't get enough sleep can have trouble paying attention, and can feel cranky.","nhlbi_effects"],
+["Getting the sleep you need is linked to better attention, learning and memory.","aasm"],
+["Going to bed and getting up at the same time every day, even on weekends, helps you sleep better.","cdc"],
+["A dark, quiet, cool bedroom helps you sleep.","cdc"],
+["Being active during the day helps you sleep at night.","cdc"],
+["Turn off screens at least 30 minutes before bed.","cdc"],
+["Caffeine can keep you awake, so skip soda and tea with caffeine in the evening.","cdc"],
+["Sleep affects almost every part of your body, from your brain to your heart and lungs.","nhlbi_effects"]
+];
+const SLEEP_PLAN=[
+["Screens off 30 minutes before bed","cdc"],
+["Room dark, quiet and cool","cdc"],
+["Same bedtime as last night","cdc"],
+["Bag and gear ready for tomorrow",null]
+];
+const SLEEP_SRC={
+"aasm":["American Academy of Sleep Medicine: Pediatric sleep recommendations","https://aasm.org/recharge-with-sleep-pediatric-sleep-recommendations-promoting-optimal-health/"],
+"nhlbi_how":["NIH NHLBI: How Much Sleep Is Enough?","https://www.nhlbi.nih.gov/health/sleep/how-much-sleep"],
+"nhlbi_effects":["NIH NHLBI: How Sleep Affects Your Health","https://www.nhlbi.nih.gov/health/sleep-deprivation/health-effects"],
+"nhlbi_guide":["NIH NHLBI: Your Guide to Healthy Sleep","https://www.nhlbi.nih.gov/files/docs/public/sleep/healthy_sleep.pdf"],
+"cdc":["CDC: About Sleep","https://cdc.gov/sleep/about_sleep/sleep_hygiene.html"]
+};
+const KID_HOURS=[
+9,
+12
+];
+const MIND=[
+["Replay your best play","🎬",["Get comfortable and let your body go heavy.","Think of the best thing you did today. Big or small.","Now play it back in slow motion, like a highlight.","Notice where you were and what you did.","Hear the cheer. Feel how good it felt.","Keep that feeling and let your eyes get sleepy."]],
+["The perfect free kick","⚽",["Picture the ball sitting still on the grass.","You take a few steps back. The stadium goes quiet.","You breathe in. You feel calm and ready.","You run up and strike it clean.","Watch it curl over the wall and into the corner.","Goal. Let the cheer fade away into quiet."]],
+["The perfect spiral","🏈",["Picture the football in your hand, fingers on the laces.","You drop back. Everything slows down.","You see your receiver break open.","You step and throw. The ball spins in a perfect spiral.","It drops right into their hands. Touchdown.","Let the stadium lights dim, one by one."]],
+["Locker room body scan","🧘",["Lie still, like you're resting after a big game.","Let your feet and legs get heavy. They worked hard today.","Let your belly rise and fall slowly.","Let your shoulders drop and your arms go loose.","Let your face relax, even your eyebrows.","Your whole body is resting now. Good game."]],
+["Calm at the penalty spot","🥅",["Picture yourself walking up to the penalty spot.","Your heart is beating fast. That's okay.","You take one slow breath in, and a long breath out.","You pick your spot and you trust it.","Your body feels calm and steady.","Bring that calm with you into sleep."]],
+["The diving catch","🧤",["Picture a long pass flying through the night sky.","You're running, and everything feels easy.","You stretch out, eyes on the ball.","It lands softly in your hands.","You roll on the grass and hold on tight.","Feel how proud you are, and let your body rest."]],
+["Game film","📼",["Pretend you're watching film of your day.","Fast-forward to something that went well.","Pause there. What did you do right?","Now think of one thing you'll try tomorrow.","Picture yourself doing it well.","Turn off the screen. The film can wait until morning."]],
+["Team huddle","🤝",["Picture your team in a huddle, arms around each other.","Think of someone who helped you today.","Say thank you to them in your head.","Think of someone you helped too.","Feel how good it is to be on a team.","Break the huddle, and let sleep come."]],
+["Practice in your mind","🎯",["Pick one skill you're working on.","Picture yourself doing it slowly, step by step.","Now picture it again, a little faster.","See yourself doing it just right.","Tomorrow, you'll try it for real.","Let your body relax and rest now."]],
+["Stadium lights out","🏟️",["Picture an empty stadium after the game.","The crowd has gone home. It's quiet.","One by one, the big lights switch off.","Now it's just the stars above the field.","The grass is cool and the air is still.","Goodnight, stadium. Goodnight, you."]],
+["The breakaway","💨",["Picture yourself with the ball and open field ahead.","Your legs feel strong and light.","The wind rushes past as you run.","Nobody can catch you. You feel free.","You cross the line and slow to a walk.","Breathe slow. Let your legs rest now."]],
+["Next play","🔁",["Think of something that didn't go your way today.","That's okay. Everybody has plays like that.","Picture yourself shaking it off, like a pro.","Say to yourself: next play.","Tomorrow is a brand new game.","Let it go, and let yourself rest."]],
+["Walk-off win","🎉",["Picture the last seconds of a close game.","Everyone is watching. You feel calm.","You make the winning play.","Your teammates run to you, cheering.","Soak in that feeling for a moment.","Now let the celebration fade into a quiet night."]],
+["Warm night on the field","🌙",["Picture lying on the soft grass of your favorite field.","The sky above is full of stars.","You can hear crickets and a gentle breeze.","Your body sinks into the cool grass.","Each breath out makes you a little sleepier.","Close your eyes and rest."]]
+];
+const BREATH=[
+4,
+6
+];
+const COOLDOWN={
+"name":"Cool-down",
+"note":"Slow and easy. Breathe out as you stretch.",
+"moves":[["Big reach",20,"Reach up tall, then slowly bring your arms down.","reach"],["Side bends",20,"Lean slowly to one side, then the other. No bouncing.","side"],["Easy twists",20,"Turn your shoulders slowly side to side.","twist"],["Forward fold",20,"Knees soft, let your arms hang down toward your toes. Breathe out.","fold"],["Neck stretch",20,"Slowly tip one ear toward your shoulder, then the other side.","neck"]]
+};
+const CHALLENGES=[
+["Attentive","Be attentive today.","When a teacher or parent is talking to you, stop what you're doing, look at them, and don't talk until they're done.","Listening the first time means you don't miss the play call, in class or on the field."],
+["Respectful","Be respectful today.","Use please and thank you, and keep a kind voice, even when you're frustrated.","People remember how you treat them, especially when things aren't going your way."],
+["Responsible","Be responsible today.","Do your jobs without being reminded. Check your list before you leave the house.","Captains don't wait to be told. They get it done."],
+["Kind","Be kind today.","Do one kind thing for someone who doesn't expect it.","One small kind thing can turn someone's whole day around."],
+["Brave","Be brave today.","Try something new, even if you might not be good at it yet.","Every great player was bad at their move the first time they tried it."],
+["Patient","Be patient today.","When you have to wait, take a slow breath instead of complaining.","Waiting well is a skill, just like a good first touch."],
+["Honest","Be honest today.","Tell the truth, even when it's hard. If you mess up, say so.","When people know you tell the truth, they trust you with more."],
+["Helpful","Be helpful today.","Help out at home once without being asked.","A team works when everybody pitches in, and a family is a team."],
+["Coachable","Be coachable today.","When a teacher or coach corrects you, say \"Got it\" and try it their way.","The players who get better fastest are the ones who listen to coaching."],
+["Grateful","Be grateful today.","Say thank you to three people, and say what you're thanking them for.","Noticing the good stuff makes the whole day feel better."],
+["Organized","Be organized today.","Put your things back where they belong, and pack your bag before bed.","No more searching for your cleats five minutes before you leave."],
+["A good sport","Be a good sport today.","Win or lose, in a game or a video game, say \"good game\" and mean it.","How you act when you lose says a lot about who you are."],
+["Persistent","Don't give up today.","When something is hard, take a breath and try again before asking for help.","Hard things get easier when you keep showing up."],
+["A leader","Be a leader today.","Include someone who's left out, at lunch, at recess or in a game.","Leaders make sure everyone is part of the team."],
+["Focused","Be focused today.","When it's work time, do one thing at a time until it's done.","Focus is like a muscle. Use it and it gets stronger."],
+["Positive","Stay positive today.","When something goes wrong, say \"next play\" and keep going.","You can't change the last play. You can win the next one."],
+["Encouraging","Be encouraging today.","Cheer on a classmate or teammate when they try something hard.","Everyone plays better when someone believes in them."],
+["Calm","Keep your cool today.","When you get upset, take three slow breaths before you say anything.","Your best decisions come when you're calm, not when you're mad."],
+["Prepared","Be prepared today.","Get your homework and gear ready the night before.","Ready players play better, and ready students do too."],
+["On time","Be on time today.","Be ready to go when it's time to leave, with your shoes on.","Being on time shows people you care about their time too."],
+["Tidy","Be tidy today.","Leave your room, or one other room, cleaner than you found it.","Taking care of your space is taking care of your team at home."],
+["A good listener","Be a good listener today.","Let other people finish talking before you speak.","You learn more when you're listening than when you're talking."],
+["A hard worker","Work hard today.","Give your best effort on something you don't love doing.","Anyone works hard at the fun stuff. Champions work hard at the boring stuff too."],
+["Polite","Be polite today.","Look people in the eye when you say hi, thank you and goodbye.","Good manners are a way of showing respect."],
+["Generous","Be generous today.","Share something, like a snack, a turn, or the ball.","Sharing makes you the kind of teammate people want."],
+["Self-controlled","Show self-control today.","When you want to blurt something out, raise your hand or wait your turn.","Controlling yourself is the first step to controlling the game."],
+["Forgiving","Be forgiving today.","If someone makes a mistake or bumps into you, let it go.","Everybody messes up. Holding a grudge just weighs you down."],
+["Curious","Be curious today.","Ask one good question in class.","Asking questions is how smart people get smarter."],
+["A team player","Be a team player today.","Share the credit. When something goes well, thank the people who helped.","Nobody wins a game by themselves."],
+["Trustworthy","Be trustworthy today.","Do what you said you'd do, even the small stuff.","When your word is good, people count on you."],
+["Gentle","Be gentle today.","Be extra patient and kind with someone younger than you.","Younger kids watch what older kids do. Show them how it's done."],
+["Hardworking at school","Own your schoolwork today.","Start your homework without being reminded, and check it before you call it done.","Doing it right the first time saves time for the fun stuff."]
+];
+const JOB_IDEAS=[
+"Homework",
+"Pack my bag",
+"Make my bed",
+"Feed the pet",
+"Practice",
+"Clean my room",
+"Put away laundry",
+"Set the table",
+"Read for 20 min",
+"Help with dishes"
+];
 const ROUTINES={
-"morning":{"name":"Morning warm-up","note":"Two easy minutes to wake your body up. No rushing, it's early.","moves":[["Big reach",20,"Reach both arms up to the ceiling and stretch as tall as you can.","reach"],["Arm circles",20,"Big slow circles backward, then forward.","shoulder"],["Side bends",20,"One arm up, lean slowly to the side. Then the other side.","side"],["March in place",20,"Knees up, arms swinging. An easy march, not a sprint.","knee"],["Leg swings",20,"Hold a wall or a chair. Swing one leg forward and back, then switch.","swing"],["Jumping jacks",20,"Ten easy jumping jacks to finish. You're awake!","jack"]]}
+"morning":{"name":"Wake-up warm-up","note":"Two easy minutes to wake your body up. No rushing, it's early.","moves":[["Big reach",20,"Reach both arms up to the ceiling and stretch as tall as you can.","reach"],["Arm circles",20,"Big slow circles backward, then forward.","shoulder"],["Side bends",20,"One arm up, lean slowly to the side. Then the other side.","side"],["March in place",20,"Knees up, arms swinging. An easy march, not a sprint.","knee"],["Leg swings",20,"Hold a wall or a chair. Swing one leg forward and back, then switch.","swing"],["Jumping jacks",20,"Ten easy jumping jacks to finish. You're awake!","jack"]]},
+"soccer":{"name":"Soccer warm-up","note":"Get your legs ready like a soccer player before kickoff.","moves":[["March in place",20,"Knees up, arms swinging. Start easy.","knee"],["Ankle circles",20,"Lift one foot and draw slow circles with your toes. Then the other foot.","ankle"],["Leg swings",20,"Hold a wall. Swing one leg forward and back, then switch.","swing"],["Heel kicks",20,"Jog in place and gently kick your heels up behind you.","kick"],["Side bends",20,"One arm up, lean slowly to the side. Then the other side.","side"],["Jumping jacks",20,"Ten easy jumping jacks. Game ready!","jack"]]},
+"football":{"name":"Football warm-up","note":"Loosen up your arms and core like a quarterback.","moves":[["Arm circles",20,"Big slow circles backward, then forward. Warm up that throwing arm.","shoulder"],["Big reach",20,"Reach up high like you're catching a pass over your head.","reach"],["Easy twists",20,"Feet planted, turn your shoulders slowly side to side.","twist"],["High-knee march",20,"March in place, bringing your knees up high.","knee"],["Leg swings",20,"Hold a wall. Swing one leg forward and back, then switch.","swing"],["Jumping jacks",20,"Ten easy jumping jacks. Ready for the snap!","jack"]]}
 };
 const STRETCH_FIGS={
 "neck":"<svg viewBox=\"0 0 100 90\"><g class=\"fig-sway\" style=\"transform-origin:50px 34px\"><circle cx=\"50\" cy=\"20\" r=\"11\"/><path d=\"M50 31v6\"/></g><path d=\"M50 37v26\"/><path d=\"M50 44l-17 9M50 44l17 9\"/><path d=\"M50 63l-11 20M50 63l11 20\"/></svg>",
@@ -882,9 +1146,18 @@ function daily(n,seed,day){
 }
 
 /* settings and today's record */
-const S=Object.assign({name:'Liam',num:10,color:'#2F7BF0',theme:'auto',sound:true,haptics:true,
+const S=Object.assign({name:'Liam',num:10,color:'#2F7BF0',sound:true,haptics:true,
   wake:'06:45',bed:'20:45',sport:'both'},readJSON(KP+'Kid',{}));
 function saveS(){writeJSON(KP+'Kid',S)}
+/* Coming from v3: his streak, wins, trivia, Who Am I? and skill bests already
+   live in keys v4 reads the same way. The one setting worth carrying over is
+   which sports he picked; the rest of v3's settings were for the old cards. */
+if(localStorage.getItem(KP+'Kid')==null){
+  const old=readJSON(KP+'Settings',null),t=old&&Array.isArray(old.tags)?old.tags:[];
+  if(t.length){const so=t.indexOf('soccer')>=0,fo=t.indexOf('football')>=0;S.sport=so&&!fo?'soccer':fo&&!so?'football':'both'}
+  if(old||localStorage.getItem(KP+'Done'))S.picked=true;   /* not a brand-new player: skip the jersey hello */
+  saveS();
+}
 let DAY=readJSON(KP+'Day-'+todayKey(),{});
 DAY.done=DAY.done||{};
 function saveDay(){writeJSON(KP+'Day-'+todayKey(),DAY)}
@@ -892,22 +1165,27 @@ function saveDay(){writeJSON(KP+'Day-'+todayKey(),DAY)}
 /* ═══════════ THE DAY ═══════════
    Two halves. Each card lights one MEEES letter on the scoreboard; the
    captain's armband fills half in the morning and the rest at check-in. */
+/* The plan underneath is MEEES (Meditate, Educate, Exercise, Eat right,
+   Sleep well), plus leading himself. On screen each part gets the word a
+   10-year-old would use: Move, Fuel, Learn, Lead, Sleep, Chill. */
 const CARDS=[
-  {id:'warmup', half:1,k:'ex', emo:'🏃',name:'Warm-up',     sub:'Wake your body up',      lead:'Two easy minutes to wake your body up.',     word:'Exercise'},
-  {id:'fuel',   half:1,k:'eat',emo:'🍎',name:'Fuel Up',     sub:'Sort the food groups',   lead:'Five food groups. Which one is each food in?', word:'Eat right'},
-  {id:'brain',  half:1,k:'edu',emo:'🧠',name:'Sports Brain',sub:'Today’s challenge',      lead:'One quick brain workout.',                   word:'Educate'},
-  {id:'captain',half:1,k:'cap',emo:'©️',name:'Captain’s Card',sub:'Your play for today',  lead:'Lead yourself today.',                       word:'Captain'},
-  {id:'checkin',half:2,k:'cap',emo:'✅',name:'Check-in',     sub:'How did you do?',        lead:'How did your day go, Captain?',              word:'Captain'},
-  {id:'recovery',half:2,k:'slp',emo:'😴',name:'Recovery',   sub:'Sleep like a pro',       lead:'Pros recover hard. Here’s how.',             word:'Sleep well'},
-  {id:'lights', half:2,k:'med',emo:'🌙',name:'Lights Out',  sub:'Wind down for bed',      lead:'Slow breaths. Picture the play.',            word:'Meditate'},
+  {id:'warmup', half:1,k:'ex', emo:'🏃',name:'Warm-up',       sub:'Wake your body up',     lead:'Two easy minutes to wake your body up.',       word:'Move'},
+  {id:'fuel',   half:1,k:'eat',emo:'🍎',name:'Fuel Up',       sub:'Food group challenge',  lead:'Six quick questions about the food that fuels you.', word:'Fuel', gate:true},
+  {id:'brain',  half:1,k:'edu',emo:'🧠',name:'Sports Brain',  sub:'Today’s brain workout', lead:'One quick brain workout.',                     word:'Learn', gate:true},
+  {id:'captain',half:1,k:'cap',emo:'',  name:'Captain’s Card',sub:'Your play for today',   lead:'Lead yourself today.',                         word:'Lead'},
+  {id:'checkin',half:2,k:'cap',emo:'✅',name:'Check-in',      sub:'How did you do?',       lead:'How did your day go, Captain?',                word:'Lead'},
+  {id:'recovery',half:2,k:'slp',emo:'😴',name:'Recovery',     sub:'Sleep like a pro',      lead:'Pros recover hard. Here’s how.',               word:'Sleep'},
+  {id:'lights', half:2,k:'med',emo:'🌙',name:'Lights Out',    sub:'Wind down for bed',     lead:'Slow breaths. Picture the play.',              word:'Chill'},
 ];
 const CARD=Object.fromEntries(CARDS.map(c=>[c.id,c]));
-const LETTERS=[
-  {ch:'M',k:'med',card:'lights',word:'Meditate'},
-  {ch:'E',k:'edu',card:'brain',word:'Educate'},
-  {ch:'E',k:'ex',card:'warmup',word:'Exercise'},
-  {ch:'E',k:'eat',card:'fuel',word:'Eat right'},
-  {ch:'S',k:'slp',card:'recovery',word:'Sleep'},
+/* the scoreboard, in the order the day happens */
+const TILES=[
+  {card:'warmup',k:'ex',emo:'🏃',word:'Move'},
+  {card:'fuel',k:'eat',emo:'🍎',word:'Fuel'},
+  {card:'brain',k:'edu',emo:'🧠',word:'Learn'},
+  {card:'captain',k:'cap',word:'Lead',cap:true},
+  {card:'recovery',k:'slp',emo:'😴',word:'Sleep'},
+  {card:'lights',k:'med',emo:'🌙',word:'Chill'},
 ];
 const isDone=id=>!!DAY.done[id];
 const halfCards=h=>CARDS.filter(c=>c.half===h);
@@ -920,15 +1198,9 @@ const colorOf=k=>'--c:var(--'+k+');--cd:var(--'+k+'-d)';
 const evening=()=>new Date().getHours()>=15;
 
 /* ═══════════ THEME ═══════════ */
-function themeNow(){
-  if(S.theme==='day'||S.theme==='night')return S.theme;
-  const h=new Date().getHours();return (h>=18||h<6)?'night':'day';
-}
-function applyTheme(t){
-  document.body.dataset.theme=t||themeNow();
-  const m=document.querySelector('meta[name="theme-color"]');
-  if(m)m.content=document.body.dataset.theme==='night'?'#0B1030':'#4FC0FF';
-}
+/* One look all day: the sky-blue day game. (Ryan picked it over the navy
+   night game, so there's no evening switch and no setting for it.) */
+function applyTheme(){document.body.dataset.theme='day'}
 
 /* ═══════════ FEEL: haptics, sound, confetti ═══════════ */
 const REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -983,8 +1255,8 @@ addEventListener('popstate',()=>{
   if(cur!=='home')navBack();
 });
 function show(id,back){
-  document.querySelectorAll('.scr.on').forEach(s=>s.classList.remove('on','back'));
-  const el=$(id);el.classList.toggle('back',!!back);el.classList.add('on');el.scrollTop=0;cur=id;
+  document.querySelectorAll('.scr.on').forEach(s=>s.classList.remove('on','rev'));
+  const el=$(id);el.classList.toggle('rev',!!back);el.classList.add('on');el.scrollTop=0;cur=id;
 }
 function go(id,back){
   saveDay();haptic(7);
@@ -1006,24 +1278,26 @@ function renderHome(){
   $('hello').textContent=(d.getHours()<12?'Morning':d.getHours()<17?'Hey':'Evening')+', '+S.name+'!';
   $('boardDate').textContent=d.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'})+' · '+S.name+' #'+S.num;
   $('jersey').innerHTML=jerseySvg(S.color,S.num);
+  $('jerseyHi').hidden=!!S.picked;
   /* the scoreboard: M E E E S, then the captain's armband */
-  $('tiles').innerHTML=LETTERS.map(L=>'<button class="tile'+(isDone(L.card)?' lit':'')+'" style="--c:var(--'+L.k+')" onclick="openCard(\''+L.card+'\')" aria-label="'+L.word+(isDone(L.card)?', done':'')+'">'+
-      L.ch+'<small>'+L.word.split(' ')[0]+'</small></button>').join('')+
-    '<button class="tile cap'+(isDone('captain')&&isDone('checkin')?' lit':isDone('captain')?' half':'')+'" style="--c:var(--cap)" onclick="openCard(\''+(isDone('captain')?'checkin':'captain')+'\')" aria-label="Captain">'+
-      ARMBAND+'<small>Capt.</small></button>';
+  $('tiles').innerHTML=TILES.map(T=>{
+    const cls=T.cap?(isDone('captain')&&isDone('checkin')?' lit':isDone('captain')?' half':''):(isDone(T.card)?' lit':'');
+    const go=T.cap&&isDone('captain')?'checkin':T.card;
+    return '<button class="tile'+(T.cap?' cap':'')+cls+'" style="--c:var(--'+T.k+')" onclick="openCard(\''+go+'\')" aria-label="'+T.word+(cls?', done':'')+'">'+
+      '<span class="ti">'+(T.cap?ARMBAND:T.emo)+'</span><small>'+T.word+'</small></button>'}).join('');
   const st=streakInfo();
   $('streak').className='streak'+(st.n?'':' cold');
   $('streak').innerHTML='<span class="fire">🔥</span>'+(st.n?st.n+(st.n===1?' win':' wins')+' in a row':'Win today to start a streak');
   $('starCount').textContent='★ '+starCount()+'/'+CARDS.length;
   const tile=c=>'<button class="ctile'+(isDone(c.id)?' done':'')+
-    '" style="'+colorOf(c.k)+'" onclick="openCard(\''+c.id+'\')">'+(c.half===2&&!evening()&&!isDone(c.id)?'<span class="when">Tonight</span>':'')+'<span class="lt">'+(isDone(c.id)?'★':(c.k==='cap'?'C':LETTERS.find(L=>L.card===c.id).ch))+'</span>'+
+    '" style="'+colorOf(c.k)+'" onclick="openCard(\''+c.id+'\')">'+(c.half===2&&!evening()&&!isDone(c.id)?'<span class="when">Tonight</span>':'')+(isDone(c.id)?'<span class="lt">★</span>':'')+
     '<span class="emo">'+emoOf(c)+'</span><span><span class="nm d">'+esc(c.name)+'</span><span class="sb" style="display:block">'+esc(c.sub)+'</span></span></button>';
   $('half1').innerHTML=halfCards(1).map(tile).join('');
   $('half2').innerHTML=halfCards(2).map(tile).join('');
   $('half2note').textContent=evening()?'Now · 6 min':'Tonight · 6 min';
   const next=nextCard();
   const cta=$('cta');
-  if(!next){cta.textContent='★ You won the day! ★';cta.style.cssText=colorOf('cap')}
+  if(!next){cta.textContent='★ You won the day ★';cta.style.cssText=colorOf('cap')}
   else if(next.half===1&&!halfCards(1).some(c=>isDone(c.id))){cta.textContent='Start Pre-Game ▶';cta.style.cssText=colorOf('eat')}
   else if(next.half===1){cta.textContent='Keep going: '+next.name+' ▶';cta.style.cssText=colorOf(next.k)}
   else if(!halfCards(2).some(c=>isDone(c.id))){cta.textContent=evening()?'Start Post-Game ▶':'Post-Game opens after school';cta.style.cssText=colorOf('slp')}
@@ -1038,6 +1312,7 @@ function nextCard(){
   if(evening())return h2||h1;
   return h1||h2;
 }
+function jerseyHi(pick){S.picked=true;saveS();haptic(8);if(pick)go('settings');else renderHome()}
 function ctaGo(){const n=nextCard();if(!n){confetti(40);return}openCard(n.id)}
 
 /* ═══════════ A CARD ═══════════ */
@@ -1048,19 +1323,28 @@ function openCard(id){
   curCard=c;stopTimers();
   const card=$('card');card.setAttribute('style',colorOf(c.k));
   $('heroEmo').innerHTML=emoOf(c);
-  $('heroTag').textContent=(c.k==='cap'?'C':LETTERS.find(L=>L.card===id).ch)+' · '+c.word;
+  $('heroTag').textContent=c.word;
   $('heroH').textContent=c.name;
   $('heroP').textContent=c.lead;
   const hc=halfCards(c.half);
   $('dots').innerHTML=hc.map(x=>'<i class="'+(x.id===id?'on':isDone(x.id)?'done':'')+'"></i>').join('');
   const body=$('cbody');body.innerHTML='';
   (RENDER[id]||renderSoon)(body,c);
+  /* a game's Next button waits until the game is over, so a tap meant for
+     the game can't skip it; a quiet link below still lets him move on */
+  if(c.gate&&!isDone(id)){
+    const sk=document.createElement('button');sk.className='skip-link';sk.textContent='Skip this one for today';
+    sk.onclick=()=>{stopTimers();const n=nextInHalf(c);if(n)openCard(n.id);else showFinal(c.half)};
+    body.appendChild(sk);
+  }
   paintNext();
   go('card');
 }
 function nextInHalf(c){const hc=halfCards(c.half),i=hc.indexOf(c);return hc.slice(i+1).find(x=>!isDone(x.id))||null}
 function paintNext(){
   const c=curCard,n=nextInHalf(c);
+  $('card').classList.toggle('gated',!!(c.gate&&!isDone(c.id)));
+  const sk=document.querySelector('#cbody .skip-link');if(sk&&isDone(c.id))sk.remove();
   $('cardNext').textContent=n?'Done! Next: '+n.name+' ▶':(c.half===1?'Finish Pre-Game ▶':'Finish the day ▶');
 }
 function markDone(id){
@@ -1068,7 +1352,7 @@ function markDone(id){
   DAY.done[id]=Date.now();saveDay();
   haptic([14,30,20]);chime();
   const c=CARD[id];
-  toast('★ '+(c.k==='cap'?'Captain':LETTERS.find(L=>L.card===id).word)+'!');
+  toast('★ '+c.word+' ✓');
   if(isWin())winDay();
 }
 function cardDone(){
@@ -1085,8 +1369,8 @@ function renderSoon(body,c){
 function showFinal(h){
   const b=$('finalBody');
   if(h===1){
-    b.innerHTML='<div class="big-emo">📣</div><div class="final-h">Pre-Game done!</div>'+
-      '<div class="final-p">Go have a great day, '+esc(S.name)+'. See you at Post-Game tonight.</div>';
+    b.innerHTML='<div class="big-emo">📣</div><div class="final-h">Kickoff!</div>'+
+      '<div class="final-p">Pre-Game done. Go have a great day, '+esc(S.name)+'. See you at Post-Game tonight!</div>'+jokeHtml();
   }else{
     b.innerHTML='<div class="big-emo">🌙</div><div class="final-h">Goodnight, '+esc(S.name)+'</div>'+
       '<div class="final-p">'+(isWin()?'You won the day. ':'')+'Rest up. Big game tomorrow.</div>';
@@ -1118,77 +1402,75 @@ function winDay(){
   const h=readJSON(KP+'History',{});h[today]=1;writeJSON(KP+'History',h);
 }
 
-/* ═══════════ FUEL UP: THE FOOD GROUP SORT ═══════════
+/* ═══════════ FUEL UP: THE FOOD GROUP CHALLENGE ═══════════
    The lesson: MyPlate's five food groups, what's in each, and what each one
-   does for your body. Six foods a day; sort each into its group. Every answer
-   shows a "Did you know?" nugget, with the source it was checked against. */
-const FS_ROUND=6;
+   does for your body. Six questions a day: three "which group?" sorts (one
+   of them a tricky food) and three about what food does for you. Every fact
+   is sourced in content/fuel.py; the sources are listed for grown-ups in
+   Settings, not on his screen. */
 const groupOf=k=>FOOD_GROUPS.find(g=>g.k===k);
-const srcName=k=>(FOOD_SRC[k]||[])[0]||'';
-function fsState(){DAY.fuel=DAY.fuel&&DAY.fuel.v===2?DAY.fuel:{v:2,r:0,i:0,picks:[],right:0};return DAY.fuel}
-/* Round r of a day: one food from each of the five groups, plus one of the
-   tricky ones (corn, popcorn, beans...), in a mixed-up order. Each group's
-   foods walk on a day at a time, so nothing repeats until its turn comes. */
+function fsState(){DAY.fuel=DAY.fuel&&DAY.fuel.v===3?DAY.fuel:{v:3,r:0,i:0,picks:[]};return DAY.fuel}
 function fsRound(r,day){
-  if(!FOODS.length)return[];
-  const d=dayNumber(day)+(r||0)*7,out=[];
-  FOOD_GROUPS.forEach(g=>{
-    const pool=FOODS.map((f,i)=>i).filter(i=>FOODS[i].g[0]===g.k&&!FOODS[i].why);
-    const order=shuffled(pool,KP+'foods-'+g.k);
-    if(order.length)out.push(order[d%order.length]);
-  });
+  if(!FOODS.length||!FOOD_QUIZ.length)return[];
+  const d=dayNumber(day)+(r||0)*7;
+  const regular=shuffled(FOODS.map((f,i)=>i).filter(i=>!FOODS[i].why),KP+'foods');
   const tricky=shuffled(FOODS.map((f,i)=>i).filter(i=>FOODS[i].why),KP+'foods-tricky');
-  if(tricky.length)out.push(tricky[d%tricky.length]);
-  return shuffled(out,KP+'foods-mix'+d);
+  const quiz=shuffled(FOOD_QUIZ.map((q,i)=>i),KP+'food-quiz');
+  const a=regular[(d*2)%regular.length];let b=regular[(d*2+1)%regular.length];
+  for(let k=1;k<regular.length&&FOODS[b].g[0]===FOODS[a].g[0];k++)b=regular[(d*2+1+k)%regular.length];
+  const q=j=>quiz[(d*3+j)%quiz.length];
+  return [{t:'sort',i:a},{t:'quiz',i:q(0)},{t:'sort',i:tricky[d%tricky.length]},{t:'quiz',i:q(1)},{t:'sort',i:b},{t:'quiz',i:q(2)}];
 }
 const fsRight=(f,k)=>f.g.indexOf(k)>=0;
+function fsIsRight(item,pick){return item.t==='sort'?fsRight(FOODS[item.i],pick):pick===0}
 const fsNugget=(k,seed)=>{const ns=FOOD_NUGGETS[k]||[];return ns.length?ns[seed%ns.length]:null};
-RENDER.fuel=function(body){
-  body.innerHTML='<div class="stk" id="fsCard"></div>';
-  fsPaint();
-};
-function fsPlate(lit){
-  /* the five MyPlate slices; the ones he has sorted today light up */
-  const g=k=>groupOf(k)||{c:'#ccc'},on=k=>lit.has(k);
-  const sl=(k,d)=>'<path d="'+d+'" fill="'+(on(k)?g(k).c:'var(--card2)')+'" stroke="var(--card)" stroke-width="3"/>';
-  return '<svg viewBox="0 0 120 100"><circle cx="50" cy="50" r="48" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>'+
-    sl('fruit','M50 50L50 6A44 44 0 0 0 9.5 33Z')+sl('veg','M50 50L9.5 33A44 44 0 0 0 50 94Z')+
-    sl('grain','M50 50L50 94A44 44 0 0 0 91 61Z')+sl('protein','M50 50L91 61A44 44 0 0 0 50 6Z')+
-    '<path d="M100 36h17l-3 36h-11z" fill="'+(on('dairy')?g('dairy').c:'var(--card2)')+'" stroke="var(--line)" stroke-width="3" stroke-linejoin="round"/></svg>';
-}
-function fsLit(st){
-  const lit=new Set(),qs=fsRound(st.r);
-  st.picks.forEach((p,i)=>{const f=FOODS[qs[i]];if(f&&fsRight(f,p))lit.add(p)});
-  return lit;
-}
+RENDER.fuel=function(body){body.innerHTML='<div class="stk" id="fsCard"></div>';fsPaint()};
 function fsPaint(){
-  const st=fsState(),qs=fsRound(st.r),box=$('fsCard');if(!box)return;
-  if(st.i>=qs.length)return fsSummary();
-  const fi=qs[st.i],f=FOODS[fi],picked=st.picks[st.i];
-  let h='<div class="fs-top"><span>Food '+(st.i+1)+' of '+qs.length+'</span><span class="fs-score">★ '+st.right+'</span></div>'+
-    '<div class="fs-food"><div class="fs-emo">'+f.e+'</div><div><div class="fs-name">'+esc(f.n)+'</div>'+
-    '<div class="fs-q">Which food group?</div></div><div class="fs-plate">'+fsPlate(fsLit(st))+'</div></div>'+
-    '<div class="gbtns">'+FOOD_GROUPS.map(g=>{
-      let cls='gbtn';
-      if(picked!==undefined){cls+=fsRight(f,g.k)?' right':g.k===picked?' wrong':' dim'}
-      return '<button class="'+cls+'" style="--gc:'+g.c+'" data-k="'+g.k+'"'+(picked!==undefined?' disabled':'')+'>'+esc(g.name)+'</button>'}).join('')+'</div>';
-  if(picked!==undefined){
-    const ok=fsRight(f,picked),home=groupOf(f.g[0]);
-    const nug=fsNugget(ok?picked:f.g[0],dayNumber()+fi);
-    const where=f.g.length>1?f.g.map(k=>groupOf(k).name).join(' or '):home.name;
-    h+='<div class="fs-res"><div class="fs-head '+(ok?'ok':'no')+'">'+
-      (ok?esc(TRV_CHEER[(fi+st.i)%TRV_CHEER.length]||'Yes!')+' ':'Close! ')+esc(f.n)+(f.g.length>1?' can go in '+esc(where)+'.':' '+(/s$/.test(f.n)&&!/ss$/.test(f.n)?'are':'is')+' in the '+esc(where)+' group.')+'</div>'+
-      (f.why?'<div class="fs-why">'+esc(f.why)+'</div>':'')+
-      (nug?'<div class="dyk"><b>💡 Did you know?</b><p>'+esc(nug[0])+'</p><div class="src">Source: '+esc(srcName(nug[1]))+'</div></div>':'')+
-      '<button class="btn3d small fs-next" style="'+colorOf('eat')+'" onclick="fsNext()">'+(st.i+1>=qs.length?'See my score ▶':'Next food ▶')+'</button></div>';
+  const st=fsState(),items=fsRound(st.r),box=$('fsCard');if(!box)return;
+  if(st.i>=items.length)return fsSummary();
+  const it=items[st.i],picked=st.picks[st.i],done=picked!==undefined;
+  const score=st.picks.filter((p,i)=>fsIsRight(items[i],p)).length;
+  let h='<div class="fs-top"><span>Question '+(st.i+1)+' of '+items.length+'</span><span class="fs-score">★ '+score+'</span></div>';
+  if(it.t==='sort'){
+    const f=FOODS[it.i];
+    h+='<div class="fs-food"><div class="fs-emo">'+f.e+'</div><div><div class="fs-name">'+esc(f.n)+'</div>'+
+      '<div class="fs-q">Which food group is it in?</div></div></div><div class="gbtns">'+
+      FOOD_GROUPS.map(g=>{
+        let cls='gbtn',mark='';
+        if(done){if(fsRight(f,g.k)){cls+=' right';mark='✓ '}else if(g.k===picked){cls+=' wrong';mark='✗ '}else cls+=' dim'}
+        return '<button class="'+cls+'" style="--gc:'+g.c+'" data-a="'+g.k+'"'+(done?' disabled':'')+'>'+mark+esc(g.name)+'</button>'}).join('')+'</div>';
+  }else{
+    const q=FOOD_QUIZ[it.i],order=shuffled(q.c.map((c,i)=>i),todayKey()+':fq:'+it.i);
+    h+='<div class="fs-quiz"><div class="fs-tag">🧠 Quick question</div><div class="fs-qq">'+esc(q.q)+'</div></div><div class="qbtns">'+
+      order.map(ci=>{
+        let cls='qbtn',mark='';
+        if(done){if(ci===0){cls+=' right';mark='✓ '}else if(ci===picked){cls+=' wrong';mark='✗ '}else cls+=' dim'}
+        return '<button class="'+cls+'" data-a="'+ci+'"'+(done?' disabled':'')+'>'+mark+esc(q.c[ci])+'</button>'}).join('')+'</div>';
+  }
+  if(done){
+    const ok=fsIsRight(it,picked);
+    h+='<div class="fs-res">';
+    if(it.t==='sort'){
+      const f=FOODS[it.i],where=f.g.map(k=>groupOf(k).name).join(' or ');
+      const nug=fsNugget(f.g[0],dayNumber()+it.i);
+      h+='<div class="fs-head '+(ok?'ok':'no')+'">'+(ok?'✅ Yes!':'❌ Not quite.')+'</div>'+
+        '<div class="fs-why">'+esc(f.n)+(f.g.length>1?' can go in '+esc(where)+'.':' '+(/s$/.test(f.n)&&!/ss$/.test(f.n)?'are':'is')+' in the '+esc(where)+' group.')+
+        (f.why?' '+esc(f.why):'')+'</div>'+
+        (nug?'<div class="dyk"><b>💡 Did you know?</b><p>'+esc(nug[0])+'</p></div>':'');
+    }else{
+      const q=FOOD_QUIZ[it.i];
+      h+='<div class="fs-head '+(ok?'ok':'no')+'">'+(ok?'✅ Yes!':'❌ Not quite. It’s '+esc(q.c[0])+'.')+'</div>'+
+        '<div class="dyk"><b>💡 Did you know?</b><p>'+esc(q.why)+'</p></div>';
+    }
+    h+='<button class="btn3d small fs-next" style="'+colorOf('eat')+'" onclick="fsNext()">'+(st.i+1>=items.length?'See my score ▶':'Next question ▶')+'</button></div>';
   }
   box.innerHTML=h;
-  box.querySelector('.gbtns').onclick=e=>{const b=e.target.closest('.gbtn');if(b&&!b.disabled)fsAnswer(b.dataset.k)};
+  box.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{if(!b.disabled)fsAnswer(it.t==='sort'?b.dataset.a:+b.dataset.a)});
 }
-function fsAnswer(k){
+function fsAnswer(a){
   const st=fsState();if(st.picks[st.i]!==undefined)return;
-  const f=FOODS[fsRound(st.r)[st.i]];
-  st.picks[st.i]=k;const ok=fsRight(f,k);if(ok)st.right++;
+  const it=fsRound(st.r)[st.i];
+  st.picks[st.i]=a;const ok=fsIsRight(it,a);
   const s=readJSON(KP+'Food',{right:0,n:0});s.n++;if(ok)s.right++;writeJSON(KP+'Food',s);
   saveDay();haptic(ok?[14,40,24]:[30]);if(ok)tick(760);else tick(300);
   fsPaint();
@@ -1196,34 +1478,485 @@ function fsAnswer(k){
 }
 function fsNext(){const st=fsState();st.i++;saveDay();haptic(8);fsPaint();$('card').scrollTo({top:0,behavior:REDUCED?'auto':'smooth'})}
 function fsSummary(){
-  const st=fsState(),n=st.picks.length,right=st.picks.filter((p,i)=>{const f=FOODS[fsRound(st.r)[i]];return f&&fsRight(f,p)}).length;
+  const st=fsState(),items=fsRound(st.r),n=items.length,right=st.picks.filter((p,i)=>fsIsRight(items[i],p)).length;
   const title=right===n?'Perfect! Food Group MVP':right>=n-2?'Food Group Pro':'Nice work, Rookie!';
   const g=FOOD_GROUPS[dayNumber()%FOOD_GROUPS.length];
-  const ex=FOOD_EXTRAS[dayNumber()%Math.max(1,FOOD_EXTRAS.length)];
-  $('fsCard').innerHTML='<div class="fs-done"><div class="sec-l">Today’s sort</div><div class="fs-big">'+right+' / '+n+'</div>'+
+  $('fsCard').innerHTML='<div class="fs-done"><div class="sec-l">Today’s challenge</div><div class="fs-big">'+right+' / '+n+'</div>'+
     '<div class="fs-title">'+esc(title)+'</div>'+
-    '<div class="spot" style="--gc:'+g.c+'"><span class="pill">Group spotlight</span><h3>'+esc(g.name)+'</h3>'+
-    '<p>'+esc(g.does)+'</p><p>MyPlate tip: '+esc(g.tip)+'</p><div class="src">Source: '+g.src.map(srcName).map(esc).join('; ')+'</div></div>'+
-    (ex?'<div class="dyk"><b>💡 Did you know?</b><p>'+esc(ex[0])+'</p><div class="src">Source: '+esc(srcName(ex[1]))+'</div></div>':'')+
-    '<button class="btn3d small ghost fs-next" onclick="fsMore()">Sort 6 more ↻</button></div>';
+    '<div class="spot" style="--gc:'+g.c+'"><span class="pill">Group of the day</span><h3>'+esc(g.name)+'</h3>'+
+    '<p>'+esc(g.does)+'</p><p>Tip: '+esc(g.tip)+'</p></div>'+
+    '<button class="btn3d small ghost fs-next" onclick="fsMore()">Play 6 more ↻</button></div>';
   if(!isDone('fuel')){markDone('fuel');paintNext()}
 }
-function fsMore(){const st=fsState();st.r++;st.i=0;st.picks=[];st.right=0;saveDay();haptic(8);fsPaint()}
+function fsMore(){const st=fsState();st.r++;st.i=0;st.picks=[];saveDay();haptic(8);fsPaint();$('card').scrollTo({top:0})}
 
-/* ═══════════ SETTINGS (first pass) ═══════════ */
+/* ═══════════ SHARED ═══════════ */
+const fmt=t=>{t=Math.max(0,Math.round(t));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+const sportOk=s=>S.sport==='both'||s===S.sport;   // "more" (other sports) shows only with both
+const sportLabel=s=>({soccer:'⚽ Soccer',football:'🏈 Football',more:'🏅 Sports'})[s]||'';
+function qButtons(choices,seed,picked,rightIdx){
+  /* choices in a stable shuffled order; after a pick, ✓ the right one and ✗ the pick */
+  const order=shuffled(choices.map((c,i)=>i),seed);
+  return '<div class="qbtns">'+order.map(ci=>{
+    let cls='qbtn',mark='';
+    if(picked!=null){if(ci===rightIdx){cls+=' right';mark='✓ '}else if(ci===picked){cls+=' wrong';mark='✗ '}else cls+=' dim'}
+    return '<button class="'+cls+'" data-a="'+ci+'"'+(picked!=null?' disabled':'')+'>'+mark+esc(choices[ci])+'</button>'}).join('')+'</div>';
+}
+const dyk=t=>'<div class="dyk"><b>💡 Did you know?</b><p>'+esc(t)+'</p></div>';
+function scrollToEl(sel){const el=document.querySelector(sel);if(el)setTimeout(()=>el.scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'nearest'}),60)}
+
+/* ═══════════ WARM-UP (and the evening cool-down) ═══════════ */
+let wu=null;
+function wuRoutine(){const ks=Object.keys(ROUTINES);return ROUTINES[ks[dayNumber()%ks.length]]}
+RENDER.warmup=function(body){wuMount(body,wuRoutine(),'warmup','Warmed up! 💪','Nice work. Your body is ready for the day.')};
+function wuMount(el,routine,cardId,doneT,doneP){
+  wu={r:routine,i:0,left:routine.moves[0][1],run:false,card:cardId,done:false,doneT:doneT,doneP:doneP};
+  el.insertAdjacentHTML('beforeend','<div class="stk wu" id="wuBox"><div class="wu-name d">'+esc(routine.name)+'</div><div class="wu-note">'+esc(routine.note)+'</div>'+
+    '<div class="wu-ring"><svg viewBox="0 0 120 120"><circle class="wu-track" cx="60" cy="60" r="54"/><circle class="wu-prog" id="wuProg" cx="60" cy="60" r="54"/></svg>'+
+    '<div class="wu-fig" id="wuFig"></div></div><div class="wu-move d" id="wuMove"></div><div class="wu-cue" id="wuCue"></div>'+
+    '<div class="wu-time d" id="wuTime"></div><div class="wu-dots" id="wuDots"></div>'+
+    '<button class="btn3d" id="wuBtn">Start ▶</button><div class="safety">Go easy. Stop if anything hurts.</div></div>');
+  $('wuBtn').onclick=wuToggle;wuPaint();
+}
+function wuPaint(){
+  const m=wu.r.moves[Math.min(wu.i,wu.r.moves.length-1)],tot=m[1];
+  $('wuFig').innerHTML=STRETCH_FIGS[m[3]]||'';
+  $('wuMove').textContent=wu.done?wu.doneT:m[0];
+  $('wuCue').textContent=wu.done?wu.doneP:m[2];
+  $('wuTime').textContent=wu.done?'✓':fmt(wu.left);
+  $('wuProg').style.strokeDashoffset=wu.done?0:(339.3*(wu.left/tot)).toFixed(1);
+  $('wuDots').innerHTML=wu.r.moves.map((_,i)=>'<i class="'+(wu.done||i<wu.i?'seen':i===wu.i?'on':'')+'"></i>').join('');
+  $('wuBox').classList.toggle('wu-go',wu.run&&!REDUCED);
+  $('wuBtn').textContent=wu.done?'Again ↻':wu.run?'Pause ⏸':(wu.i||wu.left<m[1]?'Keep going ▶':'Start ▶');
+}
+function wuToggle(){
+  if(wu.done){wu.done=false;wu.i=0;wu.left=wu.r.moves[0][1]}
+  if(wu.run){stopTimers();wu.run=false;wuPaint();return}
+  wu.run=true;haptic(10);tick();
+  const t=setInterval(()=>{
+    wu.left--;
+    if(wu.left<=0){
+      wu.i++;
+      if(wu.i>=wu.r.moves.length){stopTimers();wu.run=false;wu.done=true;wuPaint();fanfare();confetti(40);markDone(wu.card);paintNext();return}
+      wu.left=wu.r.moves[wu.i][1];tick(880);haptic([10,30,12]);
+    }
+    wuPaint();
+  },1000);
+  TIMERS.add(t);wuPaint();
+}
+
+/* ═══════════ SPORTS BRAIN ═══════════
+   One quick brain workout a day, a different kind each day, and the others
+   are a tap away if he wants more. Finishing any of them counts. */
+const BRAIN={
+  trivia:{name:'Trivia',emo:'❓',lead:'Three sports questions.'},
+  who:{name:'Who Am I?',emo:'🕵️',lead:'Guess the player or team. Fewer clues, more points.'},
+  play:{name:'Playbook',emo:'📋',lead:'Learn a real play, then watch for it in a game.'},
+  skill:{name:'Skill of the Day',emo:'⚽',lead:'Something to try at recess or practice.'},
+  cross:{name:'Crossword',emo:'✏️',lead:'A mini sports crossword.'},
+};
+/* Sunday to Saturday */
+const brainToday=()=>['who','trivia','who','play','skill','trivia','cross'][new Date().getDay()];
+let brainMode=null;
+function brainState(){DAY.brain=DAY.brain||{};return DAY.brain}
+RENDER.brain=function(body){
+  brainMode=brainMode&&BRAIN[brainMode]?brainMode:brainToday();
+  body.insertAdjacentHTML('afterbegin','<div class="stk"><div class="bz-today" id="bzHead"></div><div id="bz"></div></div>'+
+    '<div class="stk more"><div class="sec-l">Want more?</div><div class="chips" id="bzChips"></div></div>');
+  brainPaint();
+};
+function brainPaint(){
+  const k=brainMode,b=BRAIN[k];
+  $('bzHead').innerHTML='<span>'+b.emo+'</span>'+(k===brainToday()?'Today: ':'')+esc(b.name);
+  $('bzChips').innerHTML=Object.keys(BRAIN).map(x=>'<button class="chip'+(x===k?' on':'')+'" data-k="'+x+'">'+BRAIN[x].emo+' '+esc(BRAIN[x].name)+'</button>').join('');
+  $('bzChips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;stopTimers();brainMode=c.dataset.k;haptic(6);brainPaint();
+    $('card').scrollTo({top:0,behavior:REDUCED?'auto':'smooth'})};
+  ({trivia:trvPaint,who:whoPaint,play:pbPaint,skill:skPaint,cross:cwOpen})[k]();
+}
+function brainWin(){if(!isDone('brain')){markDone('brain');paintNext()}}
+
+/* ── trivia: three a day ── */
+const TRV_N=3;
+function trvRound(r){
+  const pool=TRIVIA.map((q,i)=>i).filter(i=>sportOk(TRIVIA[i].s));if(!pool.length)return[];
+  const order=shuffled(pool,KP+'trivia'),start=((dayNumber()+(r||0)*11)*TRV_N)%order.length;
+  return [...Array(TRV_N)].map((_,i)=>order[(start+i)%order.length]);
+}
+function trvState(){const b=brainState();b.triv=b.triv||{r:0,i:0,picks:[]};return b.triv}
+function trvPaint(){
+  const st=trvState(),qs=trvRound(st.r),box=$('bz');
+  if(st.i>=qs.length){
+    const right=st.picks.filter(p=>p===0).length,s=readJSON(KP+'Triv',{right:0,n:0});
+    box.innerHTML='<div class="fs-done"><div class="fs-big">'+right+' / '+qs.length+'</div><div class="fs-title">'+
+      (right===qs.length?'Perfect! Trivia MVP':right?'Nice work!':'Tough ones! Tomorrow’s yours.')+'</div>'+
+      '<div class="best">All time: '+s.right+' right out of '+s.n+'</div>'+
+      '<button class="btn3d small ghost fs-next" onclick="trvMore()">Play 3 more ↻</button></div>';
+    brainWin();return;
+  }
+  const qi=qs[st.i],q=TRIVIA[qi],picked=st.picks[st.i];
+  let h='<div class="fs-top"><span>Question '+(st.i+1)+' of '+qs.length+'</span><span class="pill sport-pill">'+sportLabel(q.s)+'</span></div>'+
+    '<div class="big-q">'+esc(q.q)+'</div>'+qButtons(q.c,todayKey()+':t:'+qi,picked,0);
+  if(picked!=null){
+    h+='<div class="fs-res"><div class="fs-head '+(picked===0?'ok':'no')+'">'+(picked===0?'✅ Yes!':'❌ Not quite. It’s '+esc(q.c[0])+'.')+'</div>'+dyk(q.f)+
+      '<button class="btn3d small fs-next" style="'+colorOf('edu')+'" onclick="trvNext()">'+(st.i+1>=qs.length?'See my score ▶':'Next question ▶')+'</button></div>';
+  }
+  box.innerHTML=h;
+  box.querySelectorAll('.qbtn').forEach(b=>b.onclick=()=>{if(b.disabled)return;
+    st.picks[st.i]=+b.dataset.a;const ok=st.picks[st.i]===0;
+    const s=readJSON(KP+'Triv',{right:0,n:0});s.n++;if(ok)s.right++;writeJSON(KP+'Triv',s);
+    saveDay();haptic(ok?[14,40,24]:[30]);tick(ok?760:300);trvPaint();scrollToEl('#bz .fs-res')});
+}
+function trvNext(){const st=trvState();st.i++;saveDay();trvPaint();$('card').scrollTo({top:0,behavior:REDUCED?'auto':'smooth'})}
+function trvMore(){const st=trvState();st.r++;st.i=0;st.picks=[];saveDay();trvPaint()}
+
+/* ── Who Am I? ── three clues, hardest first: 3 points on clue 1, 2 on clue 2, 1 on clue 3 */
+function whoIdx(r){const pool=WHOAMI.map((w,i)=>i).filter(i=>sportOk(WHOAMI[i].s));if(!pool.length)return 0;
+  const order=shuffled(pool,KP+'who');return order[(dayNumber()+(r||0)*Math.ceil(order.length/2))%order.length]}
+function whoState(){const b=brainState();b.who=b.who||{r:0,clues:1};return b.who}
+function whoPaint(){
+  const st=whoState(),idx=whoIdx(st.r),e=WHOAMI[idx],done=st.pick!=null,shown=done?3:st.clues;
+  const s=readJSON(KP+'Who',{played:0,right:0,pts:0});
+  let h='<div class="fs-top"><span>'+(st.r?'Bonus round':'Today’s mystery')+'</span><span class="pill sport-pill">'+sportLabel(e.s)+'</span></div>'+
+    e.clues.map((c,i)=>i<shown?'<div class="who-clue"><b>Clue '+(i+1)+'</b><span>'+esc(c)+'</span></div>'
+      :'<div class="who-clue locked"><b>Clue '+(i+1)+'</b><span>Locked 🔒</span></div>').join('');
+  if(!done)h+='<div class="who-bar">'+(st.clues<3?'<button class="btn3d small ghost" style="width:auto;padding:0 16px" onclick="whoClue()">Show clue '+(st.clues+1)+'</button>':'')+
+    '<span class="who-pts">Guess now for '+(4-st.clues)+' point'+(st.clues===3?'':'s')+'</span></div>';
+  h+=qButtons(e.c,todayKey()+':w:'+idx,done?st.pick:null,0);
+  if(done){
+    const ok=st.pick===0;
+    h+='<div class="fs-res"><div class="fs-head '+(ok?'ok':'no')+'">'+(ok?'✅ Yes! +'+st.got+' point'+(st.got===1?'':'s'):'❌ Not quite. It’s '+esc(e.c[0])+'.')+'</div>'+dyk(e.f)+
+      '<div class="best">All-time points: '+s.pts+'</div>'+
+      '<button class="btn3d small ghost fs-next" onclick="whoAgain()">Play another ↻</button></div>';
+  }
+  $('bz').innerHTML=h;
+  $('bz').querySelectorAll('.qbtn').forEach(b=>b.onclick=()=>{if(b.disabled)return;
+    st.pick=+b.dataset.a;const ok=st.pick===0;st.got=ok?4-st.clues:0;
+    const s2=readJSON(KP+'Who',{played:0,right:0,pts:0});s2.played++;if(ok)s2.right++;s2.pts+=st.got;writeJSON(KP+'Who',s2);
+    saveDay();haptic(ok?[14,40,24]:[30]);tick(ok?760:300);if(ok&&st.clues===1)confetti(40);
+    whoPaint();brainWin();scrollToEl('#bz .fs-res')});
+}
+function whoClue(){const st=whoState();if(st.clues<3){st.clues++;saveDay();haptic(8);whoPaint()}}
+function whoAgain(){const st=whoState();st.r++;st.clues=1;delete st.pick;delete st.got;saveDay();whoPaint();$('card').scrollTo({top:0})}
+
+/* ── Playbook ── */
+function pbIdx(){const pool=PLAYS.map((p,i)=>i).filter(i=>sportOk(PLAYS[i].s));const b=brainState();
+  const order=shuffled(pool,KP+'plays');return order[(dayNumber()+(b.pbOff||0)*Math.ceil(order.length/2))%order.length]}
+function pbPaint(){
+  const p=PLAYS[pbIdx()];if(!p)return;
+  $('bz').innerHTML='<span class="pill sport-pill">'+sportLabel(p.s)+'</span><div class="pb-name">'+esc(p.name)+'</div>'+
+    '<div class="pb-what">'+esc(p.what)+'</div><div class="pb-wrap">'+pbSvg(p)+'</div>'+
+    '<div class="sec-l" style="margin-top:14px">How it works</div><ol class="steps">'+p.how.map(x=>'<li><span>'+esc(x)+'</span></li>').join('')+'</ol>'+
+    '<div class="box"><b>Why it works</b>'+esc(p.why)+'</div><div class="box"><b>Watch for it</b>'+esc(p.look)+'</div>'+
+    '<button class="btn3d small fs-next" style="'+colorOf('edu')+'" onclick="pbGot()">'+(isDone('brain')?'Another play ↻':'Got it! ✓')+'</button>';
+}
+function pbGot(){if(isDone('brain')){const b=brainState();b.pbOff=(b.pbOff||0)+1;saveDay();pbPaint();$('card').scrollTo({top:0});return}
+  haptic([14,40,24]);brainWin();pbPaint()}
+/* The diagram is data: dots, a ball and arrows on a 100 by 60 field, his team
+   attacking to the right. Colours come from the theme. */
+function pbSvg(p){
+  const d=p.d,soccer=p.s==='soccer',o=[];
+  o.push('<svg class="pb-svg" viewBox="-2 -2 104 64" role="img" aria-label="Diagram: '+esc(p.name)+'">');
+  o.push('<defs><marker id="pbHead" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path class="pb-head" d="M0 0L6 3L0 6z"/></marker></defs>');
+  o.push('<rect class="pb-grass" x="-2" y="-2" width="104" height="64" rx="3"/>');
+  if(soccer){
+    o.push('<rect class="pb-line" x="0" y="0" width="100" height="60"/><path class="pb-line" d="M50 0V60"/><circle class="pb-line" cx="50" cy="30" r="8"/>'+
+      '<rect class="pb-line" x="0" y="14" width="15" height="32"/><rect class="pb-line" x="85" y="14" width="15" height="32"/>'+
+      '<rect class="pb-line" x="0" y="23" width="5" height="14"/><rect class="pb-line" x="95" y="23" width="5" height="14"/>'+
+      '<path class="pb-line" d="M0 26.5V33.5M100 26.5V33.5" style="stroke-width:1.6"/>');
+  }else{
+    o.push('<rect class="pb-zone" x="0" y="0" width="8" height="60"/><rect class="pb-zone" x="92" y="0" width="8" height="60"/>');
+    let lines='';for(let x=8;x<=92;x+=8.4)lines+='M'+x.toFixed(1)+' 0V60';
+    o.push('<path class="pb-line" d="'+lines+'"/><rect class="pb-line" x="0" y="0" width="100" height="60"/>');
+  }
+  d.a.forEach(([k,x1,y1,x2,y2])=>{
+    if(k==='dribble'){
+      const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len,steps=Math.max(2,Math.round(len/4));
+      let path='M'+x1+' '+y1;
+      for(let i=1;i<=steps;i++){const t=i/steps,w=(i===steps?0:(i%2?1.2:-1.2));path+='L'+(x1+dx*t+nx*w).toFixed(2)+' '+(y1+dy*t+ny*w).toFixed(2)}
+      o.push('<path class="pb-a dribble" d="'+path+'" marker-end="url(#pbHead)"/>');
+    }else o.push('<path class="pb-a '+k+'" d="M'+x1+' '+y1+'L'+x2+' '+y2+'" marker-end="url(#pbHead)"/>');
+  });
+  d.p.forEach(([t,x,y])=>o.push('<circle class="pb-'+(t==='u'?'u':'t')+'" cx="'+x+'" cy="'+y+'" r="2.7"/>'));
+  o.push('<circle class="pb-ball" cx="'+d.b[0]+'" cy="'+(d.b[1]-0.1)+'" r="1.4"/></svg>');
+  const kinds=[...new Set(d.a.map(a=>a[0]))];
+  const line=k=>'<svg viewBox="0 0 22 8"><path class="pb-a '+k+'" d="M1 4H17" style="stroke-width:1.4"/><path class="pb-head" d="M16 1L21 4L16 7z"/></svg>';
+  return o.join('')+'<div class="pb-key"><span><i style="background:#2F7BF0"></i>Your team</span>'+
+    (d.p.some(x=>x[0]==='t')?'<span><i style="background:#F0443A"></i>Other team</span>':'')+
+    ['run','pass','dribble'].filter(k=>kinds.indexOf(k)>=0).map(k=>'<span>'+line(k)+k[0].toUpperCase()+k.slice(1)+'</span>').join('')+'</div>';
+}
+
+/* ── Skill of the Day ── */
+function skIdx(){const pool=SKILLS.map((k,i)=>i).filter(i=>sportOk(SKILLS[i].s));const b=brainState();
+  const order=shuffled(pool,KP+'skills');return order[(dayNumber()+(b.skOff||0)*Math.ceil(order.length/2))%order.length]}
+function skPaint(){
+  const k=SKILLS[skIdx()];if(!k)return;
+  const best=+(readJSON(KP+'Skill',{})[k.name]||0);
+  $('bz').innerHTML='<span class="pill sport-pill">'+sportLabel(k.s)+'</span><div class="sk-name">'+esc(k.name)+'</div>'+
+    '<div class="sk-what">'+esc(k.what)+'</div><div class="sec-l" style="margin-top:14px">How to do it</div>'+
+    '<ol class="steps">'+k.steps.map(x=>'<li><span>'+esc(x)+'</span></li>').join('')+'</ol>'+
+    '<div class="box"><b>Today’s goal</b>'+esc(k.goal)+'</div><div class="box"><b>Coach’s tip</b>'+esc(k.tip)+'</div>'+
+    '<div class="sec-l" style="margin-top:16px">Tried it? How many did you get?</div>'+
+    '<div class="count-row"><input class="txt-in" id="skCount" type="number" inputmode="numeric" min="0" max="9999" placeholder="Your number"><button class="btn3d small" style="width:auto;padding:0 18px;'+colorOf('edu')+'" onclick="skSave()">Save</button></div>'+
+    '<div class="best" id="skBest">'+(best?'Your best: '+best:'')+'</div>'+
+    '<button class="btn3d small fs-next" style="'+colorOf('edu')+'" onclick="skGot()">'+(isDone('brain')?'Another skill ↻':'I’ll try it today! ✓')+'</button>';
+}
+function skSave(){
+  const k=SKILLS[skIdx()],n=parseInt($('skCount').value,10);
+  if(!(n>=0)){$('skBest').textContent='Type a number first.';return}
+  const all=readJSON(KP+'Skill',{}),was=+(all[k.name]||0);
+  if(n>was){all[k.name]=n;writeJSON(KP+'Skill',all)}
+  $('skBest').textContent=n>was&&was?'🎉 New best! '+n+', up from '+was+'.':n>was?'Saved! Your best: '+n+'.':'Saved. Your best is still '+was+'.';
+  if(n>was&&was)confetti(40);haptic([12,30,14]);tick(760);brainWin();
+}
+function skGot(){if(isDone('brain')){const b=brainState();b.skOff=(b.skOff||0)+1;saveDay();skPaint();$('card').scrollTo({top:0});return}
+  haptic([14,40,24]);brainWin();skPaint()}
+
+/* ── Crossword: 5×5, mostly sports words ── */
+let CW=null;
+function cwBuild(p){
+  const N=p.r.length,g=p.r.map(r=>r.split('')),num={},across=[],down=[];let n=0;
+  for(let r=0;r<N;r++)for(let c=0;c<N;c++){
+    if(g[r][c]==='#')continue;
+    const sa=(c===0||g[r][c-1]==='#')&&(c<N-1&&g[r][c+1]!=='#'),sd=(r===0||g[r-1][c]==='#')&&(r<N-1&&g[r+1][c]!=='#');
+    if(sa||sd)num[r+','+c]=++n;
+    if(sa){const e=[];for(let i=c;i<N&&g[r][i]!=='#';i++)e.push([r,i]);across.push({n:n,cells:e,dir:'a'})}
+    if(sd){const e=[];for(let i=r;i<N&&g[i][c]!=='#';i++)e.push([i,c]);down.push({n:n,cells:e,dir:'d'})}
+  }
+  [].concat(across,down).forEach(e=>{e.answer=e.cells.map(([r,c])=>g[r][c]).join('');e.clue=p.c[e.answer]||''});
+  return {N:N,g:g,num:num,across:across,down:down,entries:across.concat(down)};
+}
+function cwOpen(){
+  if(!PUZZLES.length)return;
+  CW=cwBuild(PUZZLES[daily(PUZZLES.length,'cw')]);
+  CW.key=KP+'CW-'+todayKey();CW.letters=readJSON(CW.key,{});CW.dir='a';CW.sel=null;
+  $('bz').innerHTML='<div class="cw-clue"><div class="cw-clue-l"><span id="cwClueL"></span><button id="cwFlip" onclick="cwFlip()"></button></div><div class="cw-clue-t" id="cwClueT"></div></div>'+
+    '<div class="cw-grid" id="cwGrid"></div><div class="cw-msg" id="cwMsg"></div>'+
+    '<div class="row" style="margin-top:8px"><button class="btn3d small ghost" onclick="cwCheck()">Check</button><button class="btn3d small ghost" onclick="cwReveal()">Show answers</button></div>';
+  const grid=$('cwGrid');grid.style.gridTemplateColumns='repeat('+CW.N+',1fr)';
+  for(let r=0;r<CW.N;r++)for(let c=0;c<CW.N;c++){
+    const cell=document.createElement('div');
+    if(CW.g[r][c]==='#'){cell.className='cw-cell blk';grid.appendChild(cell);continue}
+    cell.className='cw-cell';cell.id='cw-'+r+'-'+c;
+    const nm=CW.num[r+','+c];if(nm)cell.innerHTML='<span class="cw-num">'+nm+'</span>';
+    const inp=document.createElement('input');
+    inp.type='text';inp.maxLength=1;inp.autocapitalize='characters';inp.autocomplete='off';inp.spellcheck=false;inp.value=CW.letters[r+','+c]||'';
+    inp.onfocus=()=>cwSelect(r,c,CW.dir,false);
+    inp.onmousedown=e=>{if(CW.sel&&CW.sel[0]===r&&CW.sel[1]===c){e.preventDefault();cwSelect(r,c,CW.dir==='a'?'d':'a',true)}};
+    inp.oninput=e=>{
+      const v=(e.target.value||'').replace(/[^a-zA-Z]/g,'').toUpperCase().slice(-1);e.target.value=v;cell.classList.remove('bad','good');
+      if(v){CW.letters[r+','+c]=v;writeJSON(CW.key,CW.letters);haptic(5);cwStep(1)}else{delete CW.letters[r+','+c];writeJSON(CW.key,CW.letters)}
+      if(cwSolved())cwWin();
+    };
+    inp.onkeydown=e=>{if(e.key==='Backspace'&&!e.target.value){e.preventDefault();cwStep(-1)}};
+    cell.appendChild(inp);grid.appendChild(cell);
+  }
+  const f=CW.across[0];cwSelect(f.cells[0][0],f.cells[0][1],'a',false);
+}
+const cwEntryAt=(r,c,dir)=>CW.entries.find(e=>e.dir===dir&&e.cells.some(x=>x[0]===r&&x[1]===c));
+function cwSelect(r,c,dir,focus){
+  if(!cwEntryAt(r,c,dir))dir=dir==='a'?'d':'a';
+  CW.sel=[r,c];CW.dir=dir;const e=cwEntryAt(r,c,dir);
+  document.querySelectorAll('.cw-cell').forEach(x=>x.classList.remove('hl','sel'));
+  if(e)e.cells.forEach(([rr,cc])=>$('cw-'+rr+'-'+cc).classList.add('hl'));
+  const cur=$('cw-'+r+'-'+c);cur.classList.add('sel');
+  if(e){$('cwClueL').textContent=(dir==='a'?'Across':'Down')+' '+e.n;$('cwClueT').textContent=e.clue}
+  const other=cwEntryAt(r,c,dir==='a'?'d':'a');$('cwFlip').style.visibility=other?'visible':'hidden';
+  $('cwFlip').textContent='Switch to '+(dir==='a'?'Down':'Across')+' ⇅';
+  if(focus)cur.querySelector('input').focus();
+}
+function cwFlip(){if(CW&&CW.sel)cwSelect(CW.sel[0],CW.sel[1],CW.dir==='a'?'d':'a',true)}
+function cwStep(d){const [r,c]=CW.sel,e=cwEntryAt(r,c,CW.dir);if(!e)return;const i=e.cells.findIndex(x=>x[0]===r&&x[1]===c),nx=e.cells[i+d];if(nx)cwSelect(nx[0],nx[1],CW.dir,true)}
+const cwSolved=()=>CW.entries.every(e=>e.cells.every(([r,c],i)=>(CW.letters[r+','+c]||'')===e.answer[i]));
+function cwCheck(){
+  let wrong=0,blank=0;
+  for(let r=0;r<CW.N;r++)for(let c=0;c<CW.N;c++){if(CW.g[r][c]==='#')continue;
+    const el=$('cw-'+r+'-'+c),v=CW.letters[r+','+c];el.classList.remove('bad','good');
+    if(!v){blank++;continue}if(v===CW.g[r][c])el.classList.add('good');else{el.classList.add('bad');wrong++}}
+  if(!wrong&&!blank)return cwWin();
+  $('cwMsg').textContent=wrong?wrong+(wrong===1?' letter is':' letters are')+' off. You can fix them!':'Looking good! '+blank+' to go.';
+}
+function cwWin(){
+  $('cwMsg').textContent='🎉 Solved it!';fanfare();confetti();haptic([18,40,22,40,60]);
+  document.querySelectorAll('.cw-cell:not(.blk)').forEach((el,i)=>{el.classList.add('won');el.style.animationDelay=(i*22)+'ms'});
+  brainWin();
+}
+function cwReveal(){
+  for(let r=0;r<CW.N;r++)for(let c=0;c<CW.N;c++){if(CW.g[r][c]==='#')continue;CW.letters[r+','+c]=CW.g[r][c];$('cw-'+r+'-'+c).querySelector('input').value=CW.g[r][c]}
+  writeJSON(CW.key,CW.letters);$('cwMsg').textContent='Here are the answers. New puzzle tomorrow!';brainWin();
+}
+
+/* ═══════════ CAPTAIN'S CARD ═══════════
+   Today's challenge (one character skill, with a how and a why), and his own
+   assignments for the day, which come back at the evening check-in. */
+function capState(){DAY.captain=DAY.captain||{ch:daily(CHALLENGES.length,'challenge'),jobs:[]};return DAY.captain}
+RENDER.captain=function(body){
+  const st=capState(),c=CHALLENGES[st.ch]||CHALLENGES[0];
+  body.insertAdjacentHTML('afterbegin','<div class="stk"><div class="sec-l">Today’s challenge</div><div class="ch-name">'+esc(c[0])+'</div>'+
+    '<div class="ch-goal">'+esc(c[1])+'</div><div class="box"><b>How</b>'+esc(c[2])+'</div><div class="box"><b>Why it matters</b>'+esc(c[3])+'</div></div>'+
+    '<div class="stk"><div class="sec-l">My assignments today</div><div class="jobs" id="jobs"></div>'+
+    '<div class="add-row"><input class="txt-in" id="jobIn" maxlength="40" placeholder="Something I’m responsible for" enterkeyhint="done"><button class="btn3d" style="'+colorOf('cap')+'" onclick="jobAdd()">Add</button></div>'+
+    '<div class="ideas"><div class="sec-l" style="margin-bottom:6px">Quick add</div><div class="chips" id="jobIdeas"></div></div></div>');
+  $('jobIn').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();jobAdd()}};
+  jobPaint();
+};
+function jobPaint(evening){
+  const st=capState(),box=$('jobs');if(!box)return;
+  box.innerHTML=st.jobs.length?st.jobs.map((j,i)=>'<div class="job'+(j.done?' done':'')+'">'+
+    (evening?'<button class="tick" onclick="jobTick('+i+')" aria-label="Done">'+(j.done?'✓':'')+'</button>':'')+
+    '<span>'+esc(j.t)+'</span>'+(evening?'':'<button onclick="jobDel('+i+')" aria-label="Remove">✕</button>')+'</div>').join('')
+    :'<div class="empty">'+(evening?'No assignments today.':'Add what you’re in charge of today, like homework or feeding the dog.')+'</div>';
+  const ideas=$('jobIdeas');
+  if(ideas)ideas.innerHTML=JOB_IDEAS.filter(x=>!st.jobs.some(j=>j.t===x)).map(x=>'<button class="chip">'+esc(x)+'</button>').join('');
+  if(ideas)ideas.onclick=e=>{const c=e.target.closest('.chip');if(c)jobAdd(c.textContent)};
+}
+function jobAdd(t){
+  const st=capState(),inp=$('jobIn');t=String(t||(inp&&inp.value)||'').trim().replace(/[\s,;.]+$/,'');
+  if(!t||st.jobs.length>=8||st.jobs.some(j=>j.t.toLowerCase()===t.toLowerCase()))return;
+  st.jobs.push({t:t,done:false});if(inp&&!arguments.length||inp&&inp.value.trim()===t)inp.value='';
+  saveDay();haptic(8);tick(700);jobPaint();
+}
+function jobDel(i){capState().jobs.splice(i,1);saveDay();haptic(6);jobPaint()}
+function jobTick(i){const j=capState().jobs[i];j.done=!j.done;saveDay();haptic(j.done?[12,30,14]:6);if(j.done)tick(760);jobPaint(true)}
+
+/* ═══════════ KICKOFF: a joke for the road ═══════════ */
+function jokeHtml(){
+  const j=JOKES[daily(JOKES.length,'joke')];if(!j)return '';
+  return '<div class="stk joke"><div class="sec-l">A joke for the road</div><div class="joke-q">'+esc(j.q||'')+'</div>'+
+    '<div class="joke-a" id="jokeA" style="display:none">'+esc(j.a)+'</div>'+
+    '<button class="btn3d small ghost joke-tap" id="jokeBtn" onclick="$(\'jokeA\').style.display=\'\';this.remove();tick(880)">Tell me! 😆</button></div>';
+}
+
+/* ═══════════ CHECK-IN ═══════════
+   His assignments come back to tick off, and he rates today's challenge. */
+const RATES=[['great','🔥','Nailed it'],['ok','👍','Sort of'],['tomorrow','🔁','Tomorrow']];
+RENDER.checkin=function(body){
+  const st=capState(),c=CHALLENGES[st.ch]||CHALLENGES[0];
+  body.insertAdjacentHTML('afterbegin','<div class="stk"><div class="sec-l">Your assignments</div><div class="jobs" id="jobs"></div></div>'+
+    '<div class="stk"><div class="sec-l">Today’s challenge</div><div class="ch-name">'+esc(c[0])+'</div><div class="ch-goal">'+esc(c[1])+'</div>'+
+    '<div class="big-q" style="font-size:19px">How did you do?</div><div class="rate" id="rate"></div></div>'+
+    '<div class="stk"><div class="sec-l">Best moment of the day (if you want)</div><input class="txt-in" id="hlIn" maxlength="80" placeholder="Something that went well"></div>');
+  jobPaint(true);
+  const rate=()=>{$('rate').innerHTML=RATES.map(([k,e,l])=>'<button class="'+(st.rating===k?'on':'')+'" data-k="'+k+'"><span>'+e+'</span>'+l+'</button>').join('')};
+  rate();
+  $('rate').onclick=e=>{const b=e.target.closest('button');if(!b)return;st.rating=b.dataset.k;saveDay();haptic([12,30,14]);tick(760);rate()};
+  $('hlIn').value=st.highlight||'';
+  $('hlIn').oninput=e=>{st.highlight=e.target.value.trim();saveDay()};
+};
+
+/* ═══════════ RECOVERY ═══════════
+   Tonight's sleep fact, his bedtime against the hours kids his age need,
+   tonight's plan, and a one-minute cool-down. */
+const toMin=t=>{const m=/^(\d{1,2}):(\d{2})$/.exec(t||'');return m?(+m[1])*60+(+m[2]):null};
+const clock=m=>{m=((m%1440)+1440)%1440;const h=Math.floor(m/60),mm=m%60;return ((h+11)%12+1)+':'+String(mm).padStart(2,'0')+(h<12?' AM':' PM')};
+function sleepHours(){const b=toMin(S.bed),w=toMin(S.wake);if(b==null||w==null)return null;return (((w-b)%1440)+1440)%1440/60}
+function sleepState(){DAY.sleep=DAY.sleep||{plan:[]};return DAY.sleep}
+RENDER.recovery=function(body){
+  const st=sleepState(),f=SLEEP_FACTS[daily(SLEEP_FACTS.length,'sleep')],h=sleepHours();
+  const [lo,hi]=KID_HOURS;
+  const hrs=h==null?'':(Math.round(h*4)/4).toString().replace('.25','¼').replace('.5','½').replace('.75','¾');
+  const verdict=h==null?'':h>=lo&&h<=hi?'✅ That’s right in the '+lo+' to '+hi+' hours kids your age need.'
+    :h<lo?'⚠️ That’s less than the '+lo+' to '+hi+' hours kids your age need. Ask a grown-up about an earlier bedtime.'
+    :'That’s more than '+hi+' hours. Check your times in Settings.';
+  body.insertAdjacentHTML('afterbegin',(f?'<div class="stk fact" style="border-left:8px solid var(--slp)"><div class="sec-l">Recovery fact</div><div class="big-q" style="font-size:20px;margin-top:0">'+esc(f[0])+'</div></div>':'')+
+    '<div class="stk"><div class="sec-l">Tonight’s sleep</div><div class="bed"><div class="moon">🛏️</div><div>'+
+    '<div class="bed-big">Lights out '+esc(clock(toMin(S.bed)))+'</div><div class="bed-p">Up at '+esc(clock(toMin(S.wake)))+'. That’s '+hrs+' hours of recovery.</div></div></div>'+
+    '<div class="bed-p" style="margin-top:10px">'+esc(verdict)+'</div></div>'+
+    '<div class="stk"><div class="sec-l">Tonight’s game plan</div><div class="plan" id="sleepPlan"></div></div><div id="coolBox"></div>');
+  const paint=()=>{$('sleepPlan').innerHTML=SLEEP_PLAN.map(([t],i)=>'<div class="job'+(st.plan[i]?' done':'')+'"><button class="tick" data-i="'+i+'">'+(st.plan[i]?'✓':'')+'</button><span>'+esc(t)+'</span></div>').join('')};
+  paint();
+  $('sleepPlan').onclick=e=>{const b=e.target.closest('.tick');if(!b)return;const i=+b.dataset.i;st.plan[i]=!st.plan[i];saveDay();haptic(st.plan[i]?[12,30,14]:6);if(st.plan[i])tick(760);paint()};
+  wuMount($('coolBox'),COOLDOWN,'recovery','All loosened up. 😌','Your muscles are ready to rest.');
+};
+
+/* ═══════════ LIGHTS OUT ═══════════
+   One wind-down a night: a line per slow breath, in with the circle, out
+   as it shrinks. It ends on goodnight. */
+let lo=null;
+RENDER.lights=function(body){
+  const sc=MIND[daily(MIND.length,'mind')];
+  lo={sc:sc,i:-1,run:false};
+  body.insertAdjacentHTML('afterbegin','<div class="stk lo"><div style="font-size:40px">'+sc[1]+'</div><div class="lo-title">'+esc(sc[0])+'</div>'+
+    '<div class="breath"><div class="breath-ring"></div><div class="breath-ball" id="ball"></div></div><div class="breath-cue" id="bCue"></div>'+
+    '<div class="lo-line" id="loLine">Get comfy in bed. When you’re ready, tap Begin and follow the circle.</div>'+
+    '<div class="lo-dots" id="loDots"></div><button class="btn3d" id="loBtn" style="'+colorOf('med')+'">Begin 🌙</button></div>');
+  $('loBtn').onclick=loToggle;loDots();
+};
+function loDots(){$('loDots').innerHTML=lo.sc[2].map((_,i)=>'<i class="'+(i<lo.i?'seen':i===lo.i?'on':'')+'"></i>').join('')}
+function loToggle(){
+  if(lo.run){stopTimers();lo.run=false;$('ball').classList.remove('in');$('bCue').textContent='Paused';$('loBtn').textContent='Keep going 🌙';return}
+  lo.run=true;$('loBtn').textContent='Pause';loStep();
+}
+function loStep(){
+  lo.i++;
+  if(lo.i>=lo.sc[2].length){
+    stopTimers();lo.run=false;$('ball').classList.remove('in');$('bCue').textContent='';
+    $('loLine').textContent='Goodnight, '+S.name+'. Great game today. 🌙';$('loBtn').style.display='none';loDots();
+    markDone('lights');paintNext();return;
+  }
+  const [inS,outS]=BREATH,ball=$('ball'),line=$('loLine');
+  line.style.opacity=0;
+  TIMERS.add(setTimeout(()=>{line.textContent=lo.sc[2][lo.i];line.style.opacity=1},400));
+  ball.style.transitionDuration=inS+'s';ball.classList.add('in');$('bCue').textContent='Breathe in…';loDots();
+  TIMERS.add(setTimeout(()=>{ball.style.transitionDuration=outS+'s';ball.classList.remove('in');$('bCue').textContent='Breathe out…'},inS*1000));
+  TIMERS.add(setTimeout(loStep,(inS+outS)*1000));
+}
+
+/* ═══════════ SETTINGS ═══════════ */
 const JERSEY_COLORS=['#2F7BF0','#E53935','#1FB45A','#FFB300','#7C5CFF','#FF7A1A','#111827','#12B5A6'];
+function seg(id,opts,cur){return '<div class="seg" id="'+id+'">'+opts.map(([k,l])=>'<button data-v="'+k+'" class="'+(cur===k?'on':'')+'">'+l+'</button>').join('')+'</div>'}
 function renderSettings(){
+  const srcs=Object.values(FOOD_SRC).concat(Object.values(SLEEP_SRC));
   $('setBody').innerHTML=
     '<div class="stk"><div class="sec-l">Your name</div><input class="txt-in" id="setName" maxlength="16" value="'+esc(S.name)+'"></div>'+
     '<div class="stk"><div class="sec-l">Your jersey</div><div class="row"><div class="jersey" style="width:80px;height:75px">'+jerseySvg(S.color,S.num)+'</div>'+
     '<input class="num-in" id="setNum" type="number" inputmode="numeric" min="0" max="99" value="'+esc(String(S.num))+'" style="width:110px"></div>'+
     '<div class="swatches" style="margin-top:14px">'+JERSEY_COLORS.map(c=>'<button class="sw'+(c===S.color?' on':'')+'" style="background:'+c+'" data-c="'+c+'" aria-label="Jersey color"></button>').join('')+'</div></div>'+
-    '<div class="stk"><div class="sec-l">Look</div><div class="seg" id="setTheme">'+
-      [['auto','Auto'],['day','Day game'],['night','Night game']].map(([k,l])=>'<button data-t="'+k+'" class="'+(S.theme===k?'on':'')+'">'+l+'</button>').join('')+'</div></div>';
+    '<div class="stk"><div class="sec-l">Favorite sport</div>'+seg('setSport',[['both','Both'],['soccer','⚽ Soccer'],['football','🏈 Football']],S.sport)+'</div>'+
+    '<div class="stk"><div class="sec-l">Bedtime and wake-up</div><div class="row">'+
+      '<label style="flex:1;font-weight:900;font-size:14px;color:var(--ink2)">Lights out<input class="txt-in" id="setBed" type="time" value="'+esc(S.bed)+'"></label>'+
+      '<label style="flex:1;font-weight:900;font-size:14px;color:var(--ink2)">Wake up<input class="txt-in" id="setWake" type="time" value="'+esc(S.wake)+'"></label></div></div>'+
+    '<div class="stk"><div class="sec-l">Sounds and buzz</div>'+seg('setSound',[['on','On'],['off','Off']],S.sound?'on':'off')+'</div>'+
+    '<div class="stk"><div class="sec-l">For grown-ups: backup</div><div class="bed-p" style="margin:0 0 10px">Everything is saved on this device only. Save a backup file now and then, so a lost or reset phone doesn’t lose his streak.</div>'+
+      '<div class="row"><button class="btn3d small ghost" onclick="exportData()">Save backup</button><label class="btn3d small ghost" style="cursor:pointer">Restore<input type="file" accept="application/json,.json" style="display:none" onchange="importFile(this)"></label></div>'+
+      '<div class="bed-p" id="backupMsg" style="margin-top:8px"></div></div>'+
+    '<div class="stk"><div class="sec-l">For grown-ups: where our facts come from</div><div class="srcs">'+
+      '<p>Every fact in Game Day was checked before it went in: food, sleep, trivia, players, rules and quotes. The full list, with a source for each one, is here.</p>'+
+      '<a href="sources.html" target="_blank" rel="noopener"><b>See every fact and its source</b></a>'+
+      srcs.map(([n,u])=>'<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(n)+'</a>').join('')+'</div></div>'+
+    '<div class="bed-p" style="text-align:center;margin:6px 0">Game Day '+esc(APP_VERSION)+'</div>';
   $('setName').oninput=e=>{S.name=e.target.value.trim()||'Liam';saveS()};
   $('setNum').oninput=e=>{S.num=Math.max(0,Math.min(99,parseInt(e.target.value,10)||0));saveS();renderSettingsJersey()};
   $('setBody').querySelectorAll('.sw').forEach(b=>b.onclick=()=>{S.color=b.dataset.c;saveS();haptic(8);renderSettings()});
-  $('setTheme').onclick=e=>{const b=e.target.closest('button');if(!b)return;S.theme=b.dataset.t;saveS();applyTheme();renderSettings()};
+  const onSeg=(id,fn)=>{$(id).onclick=e=>{const b=e.target.closest('button');if(!b)return;fn(b.dataset.v);saveS();haptic(6);renderSettings()}};
+  onSeg('setSport',v=>{S.sport=v});
+  onSeg('setSound',v=>{S.sound=v==='on'});
+  $('setBed').onchange=e=>{if(toMin(e.target.value)!=null){S.bed=e.target.value;saveS()}};
+  $('setWake').onchange=e=>{if(toMin(e.target.value)!=null){S.wake=e.target.value;saveS()}};
+}
+/* backup: a JSON file of every Game Day key (gd*), and nothing from other apps */
+function exportData(){
+  const out={app:APP.id,version:APP_VERSION,exported:new Date().toISOString(),data:{}};
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.indexOf(KP)===0)out.data[k]=localStorage.getItem(k)}
+  const name=APP.backup+'-backup-'+todayKey()+'.json';
+  try{
+    const url=URL.createObjectURL(new Blob([JSON.stringify(out,null,2)],{type:'application/json'}));
+    const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),2000);
+    $('backupMsg').textContent='Saved '+name+'. Keep it somewhere safe.';
+  }catch(e){$('backupMsg').textContent='Could not save a file on this device.'}
+}
+function importFile(input){
+  const f=input.files&&input.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    let obj;try{obj=JSON.parse(String(rd.result))}catch(e){$('backupMsg').textContent='That isn’t a Game Day backup.';return}
+    if(!obj||obj.app!==APP.id||!obj.data){$('backupMsg').textContent='That isn’t a Game Day backup.';return}
+    const keys=Object.keys(obj.data).filter(k=>k.indexOf(KP)===0);
+    if(!keys.length||!confirm('Restore '+keys.length+' saved items? This replaces what’s on this device.'))return;
+    keys.forEach(k=>{try{localStorage.setItem(k,String(obj.data[k]))}catch(e){}});
+    $('backupMsg').textContent='Restored. Reloading…';setTimeout(()=>location.reload(),600);
+  };
+  rd.readAsText(f);input.value='';
 }
 function renderSettingsJersey(){const j=document.querySelector('#setBody .jersey');if(j)j.innerHTML=jerseySvg(S.color,S.num)}
 
@@ -1231,9 +1964,35 @@ function renderSettingsJersey(){const j=document.querySelector('#setBody .jersey
 const TIMERS=new Set();
 function stopTimers(){TIMERS.forEach(t=>{clearInterval(t);clearTimeout(t)});TIMERS.clear()}
 
+/* ═══════════ OFFLINE AND UPDATES ═══════════ */
+/* Ask the browser not to clear his data under storage pressure, where it lets us ask. */
+function askPersist(){try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persisted().then(p=>{if(!p)navigator.storage.persist().catch(()=>{})},()=>{})}catch(e){}}
+let swReg=null;
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').then(reg=>{
+      swReg=reg;
+      /* a worker that finished installing on an earlier visit is already waiting */
+      if(reg.waiting&&navigator.serviceWorker.controller)showUpdate();
+      reg.addEventListener('updatefound',()=>{const sw=reg.installing;if(!sw)return;
+        sw.addEventListener('statechange',()=>{if(sw.state==='installed'&&navigator.serviceWorker.controller)showUpdate()})});
+      setInterval(()=>reg.update().catch(()=>{}),60*60*1000);
+    }).catch(()=>{});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden||!swReg)return;
+      if(swReg.waiting&&navigator.serviceWorker.controller)showUpdate();swReg.update().catch(()=>{})});
+    const hadController=!!navigator.serviceWorker.controller;let reloading=false;
+    navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!hadController||reloading)return;reloading=true;location.reload()});
+  });
+}
+function showUpdate(){
+  const b=$('updateBar');if(!b)return;b.style.display='';
+  b.onclick=()=>{b.textContent='Updating…';navigator.serviceWorker.getRegistration().then(r=>{if(r&&r.waiting)r.waiting.postMessage('skipWaiting');else location.reload()})};
+}
+
 /* ═══════════ BOOT ═══════════ */
 applyTheme();
 renderHome();
+askPersist();
 document.addEventListener('pointerdown',()=>audio(),{once:true});
 let openedOn=todayKey();
 document.addEventListener('visibilitychange',()=>{
