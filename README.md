@@ -23,10 +23,16 @@ Family-Meeting-Hub, because Pages isn't switched on for this repo yet.
   and wake-up. The age picks the sleep range that applies (AASM: 9 to 12 hours
   for ages 6 to 12, 8 to 10 for 13 to 18). All of it can be changed later in
   Settings.
-- **Add it to his home screen.** Open the link in Safari, then Share → Add to
-  Home Screen. It runs full-screen and works offline. On iPhone and iPad this
-  also protects his data: Safari deletes website storage after about a week away
-  unless the site is on the home screen.
+- **Put it on the home screen.** Android (Chrome): ⋮ → *Add to Home screen* →
+  *Install*. iPhone or iPad (Safari): Share → *Add to Home Screen*. It runs
+  full-screen and works offline. On iPhone and iPad this also protects the
+  data: Safari deletes website storage after about a week away unless the site
+  is on the home screen.
+- **It installs as its own app.** Its manifest sets its own `id`, so Chrome
+  never mistakes it for another app on jukes31ryan.github.io (like Calibrate),
+  and its worker always fetches the manifest fresh. If Chrome only offers a
+  shortcut, remove any older Game Day icon (press and hold → Uninstall),
+  reopen the link, and install again.
 - **Every fact is checked.** Food, sleep, trivia, players, rules and quotes each
   name the source they were checked against, and the build refuses a fact
   without one. Anything that couldn't be confirmed was cut. The full list is in

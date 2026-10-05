@@ -15,12 +15,18 @@ console.log('— its own app —');
 await open();
 chk('the tab title is Game Day', (await p.title()) === 'Game Day');
 chk('its own storage prefix', await ev(() => KP) === 'gd');
-chk('it is v4.1', await ev(() => APP_VERSION) === 'v4.1');
+chk('it is v4.2', await ev(() => APP_VERSION) === 'v4.2');
 const man = await (await p.request.get(BASE + 'manifest.webmanifest')).json();
 chk('the home-screen name is Game Day', man.short_name === 'Game Day' && man.name === 'Game Day');
 chk('it installs from its own folder', man.start_url === '.' && man.scope === '.');
+/* Chrome decides "already installed" by the manifest id (start_url when there
+   is none). Game Day names its own, so it never matches another app's. */
+const id = new URL(man.id, new URL(man.start_url, BASE + 'manifest.webmanifest')).href;
+chk('with an install identity of its own', id === BASE + '?app=game-day', id);
+chk('that no other app on the site shares', !/first-light/.test(id) && id !== BASE);
+chk('installable: standalone, with 192 and 512 icons', man.display === 'standalone' && ['192x192', '512x512'].every(z => man.icons.some(i => i.sizes === z)));
 const sw = await (await p.request.get(BASE + 'sw.js')).text();
-chk('its offline cache is game-day-v5', /const CACHE = 'game-day-v5'/.test(sw));
+chk('its offline cache is game-day-v6', /const CACHE = 'game-day-v6'/.test(sw));
 chk('and it keeps the facts page offline too', sw.includes("'./sources.html'"));
 chk('the fonts are inside the page, so they work offline', await ev(() => [...document.styleSheets].some(s => [...s.cssRules].some(r => r.cssText.includes('Lilita One') && r.cssText.includes('data:font/woff2')))));
 chk('and loaded', await ev(async () => { await document.fonts.ready; return document.fonts.check('24px "Lilita One"') && document.fonts.check('900 16px Nunito') }));
@@ -75,12 +81,22 @@ console.log('\n— offline —');
   await q.goto(BASE, { waitUntil: 'load' }); await q.waitForTimeout(500);
   await q.goto(BASE + 'sources.html', { waitUntil: 'load' }); await q.waitForTimeout(500);
   const names = await q.evaluate(() => caches.keys());
-  chk('Game Day keeps its own offline copy', names.includes('game-day-v5'), names.join(', '));
+  chk('Game Day keeps its own offline copy', names.includes('game-day-v6'), names.join(', '));
   chk('and leaves another app’s cache alone', names.includes('calibrate-v18'));
-  const shell = await q.evaluate(async () => (await (await caches.open('game-day-v5')).match('./index.html')).text());
+  const shell = await q.evaluate(async () => (await (await caches.open('game-day-v6')).match('./index.html')).text());
   chk('opening the facts page doesn’t replace the app', shell.includes('const KP="gd"'));
+  /* A changed manifest reaches a phone that already has the worker. */
+  const fresh = await q.evaluate(async () => {
+    const reg = await navigator.serviceWorker.ready;
+    const c = await caches.open('game-day-v6');
+    await c.put('./manifest.webmanifest', new Response('{"id":"stale"}', { headers: { 'content-type': 'application/manifest+json' } }));
+    return !!navigator.serviceWorker.controller && (await (await fetch('manifest.webmanifest', { cache: 'no-store' })).json()).id;
+  });
+  chk('the manifest comes from the network, not a stale cache', fresh === './?app=game-day', String(fresh));
   await c2.setOffline(true);
   await q.goto(BASE, { waitUntil: 'domcontentloaded' }).catch(() => {}); await q.waitForTimeout(500);
+  const offMan = await q.evaluate(async () => (await (await fetch('manifest.webmanifest')).json()).id).catch(() => null);
+  chk('and is still there offline', offMan === './?app=game-day', String(offMan));
   chk('it opens with no internet', ((await q.textContent('.board-title').catch(() => '')) || '').trim() === 'GAME DAY');
   await q.goto(BASE + 'sources.html', { waitUntil: 'domcontentloaded' }).catch(() => {}); await q.waitForTimeout(300);
   chk('and so does the facts page', ((await q.textContent('h1').catch(() => '')) || '').includes('Where our facts come from'));
